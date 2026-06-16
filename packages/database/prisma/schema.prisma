@@ -1,0 +1,165 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("ADMIN")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Customer {
+  id                  String    @id @default(uuid())
+  name                String
+  phone               String    @unique
+  email               String?
+  address             String?
+  dietaryRestrictions String?
+  preferences         String?
+  lgpdConsent         Boolean   @default(false)
+  tags                String[]  @default([])
+  notes               String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  orders        Order[]
+  subscriptions Subscription[]
+}
+
+model Dish {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  photoUrl    String?
+  ingredients String
+  allergens   String?
+  price       Float
+  available   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  orderItems  OrderItem[]
+  cycleDishes CycleDish[]
+  recipeItems RecipeItem[]
+}
+
+model WeeklyCycle {
+  id           String   @id @default(uuid())
+  openDate     DateTime
+  closeDate    DateTime
+  deliveryDate DateTime
+  status       String   @default("UPCOMING")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  orders      Order[]
+  cycleDishes CycleDish[]
+}
+
+model CycleDish {
+  id      String @id @default(uuid())
+  cycleId String
+  dishId  String
+
+  cycle WeeklyCycle @relation(fields: [cycleId], references: [id], onDelete: Cascade)
+  dish  Dish        @relation(fields: [dishId], references: [id], onDelete: Cascade)
+
+  @@unique([cycleId, dishId])
+}
+
+model Order {
+  id              String    @id @default(uuid())
+  customerId      String
+  cycleId         String?
+  planType        String    @default("SINGLE")
+  status          String    @default("PENDING")
+  paymentStatus   String    @default("PENDING")
+  totalAmount     Float
+  deliveryAddress String
+  deliveryDate    DateTime?
+  notes           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  customer Customer      @relation(fields: [customerId], references: [id])
+  cycle    WeeklyCycle?  @relation(fields: [cycleId], references: [id])
+  items    OrderItem[]
+  payments Payment[]
+}
+
+model OrderItem {
+  id        String @id @default(uuid())
+  orderId   String
+  dishId    String
+  quantity  Int
+  unitPrice Float
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  dish  Dish  @relation(fields: [dishId], references: [id])
+}
+
+model Payment {
+  id        String    @id @default(uuid())
+  orderId   String
+  method    String
+  status    String    @default("PENDING")
+  amount    Float
+  paidAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}
+
+model Subscription {
+  id          String    @id @default(uuid())
+  customerId  String
+  planType    String
+  status      String    @default("ACTIVE")
+  startDate   DateTime  @default(now())
+  nextRenewal DateTime
+  pausedUntil DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  customer Customer @relation(fields: [customerId], references: [id])
+}
+
+model Ingredient {
+  id        String   @id @default(uuid())
+  name      String
+  unit      String
+  stockQty  Float    @default(0)
+  minStock  Float    @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  recipeItems RecipeItem[]
+}
+
+model RecipeItem {
+  id           String @id @default(uuid())
+  dishId       String
+  ingredientId String
+  quantity     Float
+
+  dish       Dish       @relation(fields: [dishId], references: [id], onDelete: Cascade)
+  ingredient Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Cascade)
+
+  @@unique([dishId, ingredientId])
+}
+
+model DeliveryZone {
+  id          String  @id @default(uuid())
+  name        String
+  fee         Float   @default(0)
+  description String?
+}
