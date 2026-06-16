@@ -1,0 +1,6 @@
+{
+  "name": "@juliana-gaspar/config",
+  "version": "0.0.0",
+  "private": true,
+  "files": ["tsconfig", "eslint", "prettier.config.js"]
+}
