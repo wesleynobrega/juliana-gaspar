@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-900: #1E3B1A;
+  --color-primary-800: #2C4F26;
+  --color-primary-700: #3B5E2B;
+  --color-primary-600: #4A7536;
+  --color-primary-500: #5D8A3E;
+  --color-primary-400: #7BA057;
+  --color-primary-300: #8FA86E;
+  --color-primary-200: #A8C28B;
+  --color-primary-100: #C5D8AF;
+  --color-primary-50: #DFE9D3;
+
+  --color-accent-900: #8B6914;
+  --color-accent-700: #C49A2A;
+  --color-accent-500: #E8B84B;
+  --color-accent-300: #F0D078;
+  --color-accent-100: #F9ECB4;
+
+  --color-cream-900: #5C5340;
+  --color-cream-700: #8A7E6B;
+  --color-cream-500: #B8AD9A;
+  --color-cream-300: #D6CFC0;
+  --color-cream-100: #EBE5D9;
+  --color-cream-50: #F7F3E8;
+  --color-cream: #F7F3E8;
+
+  --color-sage-50: #F0F4ED;
+  --color-sage-100: #E1E8DB;
+  --color-sage-200: #C3D1B7;
+
+  --font-family-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-family-display: var(--font-playfair), Georgia, serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-primary-900);
+    font-family: var(--font-family-sans);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-family-display);
+  }
+}
