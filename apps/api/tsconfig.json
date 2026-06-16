@@ -1,0 +1,5 @@
+{
+  "extends": "@juliana-gaspar/config/tsconfig/nest.json",
+  "compilerOptions": { "outDir": "./dist", "baseUrl": "./" },
+  "include": ["src"]
+}
