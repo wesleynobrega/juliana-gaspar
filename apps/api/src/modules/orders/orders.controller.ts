@@ -1,0 +1,39 @@
+import { Controller, Get, Post, Patch, Body, Param, Query, UseGuards } from '@nestjs/common';
+import { ZodValidationPipe } from '../../common/pipes/zod-validation.pipe';
+import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
+import { RolesGuard } from '../../common/guards/roles.guard';
+import { Roles } from '../../common/decorators/roles.decorator';
+import { OrdersService } from './orders.service';
+import { createOrderSchema, updateOrderStatusSchema, type CreateOrderDTO, type UpdateOrderStatusDTO } from '@juliana-gaspar/contracts';
+
+@Controller('orders')
+@UseGuards(JwtAuthGuard, RolesGuard)
+export class OrdersController {
+  constructor(private ordersService: OrdersService) {}
+
+  @Get()
+  @Roles('ADMIN', 'OPERATOR', 'VIEWER')
+  findAll(@Query() query: any) {
+    return this.ordersService.findAll({
+      page: +query.page || 1, limit: +query.limit || 20,
+      status: query.status, paymentStatus: query.paymentStatus, planType: query.planType,
+      customerId: query.customerId, dateFrom: query.dateFrom, dateTo: query.dateTo, search: query.search,
+    });
+  }
+
+  @Get(':id')
+  @Roles('ADMIN', 'OPERATOR', 'VIEWER')
+  findById(@Param('id') id: string) { return this.ordersService.findById(id); }
+
+  @Post()
+  @Roles('ADMIN', 'OPERATOR')
+  create(@Body(new ZodValidationPipe(createOrderSchema)) dto: CreateOrderDTO) {
+    return this.ordersService.create(dto);
+  }
+
+  @Patch(':id/status')
+  @Roles('ADMIN', 'OPERATOR')
+  updateStatus(@Param('id') id: string, @Body(new ZodValidationPipe(updateOrderStatusSchema)) dto: UpdateOrderStatusDTO) {
+    return this.ordersService.updateStatus(id, dto);
+  }
+}
