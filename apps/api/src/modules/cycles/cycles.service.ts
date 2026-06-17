@@ -13,9 +13,17 @@ export class CyclesService {
   }
 
   async findById(id: string) {
-    const cycle = await prisma.weeklyCycle.findUnique({ where: { id }, include: { cycleDishes: { include: { dish: true } }, orders: true } });
+    const cycle = await prisma.weeklyCycle.findUnique({
+      where: { id },
+      include: { cycleDishes: { include: { dish: true } }, orders: true },
+    });
     if (!cycle) throw new NotFoundException('Ciclo não encontrado');
-    const revenue = cycle.orders.filter(o => o.status !== 'CANCELLED').reduce((sum, o) => sum + o.totalAmount, 0);
+
+    type OrderRow = (typeof cycle.orders)[number];
+    const revenue = cycle.orders
+      .filter((o: OrderRow) => o.status !== 'CANCELLED')
+      .reduce((sum: number, o: OrderRow) => sum + o.totalAmount, 0);
+
     return { ...cycle, orderCount: cycle.orders.length, revenue };
   }
 
@@ -23,7 +31,7 @@ export class CyclesService {
     const cycle = await prisma.weeklyCycle.create({
       data: {
         openDate: new Date(dto.openDate), closeDate: new Date(dto.closeDate), deliveryDate: new Date(dto.deliveryDate),
-        cycleDishes: { create: dto.dishIds.map(dishId => ({ dishId })) },
+        cycleDishes: { create: dto.dishIds.map((dishId: string) => ({ dishId })) },
       },
       include: { cycleDishes: { include: { dish: true } } },
     });
@@ -33,7 +41,7 @@ export class CyclesService {
   async update(id: string, dto: UpdateCycleDTO) {
     const existing = await prisma.weeklyCycle.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Ciclo não encontrado');
-    const data: any = {};
+    const data: Record<string, unknown> = {};
     if (dto.openDate) data.openDate = new Date(dto.openDate);
     if (dto.closeDate) data.closeDate = new Date(dto.closeDate);
     if (dto.deliveryDate) data.deliveryDate = new Date(dto.deliveryDate);
@@ -42,7 +50,7 @@ export class CyclesService {
 
     if (dto.dishIds) {
       await prisma.cycleDish.deleteMany({ where: { cycleId: id } });
-      await prisma.cycleDish.createMany({ data: dto.dishIds.map(dishId => ({ cycleId: id, dishId })) });
+      await prisma.cycleDish.createMany({ data: dto.dishIds.map((dishId: string) => ({ cycleId: id, dishId })) });
     }
     return this.findById(id);
   }

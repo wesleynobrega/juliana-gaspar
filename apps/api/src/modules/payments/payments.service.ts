@@ -5,7 +5,7 @@ import type { CreatePaymentDTO, RegisterPaymentDTO } from '@juliana-gaspar/contr
 @Injectable()
 export class PaymentsService {
   async findAll(page = 1, limit = 20, status?: string, method?: string) {
-    const where: any = {};
+    const where: Record<string, unknown> = {};
     if (status) where.status = status;
     if (method) where.method = method;
     const [data, total] = await Promise.all([

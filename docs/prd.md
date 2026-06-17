@@ -178,7 +178,7 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 - Autenticação JWT
 - RBAC com 3 níveis de acesso
 - Senhas com bcrypt (12 rounds)
-- HTTPS obrigatório em produção
+-y HTTPS obrigatório em produção
 
 ### 4.3 Responsividade
 - Mobile-first (320px+)

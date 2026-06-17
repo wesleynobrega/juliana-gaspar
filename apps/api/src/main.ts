@@ -5,11 +5,11 @@ import { TransformInterceptor } from './common/interceptors/transform.intercepto
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({ origin: process.env.CORS_ORIGIN ?? 'http://localhost:3000', credentials: true });
+  app.enableCors({ origin: process.env.CORS_ORIGIN ?? 'http://localhost:3050', credentials: true });
   app.setGlobalPrefix('api');
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalInterceptors(new TransformInterceptor());
-  const port = process.env.API_PORT ?? 3001;
+  const port = process.env.API_PORT ?? 3051;
   await app.listen(port);
   console.log(`🚀 API rodando em http://localhost:${port}`);
 }

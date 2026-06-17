@@ -24,12 +24,13 @@ export default function LoginPage() {
 
     try {
       await login(email, password);
-      router.push('/');
-    } catch (err: any) {
-      if (err.status === 401)
+      router.push('/painel');
+    } catch (err: unknown) {
+      const e = err as { status?: number; message?: string };
+      if (e.status === 401)
         setError('Email ou senha incorretos.');
       else
-        setError(err.message || 'Erro ao fazer login. Tente novamente.');
+        setError(e.message || 'Erro ao fazer login. Tente novamente.');
     } finally {
       setIsSubmitting(false);
     }

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { LogOut, User } from 'lucide-react';
 
 const BREADCRUMB_MAP: Record<string, string> = {
-  '': 'Dashboard',
+  'painel': 'Dashboard',
   'catalogo': 'Catalogo',
   'pedidos': 'Pedidos',
   'clientes': 'Clientes',

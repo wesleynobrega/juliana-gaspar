@@ -44,8 +44,8 @@ cd ../..
 
 echo ""
 echo "✅ Setup complete!"
-echo "   Frontend: http://localhost:3000"
-echo "   API:      http://localhost:3001"
-echo "   Admin:    http://localhost:3000/login"
+echo "   Frontend: http://localhost:3050"
+echo "   API:      http://localhost:3051"
+echo "   Admin:    http://localhost:3050/login"
 echo "   Email:    admin@julianagaspar.com.br"
 echo "   Password: admin123"

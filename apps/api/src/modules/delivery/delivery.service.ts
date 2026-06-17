@@ -21,7 +21,7 @@ export class DeliveryService {
   }
 
   async getManifest(zoneId?: string, date?: string) {
-    const where: any = { status: { in: ['CONFIRMED', 'IN_PRODUCTION', 'OUT_FOR_DELIVERY'] } };
+    const where: Record<string, unknown> = { status: { in: ['CONFIRMED', 'IN_PRODUCTION', 'OUT_FOR_DELIVERY'] } };
     if (date) where.deliveryDate = new Date(date);
     const orders = await prisma.order.findMany({
       where, orderBy: { deliveryAddress: 'asc' },

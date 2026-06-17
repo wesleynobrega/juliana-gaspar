@@ -13,7 +13,7 @@ export class OrdersController {
 
   @Get()
   @Roles('ADMIN', 'OPERATOR', 'VIEWER')
-  findAll(@Query() query: any) {
+  findAll(@Query() query: Record<string, string>) {
     return this.ordersService.findAll({
       page: +query.page || 1, limit: +query.limit || 20,
       status: query.status, paymentStatus: query.paymentStatus, planType: query.planType,

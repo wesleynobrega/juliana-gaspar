@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/painel', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/catalogo', label: 'Catalogo', icon: UtensilsCrossed },
   { href: '/pedidos', label: 'Pedidos', icon: ShoppingCart },
   { href: '/clientes', label: 'Clientes', icon: Users },
@@ -28,7 +28,7 @@ export function AdminSidebar() {
   const NavLinks = ({ onClick }: { onClick?: () => void }) => (
     <nav className="space-y-1">
       {NAV_ITEMS.map(item => {
-        const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+        const isActive = pathname.startsWith(item.href);
         return (
           <Link
             key={item.href}

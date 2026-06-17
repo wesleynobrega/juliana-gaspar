@@ -13,7 +13,9 @@ export class PaymentsController {
 
   @Get()
   @Roles('ADMIN', 'OPERATOR', 'VIEWER')
-  findAll(@Query() query: any) { return this.paymentsService.findAll(+query.page || 1, +query.limit || 20, query.status, query.method); }
+  findAll(@Query() query: Record<string, string>) {
+    return this.paymentsService.findAll(+query.page || 1, +query.limit || 20, query.status, query.method);
+  }
 
   @Post()
   @Roles('ADMIN', 'OPERATOR')
