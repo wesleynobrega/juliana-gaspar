@@ -3,10 +3,11 @@
   "globalDependencies": ["**/.env.*local"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "@juliana-gaspar/contracts#build", "@juliana-gaspar/database#build"],
       "outputs": [".next/**", "dist/**"]
     },
     "dev": {
+      "dependsOn": ["@juliana-gaspar/contracts#build", "@juliana-gaspar/database#build"],
       "cache": false,
       "persistent": true
     },

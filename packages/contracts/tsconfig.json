@@ -1,7 +1,9 @@
 {
   "extends": "@juliana-gaspar/config/tsconfig/base.json",
   "compilerOptions": {
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "module": "commonjs",
+    "moduleResolution": "node"
   },
   "include": ["src"]
 }
