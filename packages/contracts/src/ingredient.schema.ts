@@ -7,6 +7,7 @@ export const ingredientSchema = z.object({
   stockQty: z.number().nonnegative(),
   minStock: z.number().nonnegative(),
   createdAt: z.string().datetime(),
+  updatedAt: z.string().datetime(),
 });
 
 export type IngredientDTO = z.infer<typeof ingredientSchema>;
@@ -19,3 +20,7 @@ export const createIngredientSchema = z.object({
 });
 
 export type CreateIngredientDTO = z.infer<typeof createIngredientSchema>;
+
+export const updateIngredientSchema = createIngredientSchema.partial();
+
+export type UpdateIngredientDTO = z.infer<typeof updateIngredientSchema>;

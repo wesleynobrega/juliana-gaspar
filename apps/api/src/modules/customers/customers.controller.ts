@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Body, Param, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Query, UseGuards } from '@nestjs/common';
 import { ZodValidationPipe } from '../../common/pipes/zod-validation.pipe';
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
@@ -29,5 +29,11 @@ export class CustomersController {
   @Roles('ADMIN', 'OPERATOR')
   update(@Param('id') id: string, @Body(new ZodValidationPipe(updateCustomerSchema)) dto: UpdateCustomerDTO) {
     return this.customersService.update(id, dto);
+  }
+
+  @Delete(':id')
+  @Roles('ADMIN')
+  remove(@Param('id') id: string) {
+    return this.customersService.remove(id);
   }
 }

@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-juliana_gaspar}
     ports:
-      - '5432:5432'
+      - '5435:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -26,12 +26,14 @@ services:
     container_name: jg-api
     restart: unless-stopped
     ports:
-      - '3001:3001'
+      - '3051:3001'
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-juliana_gaspar}
       JWT_SECRET: ${JWT_SECRET:-change-me}
       JWT_EXPIRATION: ${JWT_EXPIRATION:-7d}
       NODE_ENV: production
+      API_PORT: 3001
+      CORS_ORIGIN: http://localhost:3050
     depends_on:
       postgres:
         condition: service_healthy
@@ -40,13 +42,14 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile.web
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:3051/api
     container_name: jg-web
     restart: unless-stopped
     ports:
-      - '3000:3000'
+      - '3050:3000'
     environment:
-      API_URL: http://api:3001
-      NEXT_PUBLIC_API_URL: http://api:3001
+      NEXT_PUBLIC_API_URL: http://localhost:3051/api
     depends_on:
       - api
 

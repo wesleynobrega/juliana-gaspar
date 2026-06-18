@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { EmptyState } from '@/components/ui/empty-state';
 import { api } from '@/lib/api-client';
-import { Phone } from 'lucide-react';
+import { toast } from 'sonner';
+import { Phone, Trash2 } from 'lucide-react';
 
 interface Customer {
   id: string;
@@ -41,6 +43,17 @@ export default function ClientesPage() {
   useEffect(() => {
     load();
   }, [load]);
+
+  const handleDelete = async (customer: Customer) => {
+    if (!window.confirm(`Tem certeza que deseja excluir "${customer.name}"? Esta ação não pode ser desfeita.`)) return;
+    try {
+      await api.delete(`/customers/${customer.id}`);
+      toast.success('Cliente removido com sucesso!');
+      load();
+    } catch {
+      toast.error('Erro ao remover cliente.');
+    }
+  };
 
   if (isLoading) {
     return (
@@ -87,12 +100,17 @@ export default function ClientesPage() {
               <CardContent className="p-4 space-y-2">
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-sm text-primary-900">{c.name}</h3>
-                  {c.phone && (
-                    <Badge variant="outline" className="text-xs gap-1">
-                      <Phone className="w-3 h-3" />
-                      {c.phone}
-                    </Badge>
-                  )}
+                  <div className="flex items-center gap-2">
+                    {c.phone && (
+                      <Badge variant="outline" className="text-xs gap-1">
+                        <Phone className="w-3 h-3" />
+                        {c.phone}
+                      </Badge>
+                    )}
+                    <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500 hover:text-red-700" onClick={() => handleDelete(c)}>
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                  </div>
                 </div>
                 {c.email && <p className="text-xs text-primary-400">{c.email}</p>}
                 {c.tags?.length > 0 && (

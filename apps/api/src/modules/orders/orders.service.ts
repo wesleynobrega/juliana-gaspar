@@ -190,4 +190,53 @@ export class OrdersService {
     await prisma.order.update({ where: { id }, data: { status: dto.status, notes: dto.notes ?? existing.notes } });
     return this.findById(id);
   }
+
+  async update(id: string, dto: Record<string, unknown>): Promise<OrderDTO> {
+    const existing = await prisma.order.findUnique({ where: { id } });
+    if (!existing) throw new NotFoundException('Pedido não encontrado');
+
+    const data: Record<string, unknown> = {};
+    if (dto.deliveryAddress) data.deliveryAddress = dto.deliveryAddress;
+    if (dto.deliveryDate) data.deliveryDate = new Date(dto.deliveryDate as string);
+    if (dto.notes !== undefined) data.notes = dto.notes;
+    if (dto.planType) data.planType = dto.planType;
+
+    await prisma.order.update({ where: { id }, data });
+    return this.findById(id);
+  }
+
+  async remove(id: string): Promise<void> {
+    const existing = await prisma.order.findUnique({ where: { id } });
+    if (!existing) throw new NotFoundException('Pedido não encontrado');
+    await prisma.order.delete({ where: { id } });
+  }
+
+  async updateItems(id: string, items: Array<{ dishId: string; quantity: number }>): Promise<OrderDTO> {
+    const existing = await prisma.order.findUnique({ where: { id } });
+    if (!existing) throw new NotFoundException('Pedido não encontrado');
+
+    const dishIds = items.map((i) => i.dishId);
+    const dishes = (await prisma.dish.findMany({ where: { id: { in: dishIds } } })) as unknown as DishRow[];
+    if (dishes.length !== items.length) throw new BadRequestException('Um ou mais pratos não encontrados');
+
+    let total = 0;
+    for (const item of items) {
+      const dish = dishes.find((d: DishRow) => d.id === item.dishId);
+      if (!dish) throw new BadRequestException(`Prato ${item.dishId} não encontrado`);
+      total += dish.price * item.quantity;
+    }
+
+    await prisma.orderItem.deleteMany({ where: { orderId: id } });
+    await prisma.orderItem.createMany({
+      data: items.map((i) => ({
+        orderId: id,
+        dishId: i.dishId,
+        quantity: i.quantity,
+        unitPrice: dishes.find((d: DishRow) => d.id === i.dishId)!.price,
+      })),
+    });
+    await prisma.order.update({ where: { id }, data: { totalAmount: total } });
+
+    return this.findById(id);
+  }
 }

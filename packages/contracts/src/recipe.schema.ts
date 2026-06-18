@@ -18,3 +18,7 @@ export const createRecipeItemSchema = z.object({
 });
 
 export type CreateRecipeItemDTO = z.infer<typeof createRecipeItemSchema>;
+
+export const updateRecipeItemSchema = createRecipeItemSchema.partial();
+
+export type UpdateRecipeItemDTO = z.infer<typeof updateRecipeItemSchema>;

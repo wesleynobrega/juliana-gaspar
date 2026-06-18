@@ -2,6 +2,7 @@ import { AuthProvider } from '@/lib/auth-context';
 import { AuthGuard } from '@/components/admin/auth-guard';
 import { AdminSidebar } from '@/components/admin/sidebar';
 import { AdminHeader } from '@/components/admin/header';
+import { Toaster } from '@/components/ui/sonner';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,6 +16,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               {children}
             </main>
           </div>
+          <Toaster position="top-right" richColors closeButton />
         </div>
       </AuthGuard>
     </AuthProvider>

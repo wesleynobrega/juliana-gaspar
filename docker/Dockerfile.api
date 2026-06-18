@@ -3,14 +3,33 @@ RUN corepack enable && corepack prepare pnpm@9.15.0 --activate
 
 FROM base AS builder
 WORKDIR /app
-COPY . .
+COPY pnpm-lock.yaml pnpm-workspace.yaml package.json turbo.json ./
+COPY packages ./packages
+COPY apps/api ./apps/api
+
 RUN pnpm install --frozen-lockfile
 RUN pnpm turbo build --filter=@juliana-gaspar/api
+RUN pnpm --filter=@juliana-gaspar/api deploy --prod /deploy
+
+# Copy generated Prisma client to deploy.
+# Prisma generate runs inside the database package during turbo build,
+# and the client is output to the workspace root's node_modules.
+RUN if [ -d /app/node_modules/.prisma ]; then \
+      cp -r /app/node_modules/.prisma /deploy/node_modules/.prisma; \
+      echo "OK: copied .prisma from workspace root"; \
+    elif [ -d /app/packages/database/node_modules/.prisma ]; then \
+      cp -r /app/packages/database/node_modules/.prisma /deploy/node_modules/.prisma; \
+      echo "OK: copied .prisma from database package"; \
+    else \
+      echo "WARN: .prisma not found, generating in deploy..."; \
+      cd /deploy && npm install prisma@6 --no-save 2>&1 | tail -1; \
+      cp -r /app/packages/database/prisma /tmp/prisma-schema; \
+      npx prisma generate --schema=/tmp/prisma-schema/schema.prisma; \
+      echo "OK: prisma client generated"; \
+    fi
 
 FROM base AS runner
 WORKDIR /app
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/apps/api/dist ./dist
-COPY --from=builder /app/apps/api/package.json ./apps/api/package.json
+COPY --from=builder /deploy ./
 EXPOSE 3001
 CMD ["node", "dist/main.js"]

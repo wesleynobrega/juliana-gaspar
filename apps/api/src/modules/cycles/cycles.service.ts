@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import prisma from '@juliana-gaspar/database';
 import type { CreateCycleDTO, UpdateCycleDTO } from '@juliana-gaspar/contracts';
 
@@ -51,6 +51,42 @@ export class CyclesService {
     if (dto.dishIds) {
       await prisma.cycleDish.deleteMany({ where: { cycleId: id } });
       await prisma.cycleDish.createMany({ data: dto.dishIds.map((dishId: string) => ({ cycleId: id, dishId })) });
+    }
+    return this.findById(id);
+  }
+
+  async remove(id: string): Promise<void> {
+    const existing = await prisma.weeklyCycle.findUnique({ where: { id } });
+    if (!existing) throw new NotFoundException('Ciclo não encontrado');
+    await prisma.weeklyCycle.delete({ where: { id } });
+  }
+
+  async updateStatus(id: string, status: string) {
+    const cycle = await prisma.weeklyCycle.findUnique({ where: { id } });
+    if (!cycle) throw new NotFoundException('Ciclo não encontrado');
+
+    const validTransitions: Record<string, string[]> = {
+      UPCOMING: ['OPEN'],
+      OPEN: ['CLOSED'],
+      CLOSED: ['COMPLETED'],
+    };
+
+    const allowed = validTransitions[cycle.status];
+    if (!allowed || !allowed.includes(status)) {
+      throw new BadRequestException(`Transição inválida: ${cycle.status} → ${status}`);
+    }
+
+    await prisma.weeklyCycle.update({ where: { id }, data: { status } });
+    return this.findById(id);
+  }
+
+  async updateDishes(id: string, dishIds: string[]) {
+    const existing = await prisma.weeklyCycle.findUnique({ where: { id } });
+    if (!existing) throw new NotFoundException('Ciclo não encontrado');
+
+    await prisma.cycleDish.deleteMany({ where: { cycleId: id } });
+    if (dishIds.length > 0) {
+      await prisma.cycleDish.createMany({ data: dishIds.map((dishId: string) => ({ cycleId: id, dishId })) });
     }
     return this.findById(id);
   }

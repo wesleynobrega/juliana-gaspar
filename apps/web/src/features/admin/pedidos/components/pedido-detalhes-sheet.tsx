@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { formatCurrency, formatDate } from '@/lib/utils';
 import { ORDER_STATUS_LABELS, PAYMENT_STATUS_LABELS, PLAN_TYPE_LABELS } from '@/lib/constants';
 import { pedidosService } from '../services/pedidos.service';
+import { api } from '@/lib/api-client';
+import { toast } from 'sonner';
 import { PedidoStatusBadge } from './pedido-status-badge';
 import type { OrderDTO } from '@juliana-gaspar/contracts';
 
@@ -31,6 +33,18 @@ export function PedidoDetalhesSheet({ pedidoId, onClose }: Props) {
       .then(setPedido)
       .finally(() => setIsLoading(false));
   }, [pedidoId]);
+
+  const handleDelete = async () => {
+    if (!pedidoId) return;
+    if (!window.confirm('Tem certeza que deseja excluir este pedido? Esta ação não pode ser desfeita.')) return;
+    try {
+      await api.delete(`/orders/${pedidoId}`);
+      toast.success('Pedido removido!');
+      onClose();
+    } catch {
+      toast.error('Erro ao remover pedido.');
+    }
+  };
 
   return (
     <Sheet open={!!pedidoId} onOpenChange={(open) => !open && onClose()}>
@@ -111,16 +125,25 @@ export function PedidoDetalhesSheet({ pedidoId, onClose }: Props) {
               </div>
             </div>
 
-            <Button
-              variant="outline"
-              className="w-full min-h-[48px]"
-              onClick={() => {
-                onClose();
-                window.location.href = `/pedidos/${pedidoId}`;
-              }}
-            >
-              Ver página completa
-            </Button>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                className="flex-1 min-h-[48px]"
+                onClick={() => {
+                  onClose();
+                  window.location.href = `/pedidos/${pedidoId}`;
+                }}
+              >
+                Ver página completa
+              </Button>
+              <Button
+                variant="outline"
+                className="min-h-[48px] text-red-600 hover:text-red-700"
+                onClick={handleDelete}
+              >
+                Excluir
+              </Button>
+            </div>
           </div>
         ) : null}
       </SheetContent>

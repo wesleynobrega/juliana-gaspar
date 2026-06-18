@@ -6,8 +6,22 @@ import { CyclesModule } from './modules/cycles/cycles.module';
 import { CustomersModule } from './modules/customers/customers.module';
 import { PaymentsModule } from './modules/payments/payments.module';
 import { DeliveryModule } from './modules/delivery/delivery.module';
+import { IngredientsModule } from './modules/ingredients/ingredients.module';
+import { RecipesModule } from './modules/recipes/recipes.module';
+import { SubscriptionsModule } from './modules/subscriptions/subscriptions.module';
 
 @Module({
-  imports: [AuthModule, CatalogModule, OrdersModule, CyclesModule, CustomersModule, PaymentsModule, DeliveryModule],
+  imports: [
+    AuthModule,
+    CatalogModule,
+    OrdersModule,
+    CyclesModule,
+    CustomersModule,
+    PaymentsModule,
+    DeliveryModule,
+    IngredientsModule,
+    RecipesModule,
+    SubscriptionsModule,
+  ],
 })
 export class AppModule {}

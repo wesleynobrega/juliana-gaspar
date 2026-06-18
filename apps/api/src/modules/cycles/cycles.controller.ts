@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Body, Param, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Patch, Body, Param, Query, UseGuards } from '@nestjs/common';
 import { ZodValidationPipe } from '../../common/pipes/zod-validation.pipe';
 import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
@@ -27,5 +27,23 @@ export class CyclesController {
   @Roles('ADMIN', 'OPERATOR')
   update(@Param('id') id: string, @Body(new ZodValidationPipe(updateCycleSchema)) dto: UpdateCycleDTO) {
     return this.cyclesService.update(id, dto);
+  }
+
+  @Delete(':id')
+  @Roles('ADMIN')
+  remove(@Param('id') id: string) {
+    return this.cyclesService.remove(id);
+  }
+
+  @Patch(':id/status')
+  @Roles('ADMIN', 'OPERATOR')
+  updateStatus(@Param('id') id: string, @Body() dto: { status: string }) {
+    return this.cyclesService.updateStatus(id, dto.status);
+  }
+
+  @Put(':id/dishes')
+  @Roles('ADMIN', 'OPERATOR')
+  updateDishes(@Param('id') id: string, @Body() dto: { dishIds: string[] }) {
+    return this.cyclesService.updateDishes(id, dto.dishIds);
   }
 }

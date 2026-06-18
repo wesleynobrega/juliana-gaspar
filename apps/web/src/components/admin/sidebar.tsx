@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import {
   LayoutDashboard, UtensilsCrossed, ShoppingCart, Users, CreditCard,
-  RefreshCw, Truck, Menu, ChefHat, ChevronLeft
+  RefreshCw, Truck, Menu, ChefHat, ChevronLeft, Milk, BookOpen, Repeat,
 } from 'lucide-react';
 
 const NAV_ITEMS = [
@@ -18,6 +18,9 @@ const NAV_ITEMS = [
   { href: '/pagamentos', label: 'Pagamentos', icon: CreditCard },
   { href: '/ciclos', label: 'Ciclos', icon: RefreshCw },
   { href: '/entregas', label: 'Entregas', icon: Truck },
+  { href: '/ingredients', label: 'Ingredientes', icon: Milk },
+  { href: '/receitas', label: 'Receitas', icon: BookOpen },
+  { href: '/subscriptions', label: 'Assinaturas', icon: Repeat },
 ];
 
 export function AdminSidebar() {

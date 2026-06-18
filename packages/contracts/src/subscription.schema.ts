@@ -29,3 +29,11 @@ export const pauseSubscriptionSchema = z.object({
 });
 
 export type PauseSubscriptionDTO = z.infer<typeof pauseSubscriptionSchema>;
+
+export const updateSubscriptionSchema = z.object({
+  planType: z.enum(['WEEKLY', 'MONTHLY']).optional(),
+  status: subscriptionStatusSchema.optional(),
+  pausedUntil: z.string().datetime().optional().nullable(),
+});
+
+export type UpdateSubscriptionDTO = z.infer<typeof updateSubscriptionSchema>;

@@ -13,6 +13,9 @@ const BREADCRUMB_MAP: Record<string, string> = {
   'pagamentos': 'Pagamentos',
   'ciclos': 'Ciclos',
   'entregas': 'Entregas',
+  'ingredientes': 'Ingredientes',
+  'receitas': 'Receitas',
+  'assinaturas': 'Assinaturas',
 };
 
 function getBreadcrumb(pathname: string) {
@@ -37,7 +40,14 @@ export function AdminHeader() {
         <h1 className="font-display text-lg font-bold text-primary-900 leading-tight">{breadcrumb}</h1>
       </div>
 
-      <DropdownMenu>
+      <div className="flex items-center gap-3">
+        <img
+          src="/imagemhero.png"
+          alt="Juliana Gaspar"
+          className="h-11 w-auto object-contain hidden sm:block"
+        />
+
+        <DropdownMenu>
         <DropdownMenuTrigger
           render={
             <Button variant="ghost" size="icon" className="rounded-full h-9 w-9">
@@ -56,6 +66,7 @@ export function AdminHeader() {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      </div>
     </header>
   );
 }

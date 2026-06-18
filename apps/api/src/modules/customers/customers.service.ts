@@ -32,4 +32,10 @@ export class CustomersService {
     const c = await prisma.customer.update({ where: { id }, data: dto as Record<string, unknown> });
     return { ...c, createdAt: c.createdAt.toISOString(), updatedAt: c.updatedAt.toISOString(), tags: c.tags as CustomerDTO['tags'] };
   }
+
+  async remove(id: string): Promise<void> {
+    const existing = await prisma.customer.findUnique({ where: { id } });
+    if (!existing) throw new NotFoundException('Cliente não encontrado');
+    await prisma.customer.delete({ where: { id } });
+  }
 }
