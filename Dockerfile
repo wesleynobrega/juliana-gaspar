@@ -76,7 +76,7 @@ stdout_logfile=/var/log/supervisor/nginx.log
 stderr_logfile=/var/log/supervisor/nginx.log
 
 [program:web]
-command=/bin/sh -c 'echo ">>> HOSTNAME=$HOSTNAME" >&2 ; exec node /app/web/apps/web/server.js'
+command=node /app/web/apps/web/server.js
 directory=/app/web
 autostart=true
 autorestart=true
