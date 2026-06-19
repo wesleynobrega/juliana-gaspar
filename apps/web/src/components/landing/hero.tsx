@@ -18,24 +18,24 @@ export function Hero() {
       <div className="absolute bottom-1/3 right-1/4 w-4 h-4 rounded-full bg-primary-200 animate-pulse-slow" style={{ animationDelay: '1s' }} />
       <div className="absolute top-1/3 right-20 w-2 h-2 rounded-full bg-sage-300 animate-pulse-slow" style={{ animationDelay: '2s' }} />
 
-      <div className="max-w-6xl mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Hero image column */}
-          <div className="hidden lg:flex justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="relative w-full max-w-md aspect-[3/4] animate-float">
+      <div className="max-w-6xl mx-auto px-4 pt-20 pb-0 relative z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 items-end">
+          {/* Hero image column — anchored to bottom, no gap to next section */}
+          <div className="hidden lg:flex justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="relative w-full max-w-xl aspect-[3/4]">
               <Image
                 src={heroImg}
                 alt="Juliana Gaspar - Cozinha Afetiva & Saudável"
                 fill
-                className="object-contain drop-shadow-2xl"
+                className="object-contain object-bottom"
                 priority
-                sizes="(max-width: 1024px) 0px, 400px"
+                sizes="(max-width: 1024px) 0px, 560px"
               />
             </div>
           </div>
 
           {/* Text column */}
-          <div className="animate-fade-in-up">
+          <div className="animate-fade-in-up pb-20">
             <span className="inline-block bg-accent-100 text-accent-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               Cozinha Afetiva &amp; Saudável
             </span>
