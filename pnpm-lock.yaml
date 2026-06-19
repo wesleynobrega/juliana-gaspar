@@ -200,9 +200,15 @@ importers:
       '@prisma/client':
         specifier: ^6.1.0
         version: 6.19.3(prisma@6.19.3(typescript@5.9.3))(typescript@5.9.3)
+      bcryptjs:
+        specifier: ^2.4.3
+        version: 2.4.3
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
+      tsx:
+        specifier: ^4.19.0
+        version: 4.22.4
     devDependencies:
       '@juliana-gaspar/config':
         specifier: workspace:*
@@ -213,15 +219,9 @@ importers:
       '@types/node':
         specifier: ^22.0.0
         version: 22.19.21
-      bcryptjs:
-        specifier: ^2.4.3
-        version: 2.4.3
       prisma:
         specifier: ^6.1.0
         version: 6.19.3(typescript@5.9.3)
-      tsx:
-        specifier: ^4.19.0
-        version: 4.22.4
       typescript:
         specifier: ^5.7.0
         version: 5.9.3
