@@ -5,24 +5,24 @@ const heroImg = '/imagemhero.png';
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center bg-cream overflow-hidden">
-      {/* ── Decorative leaves — very subtle ── */}
-      <div className="absolute top-10 right-10 text-primary-100 opacity-[0.08] animate-float pointer-events-none">
+      {/* ── Decorative elements — very subtle, never competing ── */}
+      <div className="absolute top-10 right-10 text-primary-100 opacity-[0.06] animate-float pointer-events-none">
         <Leaf className="w-32 h-32" />
       </div>
-      <div className="absolute bottom-20 left-5 text-accent-100 opacity-[0.07] animate-float-delayed pointer-events-none">
+      <div className="absolute bottom-20 left-5 text-accent-100 opacity-[0.05] animate-float-delayed pointer-events-none">
         <Leaf className="w-24 h-24 rotate-45" />
       </div>
 
-      {/* ── Decorative circles — barely visible ── */}
-      <div className="absolute top-1/4 left-[6%] w-3 h-3 rounded-full bg-accent-200 animate-pulse-slow opacity-[0.15]" />
-      <div className="absolute bottom-1/3 left-[10%] w-4 h-4 rounded-full bg-primary-200 animate-pulse-slow opacity-[0.15]" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-[55%] left-[12%] w-2 h-2 rounded-full bg-sage-300 animate-pulse-slow opacity-[0.15]" style={{ animationDelay: '2s' }} />
+      {/* Decorative circles — barely there */}
+      <div className="absolute top-1/4 left-[6%] w-3 h-3 rounded-full bg-accent-200 animate-pulse-slow opacity-[0.10]" />
+      <div className="absolute bottom-1/3 left-[10%] w-4 h-4 rounded-full bg-primary-200 animate-pulse-slow opacity-[0.10]" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-[55%] left-[12%] w-2 h-2 rounded-full bg-sage-300 animate-pulse-slow opacity-[0.10]" style={{ animationDelay: '2s' }} />
 
-      {/* ── Main grid — tighter gap for cohesion ── */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-24 md:pt-28 pb-0 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-4 lg:gap-6">
+      {/* ── Main grid — closer columns for visual cohesion ── */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 md:pt-24 pb-0 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-2 lg:gap-4">
 
-          {/* ══════ IMAGE COLUMN — 25% larger, anchored bottom ══════ */}
+          {/* ══════ IMAGE COLUMN — prominent, anchored to bottom ══════ */}
           <div
             className="order-2 lg:order-1 flex justify-center lg:justify-start self-stretch animate-fade-in-up"
             style={{ animationDelay: '0.3s', minHeight: 'clamp(22rem, 52vw, 40rem)' }}
@@ -44,31 +44,31 @@ export function Hero() {
             className="order-1 lg:order-2 flex flex-col justify-center py-4 lg:py-0 animate-fade-in-up"
             style={{ animationDelay: '0.25s' }}
           >
-            {/* Badge — aligned with headline left edge */}
+            {/* Badge — close to headline for hierarchy */}
             <span
-              className="inline-block bg-accent-100 text-accent-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 w-fit animate-fade-in-up"
+              className="inline-block bg-accent-100 text-accent-900 text-sm font-medium px-4 py-1.5 rounded-full mb-4 w-fit animate-fade-in-up"
               style={{ animationDelay: '0.4s' }}
             >
               Cozinha Afetiva &amp; Saudável
             </span>
 
-            {/* Headline — tighter max-width forces balanced line breaks */}
+            {/* Headline — ~10% smaller, natural line breaks */}
             <h1
-              className="font-display font-bold text-primary-900 leading-[1.1] mb-6 animate-fade-in-up"
+              className="font-display font-bold text-primary-900 leading-[1.15] mb-5 animate-fade-in-up"
               style={{
-                fontSize: 'clamp(2rem, 4.5vw, 3.6rem)',
+                fontSize: 'clamp(1.85rem, 4.2vw, 3.2rem)',
                 animationDelay: '0.55s',
-                maxWidth: '15ch',
+                maxWidth: '16ch',
               }}
             >
-              Comida saudável e caseira que{' '}
-              <span className="text-primary-600">nutre seu corpo</span>{' '}
+              Comida saudável e caseira{' '}
+              que <span className="text-primary-600">nutre seu corpo</span>{' '}
               e encanta seu paladar
             </h1>
 
-            {/* Subtitle — stronger weight & color for presence */}
+            {/* Subtitle — discreetly stronger */}
             <p
-              className="text-base sm:text-lg text-primary-700 font-medium mb-8 max-w-lg leading-relaxed animate-fade-in-up"
+              className="text-base sm:text-lg text-primary-800 font-medium mb-8 max-w-md leading-relaxed animate-fade-in-up"
               style={{ animationDelay: '0.7s' }}
             >
               Refeições saudáveis preparadas com ingredientes frescos, entregues na sua casa.
