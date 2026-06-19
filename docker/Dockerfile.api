@@ -30,8 +30,29 @@ RUN SRC_PRISMA=$(find /app -path "*/node_modules/.prisma/client" -type d -print 
     rm -rf "$DEST_PRISMA" && cp -r "$(dirname "$SRC_PRISMA")" "$DEST_PRISMA" && \
     echo "OK: prisma client copied to deploy"
 
+# Copy Prisma schema for runtime migrations
+RUN mkdir -p /deploy/prisma && cp /app/packages/database/prisma/schema.prisma /deploy/prisma/
+
 FROM base AS runner
 WORKDIR /app
+
+# Non-root user
+RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
+
+# Prisma CLI for entrypoint migrations
+RUN npm install --no-save prisma@6 2>&1 | tail -1
+
+# Copy entrypoint script
+COPY docker/api-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 COPY --from=builder /deploy ./
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3001/api/health || exit 1
+
 EXPOSE 3001
+USER nodejs
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["node", "dist/main.js"]

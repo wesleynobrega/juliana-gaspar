@@ -1,5 +1,7 @@
+// Em produção com proxy reverso (nginx), usar caminho relativo.
+// Em desenvolvimento, NEXT_PUBLIC_API_URL aponta para o servidor local.
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3051/api';
+  process.env.NEXT_PUBLIC_API_URL || '/api';
 
 interface ApiResponse<T> {
   data: T;
