@@ -82,7 +82,8 @@ autostart=true
 autorestart=true
 stdout_logfile=/var/log/supervisor/web.log
 stderr_logfile=/var/log/supervisor/web.log
-environment=PORT=3002,NODE_ENV=production,HOSTNAME=0.0.0.0
+environment=PORT=3002,HOST=0.0.0.0,NODE_ENV=production
+startsecs=5
 
 [program:api]
 command=node /app/api/dist/main.js
