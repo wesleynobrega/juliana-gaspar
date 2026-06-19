@@ -54,7 +54,7 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 # --- nginx + supervisor + prisma CLI ---
-RUN apk add --no-cache nginx supervisor curl
+RUN apk add --no-cache nginx supervisor curl libcap
 RUN npm install --no-save prisma@6 2>&1 | tail -1
 
 # Config do nginx
@@ -111,10 +111,13 @@ COPY --from=web-builder /app/apps/web/public /app/web/apps/web/public
 RUN addgroup -g 1001 -S appgroup && adduser -S appuser -u 1001 -G appgroup
 RUN chown -R appuser:appgroup /app /var/log /var/lib/nginx /run /entrypoint.sh
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
-  CMD curl -sf http://localhost:3000/health || exit 1
+# Permite nginx bindar na porta 80 mesmo sem root
+RUN setcap cap_net_bind_service=+ep /usr/sbin/nginx
 
-EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD curl -sf http://localhost:80/health || exit 1
+
+EXPOSE 80
 USER appuser
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["supervisord", "-c", "/etc/supervisord.conf"]
