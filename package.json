@@ -10,6 +10,7 @@
     "db:seed": "turbo db:seed",
     "db:reset": "bash scripts/db-reset.sh",
     "setup": "bash scripts/setup.sh",
+    "verify-lockfile": "pnpm install --frozen-lockfile",
     "docker:up": "docker compose -f docker/docker-compose.yml up -d",
     "docker:down": "docker compose -f docker/docker-compose.yml down"
   },
@@ -22,8 +23,6 @@
   },
   "packageManager": "pnpm@9.15.0",
   "dependencies": {
-    "@supabase/ssr": "^0.12.0",
-    "@supabase/supabase-js": "^2.108.2",
     "cloudinary": "^2.10.0"
   }
 }
