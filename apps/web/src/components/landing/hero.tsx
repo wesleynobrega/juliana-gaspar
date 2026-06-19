@@ -20,21 +20,35 @@ export function Hero() {
 
       <div className="max-w-6xl mx-auto px-4 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Hero image column */}
+          <div className="hidden lg:flex justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="relative w-full max-w-md aspect-[3/4] animate-float">
+              <Image
+                src={heroImg}
+                alt="Juliana Gaspar - Cozinha Afetiva & Saudável"
+                fill
+                className="object-contain drop-shadow-2xl"
+                priority
+                sizes="(max-width: 1024px) 0px, 400px"
+              />
+            </div>
+          </div>
+
           {/* Text column */}
           <div className="animate-fade-in-up">
-            <span className="inline-block bg-accent-100 text-accent-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <span className="inline-block bg-accent-100 text-accent-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               Cozinha Afetiva &amp; Saudável
             </span>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-900 leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-900 leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
               Comida saudável e caseira que{' '}
               <span className="text-primary-600">nutre seu corpo</span>{' '}
               e encanta seu paladar
             </h1>
-            <p className="text-lg sm:text-xl text-primary-700/80 mb-8 max-w-lg leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <p className="text-lg sm:text-xl text-primary-700/80 mb-8 max-w-lg leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
               Refeições saudáveis preparadas com ingredientes frescos, entregues na sua casa.
               Cardápio que muda toda semana, sem monotonia.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '1s' }}>
               <a
                 href="#cardapio"
                 className="inline-flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-600 text-white text-base font-medium px-8 h-14 transition-all hover:scale-105 active:scale-95"
@@ -51,7 +65,7 @@ export function Hero() {
             </div>
 
             {/* Social proof */}
-            <div className="mt-12 flex items-center gap-6 text-sm text-primary-600 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+            <div className="mt-12 flex items-center gap-6 text-sm text-primary-600 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
               <div className="flex -space-x-2">
                 {[...Array(4)].map((_, i) => (
                   <div key={i} className="w-8 h-8 rounded-full bg-primary-200 border-2 border-cream flex items-center justify-center text-xs font-bold text-primary-700 transition-transform hover:scale-110" style={{ zIndex: 4 - i }}>
@@ -60,20 +74,6 @@ export function Hero() {
                 ))}
               </div>
               <span>+100 clientes satisfeitos em Teresina</span>
-            </div>
-          </div>
-
-          {/* Hero image column */}
-          <div className="hidden lg:flex justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-            <div className="relative w-full max-w-md aspect-[3/4] animate-float">
-              <Image
-                src={heroImg}
-                alt="Juliana Gaspar - Cozinha Afetiva & Saudável"
-                fill
-                className="object-contain drop-shadow-2xl"
-                priority
-                sizes="(max-width: 1024px) 0px, 400px"
-              />
             </div>
           </div>
         </div>
