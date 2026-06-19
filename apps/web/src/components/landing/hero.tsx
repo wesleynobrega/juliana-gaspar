@@ -5,50 +5,83 @@ const heroImg = '/imagemhero.png';
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center bg-cream overflow-hidden">
-      {/* Decorative animated leaves */}
-      <div className="absolute top-10 right-10 text-primary-100 opacity-50 animate-float">
-        <Leaf className="w-48 h-48" />
+      {/* ── Decorative leaves — reduced opacity & size ── */}
+      <div className="absolute top-10 right-10 text-primary-100 opacity-[0.10] animate-float pointer-events-none">
+        <Leaf className="w-32 h-32" />
       </div>
-      <div className="absolute bottom-20 left-5 text-accent-100 opacity-40 animate-float-delayed">
-        <Leaf className="w-32 h-32 rotate-45" />
+      <div className="absolute bottom-20 left-5 text-accent-100 opacity-[0.08] animate-float-delayed pointer-events-none">
+        <Leaf className="w-24 h-24 rotate-45" />
       </div>
 
-      {/* Decorative circles */}
-      <div className="absolute top-1/4 left-10 w-3 h-3 rounded-full bg-accent-200 animate-pulse-slow" />
-      <div className="absolute bottom-1/3 right-1/4 w-4 h-4 rounded-full bg-primary-200 animate-pulse-slow" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/3 right-20 w-2 h-2 rounded-full bg-sage-300 animate-pulse-slow" style={{ animationDelay: '2s' }} />
+      {/* ── Decorative circles — left / image area only ── */}
+      <div className="absolute top-1/4 left-[6%] w-3 h-3 rounded-full bg-accent-200 animate-pulse-slow opacity-70" />
+      <div className="absolute bottom-1/3 left-[10%] w-4 h-4 rounded-full bg-primary-200 animate-pulse-slow opacity-70" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-[55%] left-[12%] w-2 h-2 rounded-full bg-sage-300 animate-pulse-slow opacity-70" style={{ animationDelay: '2s' }} />
 
-      <div className="max-w-6xl mx-auto px-4 pt-20 pb-0 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-8 items-end">
-          {/* Hero image column — anchored to bottom, fills same height as text */}
-          <div className="hidden lg:flex justify-center items-end self-stretch animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="relative w-full h-full min-h-[28rem]">
+      {/* ── Main grid ── */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-24 md:pt-28 pb-0 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-10">
+
+          {/* ══════ IMAGE COLUMN ══════ */}
+          {/* mobile: after text (order-2) · desktop: left column (order-1) */}
+          <div
+            className="order-2 lg:order-1 flex justify-center lg:justify-start self-stretch animate-fade-in-up"
+            style={{ animationDelay: '0.3s', minHeight: 'clamp(18rem, 44vw, 34rem)' }}
+          >
+            <div className="relative w-full h-full">
               <Image
                 src={heroImg}
-                alt="Juliana Gaspar - Cozinha Afetiva & Saudável"
+                alt="Juliana Gaspar — Cozinha Afetiva & Saudável"
                 fill
-                className="object-contain object-bottom"
+                className="object-contain object-[50%_100%]"
                 priority
-                sizes="(max-width: 1024px) 0px, 50vw"
+                sizes="(max-width: 768px) 90vw, 45vw"
               />
             </div>
           </div>
 
-          {/* Text column */}
-          <div className="animate-fade-in-up pb-20">
-            <span className="inline-block bg-accent-100 text-accent-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          {/* ══════ TEXT COLUMN ══════ */}
+          {/* mobile: first (order-1) · desktop: right column (order-2) */}
+          <div
+            className="order-1 lg:order-2 flex flex-col justify-center py-4 lg:py-0 animate-fade-in-up"
+            style={{ animationDelay: '0.25s' }}
+          >
+            {/* Badge */}
+            <span
+              className="inline-block bg-accent-100 text-accent-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 w-fit animate-fade-in-up"
+              style={{ animationDelay: '0.4s' }}
+            >
               Cozinha Afetiva &amp; Saudável
             </span>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-900 leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+
+            {/* Headline — fluid typography with clamp() */}
+            <h1
+              className="font-display font-bold text-primary-900 leading-[1.1] mb-6 animate-fade-in-up"
+              style={{
+                fontSize: 'clamp(2rem, 4.5vw, 3.6rem)',
+                animationDelay: '0.55s',
+                maxWidth: '20ch',
+              }}
+            >
               Comida saudável e caseira que{' '}
               <span className="text-primary-600">nutre seu corpo</span>{' '}
               e encanta seu paladar
             </h1>
-            <p className="text-lg sm:text-xl text-primary-700/80 mb-8 max-w-lg leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+
+            {/* Subtitle */}
+            <p
+              className="text-base sm:text-lg text-primary-700/75 mb-8 max-w-lg leading-relaxed animate-fade-in-up"
+              style={{ animationDelay: '0.7s' }}
+            >
               Refeições saudáveis preparadas com ingredientes frescos, entregues na sua casa.
               Cardápio que muda toda semana, sem monotonia.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+
+            {/* CTAs */}
+            <div
+              className="flex flex-col sm:flex-row gap-4 animate-fade-in-up"
+              style={{ animationDelay: '0.85s' }}
+            >
               <a
                 href="#cardapio"
                 className="inline-flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-600 text-white text-base font-medium px-8 h-14 transition-all hover:scale-105 active:scale-95"
@@ -65,10 +98,17 @@ export function Hero() {
             </div>
 
             {/* Social proof */}
-            <div className="mt-12 flex items-center gap-6 text-sm text-primary-600 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
+            <div
+              className="mt-10 flex items-center gap-6 text-sm text-primary-600 animate-fade-in-up"
+              style={{ animationDelay: '1s' }}
+            >
               <div className="flex -space-x-2">
                 {[...Array(4)].map((_, i) => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-primary-200 border-2 border-cream flex items-center justify-center text-xs font-bold text-primary-700 transition-transform hover:scale-110" style={{ zIndex: 4 - i }}>
+                  <div
+                    key={i}
+                    className="w-8 h-8 rounded-full bg-primary-200 border-2 border-cream flex items-center justify-center text-xs font-bold text-primary-700 transition-transform hover:scale-110"
+                    style={{ zIndex: 4 - i }}
+                  >
                     {String.fromCharCode(65 + i)}
                   </div>
                 ))}
@@ -76,6 +116,7 @@ export function Hero() {
               <span>+100 clientes satisfeitos em Teresina</span>
             </div>
           </div>
+
         </div>
       </div>
     </section>
