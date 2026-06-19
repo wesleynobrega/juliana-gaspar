@@ -20,16 +20,16 @@ export function Hero() {
 
       <div className="max-w-6xl mx-auto px-4 pt-20 pb-0 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-8 items-end">
-          {/* Hero image column — anchored to bottom, no gap to next section */}
-          <div className="hidden lg:flex justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="relative w-full max-w-xl aspect-[3/4]">
+          {/* Hero image column — anchored to bottom, fills same height as text */}
+          <div className="hidden lg:flex justify-center items-end self-stretch animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="relative w-full h-full min-h-[28rem]">
               <Image
                 src={heroImg}
                 alt="Juliana Gaspar - Cozinha Afetiva & Saudável"
                 fill
                 className="object-contain object-bottom"
                 priority
-                sizes="(max-width: 1024px) 0px, 560px"
+                sizes="(max-width: 1024px) 0px, 50vw"
               />
             </div>
           </div>
