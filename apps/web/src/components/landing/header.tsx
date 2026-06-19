@@ -31,7 +31,7 @@ export function Header() {
           ))}
           <a
             href="#cardapio"
-            className="inline-flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-600 text-white text-sm font-medium h-9 px-6 transition-colors"
+            className="inline-flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-600 text-white text-sm font-medium h-9 px-6 transition-all hover:scale-105 active:scale-95"
           >
             Ver Cardápio
           </a>
@@ -59,7 +59,7 @@ export function Header() {
           <a
             href="#cardapio"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center rounded-full bg-primary-700 hover:bg-primary-600 text-white text-sm font-medium py-2.5 mt-2 transition-colors"
+            className="block w-full text-center rounded-full bg-primary-700 hover:bg-primary-600 text-white text-sm font-medium py-2.5 mt-2 transition-all hover:scale-105 active:scale-95"
           >
             Ver Cardápio
           </a>

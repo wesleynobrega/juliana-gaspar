@@ -12,7 +12,7 @@ export function Footer() {
             <span className="font-display text-xl font-bold text-cream">Juliana Gaspar</span>
           </Link>
           <p className="text-sm text-cream-300 leading-relaxed">
-            Comida artesanal saudável, feita com ingredientes frescos e muito carinho. Entregamos em Teresina.
+            Comida saudável e caseira, feita com ingredientes frescos e muito carinho. Entregamos em Teresina.
           </p>
         </div>
 

@@ -14,17 +14,18 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Juliana Gaspar | Comida Artesanal Saudavel',
+    default: 'Juliana Gaspar | Cozinha Afetiva & Saudável',
     template: '%s | Juliana Gaspar',
   },
   description:
-    'Refeicoes artesanais saudaveis entregues em Teresina. Cardapio semanal com ingredientes frescos e receitas exclusivas.',
+    'Refeições saudáveis preparadas com ingredientes frescos, entregues na sua casa em Teresina. Cardápio que muda toda semana, sem monotonia.',
   keywords: [
-    'comida saudavel',
-    'refeicoes artesanais',
+    'comida saudável',
+    'refeições artesanais',
     'Teresina',
     'marmita fit',
     'comida caseira',
+    'cozinha afetiva',
   ],
   openGraph: {
     type: 'website',

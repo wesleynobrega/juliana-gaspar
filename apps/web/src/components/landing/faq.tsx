@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const FAQS = [
-  { q: 'Como funcionam as entregas?', a: 'Entregamos nas tercas e quintas em Teresina. Os pedidos sao refrigerados em caixas termicas. Voce recebe no conforto da sua casa.' },
-  { q: 'Preciso pedir com quanta antecedencia?', a: 'Os pedidos abrem no sabado e fecham na segunda as 18h para entrega na terca. Para quinta, o prazo e quarta as 18h.' },
-  { q: 'Posso congelar as refeicoes?', a: 'Sim! Nossas embalagens sao proprias para refrigeracao e congelamento. As refeicoes duram ate 5 dias na geladeira e 30 dias no freezer.' },
-  { q: 'Voce atende restricoes alimentares?', a: 'Sim! Temos opcoes low carb, veganas e sem gluten. Informe suas restricoes no pedido que adaptamos.' },
-  { q: 'Qual o valor minimo do pedido?', a: 'O pedido minimo e de R$ 50,00. Acima de R$ 100,00 o frete e gratis para a maioria dos bairros de Teresina.' },
+  { q: 'Como funcionam as entregas?', a: 'Entregamos nas terças e quintas em Teresina. Os pedidos são refrigerados em caixas térmicas. Você recebe no conforto da sua casa.' },
+  { q: 'Preciso pedir com quanta antecedência?', a: 'Os pedidos abrem no sábado e fecham na segunda às 18h para entrega na terça. Para quinta, o prazo é quarta às 18h.' },
+  { q: 'Posso congelar as refeições?', a: 'Sim! Nossas embalagens são próprias para refrigeração e congelamento. As refeições duram até 5 dias na geladeira e 30 dias no freezer.' },
+  { q: 'Vocês atendem restrições alimentares?', a: 'Sim! Temos opções low carb, veganas e sem glúten. Informe suas restrições no pedido que adaptamos.' },
+  { q: 'Qual o valor mínimo do pedido?', a: 'O pedido mínimo é de R$ 50,00. Acima de R$ 100,00 o frete é grátis para a maioria dos bairros de Teresina.' },
 ];
 
 export function FAQ() {
@@ -16,14 +16,14 @@ export function FAQ() {
   return (
     <section id="faq" className="py-20 bg-white">
       <div className="max-w-2xl mx-auto px-4">
-        <div className="text-center mb-14">
+        <div className="text-center mb-14 animate-fade-in-up">
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-primary-900 mb-4">Perguntas Frequentes</h2>
-          <p className="text-primary-600">Tudo que voce precisa saber para comecar.</p>
+          <p className="text-primary-600">Tudo que você precisa saber para começar.</p>
         </div>
 
         <div className="space-y-3">
           {FAQS.map((faq, i) => (
-            <div key={i} className="border border-primary-100 rounded-xl overflow-hidden">
+            <div key={i} className="border border-primary-100 rounded-xl overflow-hidden animate-fade-in-up" style={{ animationDelay: `${0.1 + i * 0.1}s` }}>
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 text-left hover:bg-primary-50/50 transition-colors min-h-[48px]"
