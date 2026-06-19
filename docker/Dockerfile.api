@@ -12,21 +12,23 @@ RUN pnpm turbo build --filter=@juliana-gaspar/api
 RUN pnpm --filter=@juliana-gaspar/api deploy --prod /deploy
 
 # Copy generated Prisma client to deploy.
-# Prisma generate runs inside the database package during turbo build,
-# and the client is output to the workspace root's node_modules.
-RUN if [ -d /app/node_modules/.prisma ]; then \
-      cp -r /app/node_modules/.prisma /deploy/node_modules/.prisma; \
-      echo "OK: copied .prisma from workspace root"; \
-    elif [ -d /app/packages/database/node_modules/.prisma ]; then \
-      cp -r /app/packages/database/node_modules/.prisma /deploy/node_modules/.prisma; \
-      echo "OK: copied .prisma from database package"; \
-    else \
-      echo "WARN: .prisma not found, generating in deploy..."; \
-      cd /deploy && npm install prisma@6 --no-save 2>&1 | tail -1; \
-      cp -r /app/packages/database/prisma /tmp/prisma-schema; \
-      npx prisma generate --schema=/tmp/prisma-schema/schema.prisma; \
-      echo "OK: prisma client generated"; \
-    fi
+# Prisma generate runs inside the database package during turbo build.
+# The generated .prisma must be placed next to @prisma/client inside pnpm's
+# virtual store (e.g. node_modules/.pnpm/@prisma+client@X.Y.Z.../node_modules/.prisma/).
+RUN SRC_PRISMA=$(find /app -path "*/node_modules/.prisma/client" -type d -print -quit 2>/dev/null); \
+    if [ -z "$SRC_PRISMA" ]; then \
+      echo "FATAL: .prisma client not found after turbo build"; exit 1; \
+    fi; \
+    echo "Found source .prisma at $SRC_PRISMA"; \
+    PRISMA_CLIENT_DIR=$(find /deploy -path "*/node_modules/@prisma/client" -type d -print -quit 2>/dev/null); \
+    if [ -z "$PRISMA_CLIENT_DIR" ]; then \
+      echo "FATAL: @prisma/client not found in deploy"; exit 1; \
+    fi; \
+    PRISMA_NM=$(dirname "$(dirname "$PRISMA_CLIENT_DIR")"); \
+    DEST_PRISMA="$PRISMA_NM/.prisma"; \
+    echo "Copying to $DEST_PRISMA"; \
+    rm -rf "$DEST_PRISMA" && cp -r "$(dirname "$SRC_PRISMA")" "$DEST_PRISMA" && \
+    echo "OK: prisma client copied to deploy"
 
 FROM base AS runner
 WORKDIR /app
