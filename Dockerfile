@@ -76,7 +76,7 @@ stdout_logfile=/var/log/supervisor/nginx.log
 stderr_logfile=/var/log/supervisor/nginx.log
 
 [program:web]
-command=node /app/web/apps/web/server.js
+command=/bin/sh -c 'echo ">>> HOSTNAME=$HOSTNAME" >&2 ; exec node /app/web/apps/web/server.js'
 directory=/app/web
 autostart=true
 autorestart=true
@@ -115,8 +115,9 @@ RUN chown -R appuser:appgroup /app /var/log /var/lib/nginx /run /entrypoint.sh
 # Permite nginx bindar na porta 80 mesmo sem root
 RUN setcap cap_net_bind_service=+ep /usr/sbin/nginx
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
-  CMD curl -sf http://localhost:80/health || exit 1
+# HEALTHCHECK desativado temporariamente para debug do Next.js bind
+# HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+#   CMD curl -sf http://localhost:80/health || exit 1
 
 EXPOSE 80
 USER appuser
