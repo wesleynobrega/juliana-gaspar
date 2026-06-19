@@ -54,12 +54,11 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 # --- nginx + supervisor + prisma CLI ---
-RUN apk add --no-cache nginx supervisor wget
+RUN apk add --no-cache nginx supervisor curl
 RUN npm install --no-save prisma@6 2>&1 | tail -1
 
 # Config do nginx
 COPY docker/nginx.conf /etc/nginx/nginx.conf
-RUN mkdir -p /var/log/nginx && chown -R nginx:nginx /var/log/nginx
 
 # Config do supervisord
 RUN mkdir -p /var/log/supervisor
@@ -113,7 +112,7 @@ RUN addgroup -g 1001 -S appgroup && adduser -S appuser -u 1001 -G appgroup
 RUN chown -R appuser:appgroup /app /var/log /var/lib/nginx /run /entrypoint.sh
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/health || exit 1
+  CMD curl -sf http://localhost:3000/health || exit 1
 
 EXPOSE 3000
 USER appuser
