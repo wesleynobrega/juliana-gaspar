@@ -29,5 +29,5 @@ export class DeliveryController {
 
   @Get('manifest')
   @Roles('ADMIN', 'OPERATOR', 'VIEWER')
-  getManifest(@Query('zoneId') zoneId?: string, @Query('date') date?: string) { return this.deliveryService.getManifest(zoneId, date); }
+  getManifest(@Query('zoneId') zoneId?: string, @Query('date') date?: string): Promise<Record<string, unknown>> { return this.deliveryService.getManifest(zoneId, date); }
 }

@@ -5,7 +5,7 @@ import type { CreateCustomerDTO, UpdateCustomerDTO, CustomerDTO } from '@juliana
 @Injectable()
 export class CustomersService {
   async findAll(page = 1, limit = 20, search?: string, tag?: string) {
-    const where: Record<string, unknown> = {};
+    const where: { OR?: Array<Record<string, unknown>>; tags?: { has: string } } = {};
     if (search) where.OR = [{ name: { contains: search, mode: 'insensitive' } }, { phone: { contains: search } }];
     if (tag) where.tags = { has: tag };
     const [data, total] = await Promise.all([
@@ -29,7 +29,7 @@ export class CustomersService {
   async update(id: string, dto: UpdateCustomerDTO): Promise<CustomerDTO> {
     const existing = await prisma.customer.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Cliente não encontrado');
-    const c = await prisma.customer.update({ where: { id }, data: dto as Record<string, unknown> });
+    const c = await prisma.customer.update({ where: { id }, data: dto });
     return { ...c, createdAt: c.createdAt.toISOString(), updatedAt: c.updatedAt.toISOString(), tags: c.tags as CustomerDTO['tags'] };
   }
 

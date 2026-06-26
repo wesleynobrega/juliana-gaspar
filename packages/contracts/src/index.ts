@@ -9,3 +9,8 @@ export * from './subscription.schema';
 export * from './delivery.schema';
 export * from './ingredient.schema';
 export * from './recipe.schema';
+export * from './menu.schema';
+export * from './meal.schema';
+export * from './capacity.schema';
+export * from './nutrition-pdf.schema';
+export * from './dashboard.schema';

@@ -10,16 +10,16 @@ export const catalogoService = {
     );
   },
 
-  getById: (id: string) => api.get<{ data: PratoListItem }>(`/dishes/${id}`).then((r) => r.data),
+  getById: (id: string) => api.get<PratoListItem>(`/dishes/${id}`),
 
   create: (dto: Record<string, unknown>) =>
-    api.post<{ data: PratoListItem }>('/dishes', dto).then((r) => r.data),
+    api.post<PratoListItem>('/dishes', dto),
 
   update: (id: string, dto: Record<string, unknown>) =>
-    api.put<{ data: PratoListItem }>(`/dishes/${id}`, dto).then((r) => r.data),
+    api.put<PratoListItem>(`/dishes/${id}`, dto),
 
   remove: (id: string) => api.delete(`/dishes/${id}`),
 
   duplicate: (id: string) =>
-    api.post<{ data: PratoListItem }>(`/dishes/${id}/duplicate`, {}).then((r) => r.data),
+    api.post<PratoListItem>(`/dishes/${id}/duplicate`, {}),
 };

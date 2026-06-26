@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
+import { RegisterSW } from '@/components/register-sw';
 import './globals.css';
 
 const inter = Inter({
@@ -32,6 +33,8 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     siteName: 'Juliana Gaspar',
   },
+  manifest: '/manifest.json',
+  themeColor: '#2D5A27',
 };
 
 export default function RootLayout({
@@ -41,7 +44,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <RegisterSW />
+      </body>
     </html>
   );
 }

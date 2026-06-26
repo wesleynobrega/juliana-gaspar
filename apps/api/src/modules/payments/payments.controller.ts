@@ -44,4 +44,10 @@ export class PaymentsController {
   remove(@Param('id') id: string) {
     return this.paymentsService.remove(id);
   }
+
+  @Post(':id/refund')
+  @Roles('ADMIN', 'OPERATOR')
+  refund(@Param('id') id: string, @Body() body: { reason?: string }) {
+    return this.paymentsService.refund(id, body.reason);
+  }
 }

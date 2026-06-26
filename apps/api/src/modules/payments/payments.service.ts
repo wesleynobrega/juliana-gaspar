@@ -5,7 +5,7 @@ import type { CreatePaymentDTO, RegisterPaymentDTO } from '@juliana-gaspar/contr
 @Injectable()
 export class PaymentsService {
   async findAll(page = 1, limit = 20, status?: string, method?: string) {
-    const where: Record<string, unknown> = {};
+    const where: { status?: string; method?: string } = {};
     if (status) where.status = status;
     if (method) where.method = method;
     const [data, total] = await Promise.all([
@@ -39,11 +39,11 @@ export class PaymentsService {
     return updated;
   }
 
-  async update(id: string, dto: Record<string, unknown>) {
+  async update(id: string, dto: { method?: string; amount?: number; status?: string }) {
     const existing = await prisma.payment.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Pagamento não encontrado');
 
-    const data: Record<string, unknown> = {};
+    const data: { method?: string; amount?: number; status?: string } = {};
     if (dto.method) data.method = dto.method;
     if (dto.amount !== undefined) data.amount = dto.amount;
     if (dto.status) data.status = dto.status;
@@ -55,5 +55,23 @@ export class PaymentsService {
     const existing = await prisma.payment.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Pagamento não encontrado');
     await prisma.payment.delete({ where: { id } });
+  }
+
+  async refund(id: string, reason?: string): Promise<Record<string, unknown>> {
+    const payment = await prisma.payment.findUnique({ where: { id } });
+    if (!payment) throw new NotFoundException('Pagamento não encontrado');
+
+    const updated = await prisma.payment.update({
+      where: { id },
+      data: { status: 'REFUNDED' },
+    });
+
+    // Update associated order payment status
+    await prisma.order.update({
+      where: { id: payment.orderId },
+      data: { paymentStatus: 'REFUNDED' },
+    });
+
+    return { ...updated, refundReason: reason, refundedAt: new Date().toISOString() };
   }
 }

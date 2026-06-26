@@ -39,8 +39,8 @@ WORKDIR /app
 # Non-root user
 RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
 
-# Prisma CLI for entrypoint migrations
-RUN npm install --no-save prisma@6 2>&1 | tail -1
+# Prisma CLI for entrypoint migrations (global install avoids conflicts with deploy)
+RUN npm install -g prisma@6 2>&1 | tail -1
 
 # Copy entrypoint script
 COPY docker/api-entrypoint.sh /entrypoint.sh

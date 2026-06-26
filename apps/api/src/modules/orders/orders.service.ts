@@ -17,6 +17,9 @@ type OrderWithIncludes = {
   customer: { name: string; phone: string };
   cycleId: string | null;
   planType: string;
+  mealType: string;
+  nutritionistPlanId: string | null;
+  sourcePdfUrl: string | null;
   status: string;
   paymentStatus: string;
   totalAmount: number;
@@ -54,15 +57,22 @@ export class OrdersService {
     search?: string;
   }) {
     const { page, limit, status, paymentStatus, planType, customerId, dateFrom, dateTo, search } = params;
-    const where: Record<string, unknown> = {};
+    const where: {
+      status?: string;
+      paymentStatus?: string;
+      planType?: string;
+      customerId?: string;
+      createdAt?: { gte?: Date; lte?: Date };
+      customer?: { name: { contains: string; mode: 'insensitive' } };
+    } = {};
     if (status) where.status = status;
     if (paymentStatus) where.paymentStatus = paymentStatus;
     if (planType) where.planType = planType;
     if (customerId) where.customerId = customerId;
     if (dateFrom || dateTo) {
-      where.createdAt = {} as Record<string, Date>;
-      if (dateFrom) (where.createdAt as Record<string, Date>).gte = new Date(dateFrom);
-      if (dateTo) (where.createdAt as Record<string, Date>).lte = new Date(dateTo);
+      where.createdAt = {};
+      if (dateFrom) where.createdAt.gte = new Date(dateFrom);
+      if (dateTo) where.createdAt.lte = new Date(dateTo);
     }
     if (search) {
       where.customer = { name: { contains: search, mode: 'insensitive' as const } };
@@ -90,6 +100,9 @@ export class OrdersService {
       customerName: o.customer.name,
       cycleId: o.cycleId ?? undefined,
       planType: o.planType as OrderDTO['planType'],
+      mealType: o.mealType as OrderDTO['mealType'],
+      nutritionistPlanId: o.nutritionistPlanId ?? undefined,
+      sourcePdfUrl: o.sourcePdfUrl ?? undefined,
       status: o.status as OrderDTO['status'],
       paymentStatus: o.paymentStatus as OrderDTO['paymentStatus'],
       totalAmount: o.totalAmount,
@@ -126,6 +139,9 @@ export class OrdersService {
       customerName: o.customer.name,
       cycleId: o.cycleId ?? undefined,
       planType: o.planType as OrderDTO['planType'],
+      mealType: o.mealType as OrderDTO['mealType'],
+      nutritionistPlanId: o.nutritionistPlanId ?? undefined,
+      sourcePdfUrl: o.sourcePdfUrl ?? undefined,
       status: o.status as OrderDTO['status'],
       paymentStatus: o.paymentStatus as OrderDTO['paymentStatus'],
       totalAmount: o.totalAmount,
@@ -147,6 +163,20 @@ export class OrdersService {
     const customer = await prisma.customer.findUnique({ where: { id: dto.customerId } });
     if (!customer) throw new BadRequestException('Cliente não encontrado');
 
+    // ── v2.0: capacity check ──────────────────────────
+    if (dto.cycleId) {
+      const cycle = await prisma.weeklyCycle.findUnique({ where: { id: dto.cycleId } });
+      if (!cycle) throw new BadRequestException('Ciclo não encontrado');
+
+      const confirmedCount = await prisma.order.count({
+        where: { cycleId: dto.cycleId, status: { not: 'CANCELLED' } },
+      });
+
+      if (confirmedCount >= cycle.maxClients) {
+        throw new BadRequestException('Ciclo lotado. Entre na lista de espera.');
+      }
+    }
+
     const dishIds: string[] = dto.items.map((i) => i.dishId);
     const dishes = (await prisma.dish.findMany({ where: { id: { in: dishIds } } })) as unknown as DishRow[];
     if (dishes.length !== dto.items.length) throw new BadRequestException('Um ou mais pratos não encontrados');
@@ -163,6 +193,9 @@ export class OrdersService {
         customerId: dto.customerId,
         cycleId: dto.cycleId,
         planType: dto.planType,
+        mealType: dto.mealType ?? 'ALMOCO_JANTA',
+        nutritionistPlanId: dto.nutritionistPlanId ?? null,
+        sourcePdfUrl: dto.sourcePdfUrl ?? null,
         totalAmount: total,
         deliveryAddress: dto.deliveryAddress,
         deliveryDate: dto.deliveryDate ? new Date(dto.deliveryDate) : null,
@@ -191,15 +224,16 @@ export class OrdersService {
     return this.findById(id);
   }
 
-  async update(id: string, dto: Record<string, unknown>): Promise<OrderDTO> {
+  async update(id: string, dto: { deliveryAddress?: string; deliveryDate?: string; notes?: string | null; planType?: string; mealType?: string }): Promise<OrderDTO> {
     const existing = await prisma.order.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Pedido não encontrado');
 
     const data: Record<string, unknown> = {};
     if (dto.deliveryAddress) data.deliveryAddress = dto.deliveryAddress;
-    if (dto.deliveryDate) data.deliveryDate = new Date(dto.deliveryDate as string);
+    if (dto.deliveryDate) data.deliveryDate = new Date(dto.deliveryDate);
     if (dto.notes !== undefined) data.notes = dto.notes;
     if (dto.planType) data.planType = dto.planType;
+    if (dto.mealType) data.mealType = dto.mealType;
 
     await prisma.order.update({ where: { id }, data });
     return this.findById(id);

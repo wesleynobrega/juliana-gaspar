@@ -5,7 +5,7 @@ import type { CreateIngredientDTO, UpdateIngredientDTO, IngredientDTO } from '@j
 @Injectable()
 export class IngredientsService {
   async findAll(page = 1, limit = 20, search?: string) {
-    const where: Record<string, unknown> = {};
+    const where: { name?: { contains: string; mode: 'insensitive' } } = {};
     if (search) where.name = { contains: search, mode: 'insensitive' };
 
     const [data, total] = await Promise.all([
@@ -30,7 +30,7 @@ export class IngredientsService {
   async update(id: string, dto: UpdateIngredientDTO): Promise<IngredientDTO> {
     const existing = await prisma.ingredient.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Ingrediente não encontrado');
-    const ingredient = await prisma.ingredient.update({ where: { id }, data: dto as Record<string, unknown> });
+    const ingredient = await prisma.ingredient.update({ where: { id }, data: dto });
     return { ...ingredient, createdAt: ingredient.createdAt.toISOString(), updatedAt: ingredient.updatedAt.toISOString() };
   }
 

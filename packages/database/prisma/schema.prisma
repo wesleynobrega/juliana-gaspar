@@ -7,6 +7,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ── Enums ───────────────────────────────────────────────
+
+enum NutrientType {
+  PROTEINA
+  CARBOIDRATO
+  FIBRA
+  GORDURA
+}
+
+enum MealType {
+  ALMOCO
+  JANTA
+  ALMOCO_JANTA
+}
+
+// ── Models ──────────────────────────────────────────────
+
 model User {
   id           String   @id @default(uuid())
   name         String
@@ -31,8 +48,11 @@ model Customer {
   createdAt           DateTime  @default(now())
   updatedAt           DateTime  @updatedAt
 
-  orders        Order[]
-  subscriptions Subscription[]
+  orders             Order[]
+  subscriptions      Subscription[]
+  nutritionistPlans  NutritionistPlan[]
+  waitlistEntries    WaitlistEntry[]
+  specialRequests    SpecialRequest[]
 }
 
 model Dish {
@@ -58,11 +78,13 @@ model WeeklyCycle {
   closeDate    DateTime
   deliveryDate DateTime
   status       String   @default("UPCOMING")
+  maxClients   Int      @default(10)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
   orders      Order[]
   cycleDishes CycleDish[]
+  waitlist    WaitlistEntry[]
 }
 
 model CycleDish {
@@ -90,10 +112,18 @@ model Order {
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
-  customer Customer      @relation(fields: [customerId], references: [id])
-  cycle    WeeklyCycle?  @relation(fields: [cycleId], references: [id])
-  items    OrderItem[]
-  payments Payment[]
+  mealType          MealType          @default(ALMOCO_JANTA)
+  nutritionistPlanId String?
+  sourcePdfUrl       String?
+  deliveryZoneId     String?
+
+  customer          Customer          @relation(fields: [customerId], references: [id])
+  cycle             WeeklyCycle?      @relation(fields: [cycleId], references: [id])
+  nutritionistPlan  NutritionistPlan? @relation(fields: [nutritionistPlanId], references: [id])
+  deliveryZone      DeliveryZone?     @relation(fields: [deliveryZoneId], references: [id])
+  items             OrderItem[]
+  meals             Meal[]
+  payments          Payment[]
 }
 
 model OrderItem {
@@ -162,4 +192,103 @@ model DeliveryZone {
   name        String
   fee         Float   @default(0)
   description String?
+
+  orders Order[]
+}
+
+// ══════════════════════════════════════════════════════════
+// v2.0 — Cardápio por Componentes Nutricionais
+// ══════════════════════════════════════════════════════════
+
+model MenuItem {
+  id           String      @id @default(uuid())
+  name         String
+  description  String?
+  nutrientType NutrientType
+  photoUrl     String?
+  allergens    String?
+  baseUnit     String      @default("porção")
+  available    Boolean     @default(true)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  technicalSheet   TechnicalSheet?
+  orderComponents  OrderComponent[]
+}
+
+model TechnicalSheet {
+  id                 String   @id @default(uuid())
+  menuItemId         String   @unique
+  preparationMethod  String
+  cookingTime        Int      // minutos
+  temperature        String?  // ex: "200°C"
+  equipment          String[]
+  notes              String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
+}
+
+model Meal {
+  id      String  @id @default(uuid())
+  orderId String
+  notes   String?
+
+  order      Order            @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  components OrderComponent[]
+}
+
+model OrderComponent {
+  id         String @id @default(uuid())
+  mealId     String
+  menuItemId String
+  quantity   Float
+  unitPrice  Float
+
+  meal     Meal     @relation(fields: [mealId], references: [id], onDelete: Cascade)
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+}
+
+model NutritionistPlan {
+  id            String   @id @default(uuid())
+  customerId    String
+  sourcePdfUrl  String
+  parsedData    Json?
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  customer Customer  @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  orders   Order[]
+}
+
+enum SpecialRequestStatus {
+  PENDING
+  FULFILLED
+}
+
+model SpecialRequest {
+  id           String               @id @default(uuid())
+  customerId   String?
+  description  String
+  nutrientType NutrientType?
+  status       SpecialRequestStatus @default(PENDING)
+  createdAt    DateTime             @default(now())
+
+  customer Customer? @relation(fields: [customerId], references: [id])
+}
+
+model WaitlistEntry {
+  id         String  @id @default(uuid())
+  customerId String
+  cycleId    String
+  position   Int
+  status     String  @default("WAITING") // WAITING | NOTIFIED | CONVERTED | CANCELLED
+  createdAt  DateTime @default(now())
+
+  customer Customer     @relation(fields: [customerId], references: [id])
+  cycle    WeeklyCycle  @relation(fields: [cycleId], references: [id], onDelete: Cascade)
+
+  @@unique([cycleId, customerId])
 }

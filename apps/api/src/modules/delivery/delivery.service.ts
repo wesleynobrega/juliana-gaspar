@@ -20,9 +20,10 @@ export class DeliveryService {
     return prisma.deliveryZone.delete({ where: { id } });
   }
 
-  async getManifest(zoneId?: string, date?: string) {
-    const where: Record<string, unknown> = { status: { in: ['CONFIRMED', 'IN_PRODUCTION', 'OUT_FOR_DELIVERY'] } };
+  async getManifest(zoneId?: string, date?: string): Promise<Record<string, unknown>> {
+    const where: { status: { in: string[] }; deliveryDate?: Date; deliveryZoneId?: string } = { status: { in: ['CONFIRMED', 'IN_PRODUCTION', 'OUT_FOR_DELIVERY'] } };
     if (date) where.deliveryDate = new Date(date);
+    if (zoneId) where.deliveryZoneId = zoneId;
     const orders = await prisma.order.findMany({
       where, orderBy: { deliveryAddress: 'asc' },
       include: { customer: { select: { name: true, phone: true, address: true } }, items: { include: { dish: { select: { name: true, allergens: true } } } } },

@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { mealTypeSchema, mealSchema } from './meal.schema';
 
 export const orderStatusSchema = z.enum([
   'PENDING',
@@ -35,6 +36,9 @@ export const orderSchema = z.object({
   customerName: z.string(),
   cycleId: z.string().uuid().optional(),
   planType: planTypeSchema,
+  mealType: mealTypeSchema,
+  nutritionistPlanId: z.string().uuid().nullable().optional(),
+  sourcePdfUrl: z.string().url().nullable().optional(),
   status: orderStatusSchema,
   paymentStatus: paymentStatusSchema,
   totalAmount: z.number().positive(),
@@ -42,6 +46,7 @@ export const orderSchema = z.object({
   deliveryDate: z.string().datetime().optional(),
   notes: z.string().optional(),
   items: z.array(orderItemSchema),
+  meals: z.array(mealSchema).optional(),
   createdAt: z.string().datetime(),
 });
 
@@ -51,6 +56,9 @@ export const createOrderSchema = z.object({
   customerId: z.string().uuid('Cliente inválido'),
   cycleId: z.string().uuid().optional(),
   planType: planTypeSchema,
+  mealType: mealTypeSchema.default('ALMOCO_JANTA'),
+  nutritionistPlanId: z.string().uuid().optional().nullable(),
+  sourcePdfUrl: z.string().url().optional().nullable(),
   deliveryAddress: z.string().min(10, 'Endereço muito curto').max(500),
   deliveryDate: z.string().datetime().optional(),
   notes: z.string().max(500).optional(),

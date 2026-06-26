@@ -17,7 +17,7 @@ export class CyclesController {
 
   @Get(':id')
   @Roles('ADMIN', 'OPERATOR', 'VIEWER')
-  findById(@Param('id') id: string) { return this.cyclesService.findById(id); }
+  findById(@Param('id') id: string): Promise<Record<string, unknown>> { return this.cyclesService.findById(id); }
 
   @Post()
   @Roles('ADMIN', 'OPERATOR')
@@ -25,7 +25,7 @@ export class CyclesController {
 
   @Put(':id')
   @Roles('ADMIN', 'OPERATOR')
-  update(@Param('id') id: string, @Body(new ZodValidationPipe(updateCycleSchema)) dto: UpdateCycleDTO) {
+  update(@Param('id') id: string, @Body(new ZodValidationPipe(updateCycleSchema)) dto: UpdateCycleDTO): Promise<Record<string, unknown>> {
     return this.cyclesService.update(id, dto);
   }
 
@@ -37,13 +37,13 @@ export class CyclesController {
 
   @Patch(':id/status')
   @Roles('ADMIN', 'OPERATOR')
-  updateStatus(@Param('id') id: string, @Body() dto: { status: string }) {
+  updateStatus(@Param('id') id: string, @Body() dto: { status: string }): Promise<Record<string, unknown>> {
     return this.cyclesService.updateStatus(id, dto.status);
   }
 
   @Put(':id/dishes')
   @Roles('ADMIN', 'OPERATOR')
-  updateDishes(@Param('id') id: string, @Body() dto: { dishIds: string[] }) {
+  updateDishes(@Param('id') id: string, @Body() dto: { dishIds: string[] }): Promise<Record<string, unknown>> {
     return this.cyclesService.updateDishes(id, dto.dishIds);
   }
 }

@@ -15,7 +15,7 @@ export const pedidosService = {
   },
 
   getById: (id: string) =>
-    api.get<{ data: OrderDTO }>(`/orders/${id}`).then((r) => r.data),
+    api.get<OrderDTO>(`/orders/${id}`),
 
   updateStatus: (id: string, status: string) =>
     api.patch(`/orders/${id}/status`, { status }),

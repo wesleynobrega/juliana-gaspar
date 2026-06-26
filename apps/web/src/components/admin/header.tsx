@@ -7,15 +7,13 @@ import { LogOut, User } from 'lucide-react';
 
 const BREADCRUMB_MAP: Record<string, string> = {
   'painel': 'Dashboard',
-  'catalogo': 'Catalogo',
+  'catalogo': 'Catálogo',
+  'cardapio': 'Cardápio',
   'pedidos': 'Pedidos',
   'clientes': 'Clientes',
   'pagamentos': 'Pagamentos',
-  'ciclos': 'Ciclos',
   'entregas': 'Entregas',
   'ingredientes': 'Ingredientes',
-  'receitas': 'Receitas',
-  'assinaturas': 'Assinaturas',
 };
 
 function getBreadcrumb(pathname: string) {

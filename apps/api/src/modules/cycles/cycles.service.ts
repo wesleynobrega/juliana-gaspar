@@ -12,7 +12,7 @@ export class CyclesService {
     return { data, total, page, limit, totalPages: Math.ceil(total / limit) };
   }
 
-  async findById(id: string) {
+  async findById(id: string): Promise<Record<string, unknown>> {
     const cycle = await prisma.weeklyCycle.findUnique({
       where: { id },
       include: { cycleDishes: { include: { dish: true } }, orders: true },
@@ -27,7 +27,7 @@ export class CyclesService {
     return { ...cycle, orderCount: cycle.orders.length, revenue };
   }
 
-  async create(dto: CreateCycleDTO) {
+  async create(dto: CreateCycleDTO): Promise<Record<string, unknown>> {
     const cycle = await prisma.weeklyCycle.create({
       data: {
         openDate: new Date(dto.openDate), closeDate: new Date(dto.closeDate), deliveryDate: new Date(dto.deliveryDate),
@@ -38,7 +38,7 @@ export class CyclesService {
     return cycle;
   }
 
-  async update(id: string, dto: UpdateCycleDTO) {
+  async update(id: string, dto: UpdateCycleDTO): Promise<Record<string, unknown>> {
     const existing = await prisma.weeklyCycle.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Ciclo não encontrado');
     const data: Record<string, unknown> = {};
@@ -61,7 +61,7 @@ export class CyclesService {
     await prisma.weeklyCycle.delete({ where: { id } });
   }
 
-  async updateStatus(id: string, status: string) {
+  async updateStatus(id: string, status: string): Promise<Record<string, unknown>> {
     const cycle = await prisma.weeklyCycle.findUnique({ where: { id } });
     if (!cycle) throw new NotFoundException('Ciclo não encontrado');
 
@@ -80,7 +80,7 @@ export class CyclesService {
     return this.findById(id);
   }
 
-  async updateDishes(id: string, dishIds: string[]) {
+  async updateDishes(id: string, dishIds: string[]): Promise<Record<string, unknown>> {
     const existing = await prisma.weeklyCycle.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Ciclo não encontrado');
 

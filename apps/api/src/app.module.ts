@@ -7,8 +7,11 @@ import { CustomersModule } from './modules/customers/customers.module';
 import { PaymentsModule } from './modules/payments/payments.module';
 import { DeliveryModule } from './modules/delivery/delivery.module';
 import { IngredientsModule } from './modules/ingredients/ingredients.module';
-import { RecipesModule } from './modules/recipes/recipes.module';
-import { SubscriptionsModule } from './modules/subscriptions/subscriptions.module';
+import { MenuModule } from './modules/menu/menu.module';
+import { CapacityModule } from './modules/capacity/capacity.module';
+import { MealsModule } from './modules/meals/meals.module';
+import { NutritionPdfModule } from './modules/nutrition-pdf/nutrition-pdf.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { HealthModule } from './health/health.module';
 
 @Module({
@@ -21,8 +24,11 @@ import { HealthModule } from './health/health.module';
     PaymentsModule,
     DeliveryModule,
     IngredientsModule,
-    RecipesModule,
-    SubscriptionsModule,
+    MenuModule,
+    CapacityModule,
+    MealsModule,
+    NutritionPdfModule,
+    DashboardModule,
     HealthModule,
   ],
 })
