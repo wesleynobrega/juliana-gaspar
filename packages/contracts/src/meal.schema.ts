@@ -55,3 +55,42 @@ export const updateMealSchema = z.object({
 });
 
 export type UpdateMealDTO = z.infer<typeof updateMealSchema>;
+
+// ── FavoriteMeal ───────────────────────────────────────
+
+export const favoriteMealSchema = z.object({
+  id: z.string().uuid(),
+  customerId: z.string().uuid(),
+  label: z.string(),
+  proteinId: z.string().uuid(),
+  carboId: z.string().uuid(),
+  fiberId: z.string().uuid(),
+  fatId: z.string().uuid().nullable(),
+  createdAt: z.string().datetime(),
+});
+
+export type FavoriteMealDTO = z.infer<typeof favoriteMealSchema>;
+
+export const createFavoriteMealSchema = z.object({
+  label: z.string().min(1, 'Dê um nome ao favorito'),
+  proteinId: z.string().uuid('Proteína é obrigatória'),
+  carboId: z.string().uuid('Carboidrato é obrigatório'),
+  fiberId: z.string().uuid('Fibra é obrigatória'),
+  fatId: z.string().uuid().nullable().optional(),
+});
+
+export type CreateFavoriteMealDTO = z.infer<typeof createFavoriteMealSchema>;
+
+// ── MealTemplate (for creating multiple meals in one order) ──
+
+export const mealTemplateSchema = z.object({
+  slot: z.number().int().min(1),
+  proteinId: z.string().uuid('Proteína é obrigatória'),
+  carboId: z.string().uuid('Carboidrato é obrigatório'),
+  fiberId: z.string().uuid('Fibra é obrigatória'),
+  fatId: z.string().uuid().nullable().optional(),
+  notes: z.string().optional().nullable(),
+  copyFromSlot: z.number().int().min(1).optional(),
+});
+
+export type MealTemplateDTO = z.infer<typeof mealTemplateSchema>;

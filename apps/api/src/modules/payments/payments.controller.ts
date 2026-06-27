@@ -4,7 +4,7 @@ import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { PaymentsService } from './payments.service';
-import { createPaymentSchema, registerPaymentSchema, type CreatePaymentDTO, type RegisterPaymentDTO } from '@juliana-gaspar/contracts';
+import { createPaymentSchema, registerPaymentSchema, updatePaymentSchema, type CreatePaymentDTO, type RegisterPaymentDTO, type UpdatePaymentDTO } from '@juliana-gaspar/contracts';
 
 @Controller('payments')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -29,7 +29,7 @@ export class PaymentsController {
 
   @Put(':id')
   @Roles('ADMIN', 'OPERATOR')
-  update(@Param('id') id: string, @Body() dto: Record<string, unknown>) {
+  update(@Param('id') id: string, @Body(new ZodValidationPipe(updatePaymentSchema)) dto: UpdatePaymentDTO) {
     return this.paymentsService.update(id, dto);
   }
 

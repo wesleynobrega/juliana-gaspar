@@ -1,7 +1,6 @@
 import {
   Injectable,
   NotFoundException,
-  ConflictException,
 } from '@nestjs/common';
 import prisma from '@juliana-gaspar/database';
 import type {
@@ -31,16 +30,26 @@ function toMenuItemDTO(item: NonNullable<PrismaMenuItem>): MenuItemDTO {
   };
 }
 
-type PrismaTechnicalSheet =
-  Awaited<ReturnType<typeof prisma.technicalSheet.findUnique>>;
+type PrismaTechnicalSheet = Awaited<
+  ReturnType<typeof prisma.technicalSheet.findUnique>
+> & { ingredients?: Array<{ id: string; technicalSheetId: string; ingredientId: string; quantity: number; ingredient?: { name: string; unit: string } }> };
 
 function toTechnicalSheetDTO(
   sheet: NonNullable<PrismaTechnicalSheet>,
 ): TechnicalSheetDTO {
   return {
     ...sheet,
+    price: (sheet as Record<string, unknown>).price as number ?? 0,
     temperature: sheet.temperature ?? null,
     notes: sheet.notes ?? null,
+    ingredients: (sheet.ingredients ?? []).map((i) => ({
+      id: i.id,
+      technicalSheetId: i.technicalSheetId,
+      ingredientId: i.ingredientId,
+      ingredientName: i.ingredient?.name,
+      ingredientUnit: i.ingredient?.unit,
+      quantity: i.quantity,
+    })),
     createdAt: sheet.createdAt.toISOString(),
     updatedAt: sheet.updatedAt.toISOString(),
   };
@@ -125,9 +134,10 @@ export class MenuService {
   async getTechnicalSheet(menuItemId: string): Promise<TechnicalSheetDTO> {
     const sheet = await prisma.technicalSheet.findUnique({
       where: { menuItemId },
+      include: { ingredients: { include: { ingredient: { select: { name: true, unit: true } } } } },
     });
     if (!sheet) throw new NotFoundException('Ficha técnica não encontrada');
-    return toTechnicalSheetDTO(sheet);
+    return toTechnicalSheetDTO(sheet as unknown as PrismaTechnicalSheet);
   }
 
   async upsertTechnicalSheet(
@@ -139,14 +149,34 @@ export class MenuService {
     });
     if (!menuItem) throw new NotFoundException('Item do cardápio não encontrado');
 
+    const { ingredients, ...sheetData } = dto as CreateTechnicalSheetDTO & { ingredients?: Array<{ ingredientId: string; quantity: number }> };
+
     const sheet = await prisma.technicalSheet.upsert({
       where: { menuItemId },
-      update: dto,
-      create: { ...dto, menuItemId } as CreateTechnicalSheetDTO & {
-        menuItemId: string;
-      },
+      update: { ...sheetData },
+      create: { ...sheetData, menuItemId },
     });
-    return toTechnicalSheetDTO(sheet);
+
+    // Replace ingredients if provided
+    if (ingredients !== undefined) {
+      await prisma.technicalSheetIngredient.deleteMany({ where: { technicalSheetId: sheet.id } });
+      if (ingredients.length > 0) {
+        await prisma.technicalSheetIngredient.createMany({
+          data: ingredients.map((i) => ({
+            technicalSheetId: sheet.id,
+            ingredientId: i.ingredientId,
+            quantity: i.quantity,
+          })),
+        });
+      }
+    }
+
+    const refreshed = await prisma.technicalSheet.findUnique({
+      where: { id: sheet.id },
+      include: { ingredients: { include: { ingredient: { select: { name: true, unit: true } } } } },
+    });
+
+    return toTechnicalSheetDTO(refreshed as unknown as PrismaTechnicalSheet);
   }
 
   // ── SpecialRequests ─────────────────────────────────

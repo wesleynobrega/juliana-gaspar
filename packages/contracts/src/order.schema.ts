@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { mealTypeSchema, mealSchema } from './meal.schema';
+import { mealTypeSchema, mealSchema, mealTemplateSchema } from './meal.schema';
 
 export const orderStatusSchema = z.enum([
   'PENDING',
@@ -52,6 +52,7 @@ export const orderSchema = z.object({
 
 export type OrderDTO = z.infer<typeof orderSchema>;
 
+// Legacy create (dish-based)
 export const createOrderSchema = z.object({
   customerId: z.string().uuid('Cliente inválido'),
   cycleId: z.string().uuid().optional(),
@@ -74,9 +75,43 @@ export const createOrderSchema = z.object({
 
 export type CreateOrderDTO = z.infer<typeof createOrderSchema>;
 
+// v2.1 meal-based create
+export const createMealBasedOrderSchema = z.object({
+  customerId: z.string().uuid('Cliente inválido'),
+  cycleId: z.string().uuid().optional(),
+  planType: planTypeSchema.default('SINGLE'),
+  mealType: mealTypeSchema.default('ALMOCO_JANTA'),
+  deliveryAddress: z.string().min(10, 'Endereço muito curto').max(500),
+  deliveryDate: z.string().datetime().optional(),
+  notes: z.string().max(500).optional(),
+  mealCount: z.union([z.literal(7), z.literal(14)]),
+  meals: z.array(mealTemplateSchema).min(7, 'Mínimo 7 refeições'),
+});
+
+export type CreateMealBasedOrderDTO = z.infer<typeof createMealBasedOrderSchema>;
+
 export const updateOrderStatusSchema = z.object({
   status: orderStatusSchema,
   notes: z.string().max(500).optional(),
 });
 
 export type UpdateOrderStatusDTO = z.infer<typeof updateOrderStatusSchema>;
+
+// Purchase suggestion
+export const purchaseSuggestionItemSchema = z.object({
+  ingredientId: z.string().uuid(),
+  ingredientName: z.string(),
+  unit: z.string(),
+  currentStock: z.number(),
+  requiredQty: z.number(),
+  suggestedPurchase: z.number(),
+});
+
+export type PurchaseSuggestionItemDTO = z.infer<typeof purchaseSuggestionItemSchema>;
+
+export const purchaseSuggestionSchema = z.object({
+  confirmedOrders: z.number(),
+  items: z.array(purchaseSuggestionItemSchema),
+});
+
+export type PurchaseSuggestionDTO = z.infer<typeof purchaseSuggestionSchema>;

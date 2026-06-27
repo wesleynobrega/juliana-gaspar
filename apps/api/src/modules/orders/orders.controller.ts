@@ -4,7 +4,10 @@ import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { OrdersService } from './orders.service';
-import { createOrderSchema, updateOrderStatusSchema, type CreateOrderDTO, type UpdateOrderStatusDTO } from '@juliana-gaspar/contracts';
+import {
+  createOrderSchema, createMealBasedOrderSchema, updateOrderStatusSchema,
+  type CreateOrderDTO, type CreateMealBasedOrderDTO, type UpdateOrderStatusDTO,
+} from '@juliana-gaspar/contracts';
 
 @Controller('orders')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -21,6 +24,12 @@ export class OrdersController {
     });
   }
 
+  @Get('previous-meals/:customerId')
+  @Roles('ADMIN', 'OPERATOR', 'VIEWER')
+  getPreviousMeals(@Param('customerId') customerId: string) {
+    return this.ordersService.getPreviousMeals(customerId);
+  }
+
   @Get(':id')
   @Roles('ADMIN', 'OPERATOR', 'VIEWER')
   findById(@Param('id') id: string) { return this.ordersService.findById(id); }
@@ -29,6 +38,12 @@ export class OrdersController {
   @Roles('ADMIN', 'OPERATOR')
   create(@Body(new ZodValidationPipe(createOrderSchema)) dto: CreateOrderDTO) {
     return this.ordersService.create(dto);
+  }
+
+  @Post('meal-based')
+  @Roles('ADMIN', 'OPERATOR')
+  createMealBased(@Body(new ZodValidationPipe(createMealBasedOrderSchema)) dto: CreateMealBasedOrderDTO) {
+    return this.ordersService.createMealBased(dto);
   }
 
   @Patch(':id/status')

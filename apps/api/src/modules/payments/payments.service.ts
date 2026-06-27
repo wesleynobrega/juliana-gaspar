@@ -5,7 +5,7 @@ import type { CreatePaymentDTO, RegisterPaymentDTO } from '@juliana-gaspar/contr
 @Injectable()
 export class PaymentsService {
   async findAll(page = 1, limit = 20, status?: string, method?: string) {
-    const where: { status?: string; method?: string } = {};
+    const where: Record<string, unknown> = {};
     if (status) where.status = status;
     if (method) where.method = method;
     const [data, total] = await Promise.all([
@@ -43,7 +43,7 @@ export class PaymentsService {
     const existing = await prisma.payment.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Pagamento não encontrado');
 
-    const data: { method?: string; amount?: number; status?: string } = {};
+    const data: Record<string, unknown> = {};
     if (dto.method) data.method = dto.method;
     if (dto.amount !== undefined) data.amount = dto.amount;
     if (dto.status) data.status = dto.status;
@@ -63,10 +63,9 @@ export class PaymentsService {
 
     const updated = await prisma.payment.update({
       where: { id },
-      data: { status: 'REFUNDED' },
+      data: { status: 'REFUNDED', refundReason: reason ?? null, refundedAt: new Date() },
     });
 
-    // Update associated order payment status
     await prisma.order.update({
       where: { id: payment.orderId },
       data: { paymentStatus: 'REFUNDED' },

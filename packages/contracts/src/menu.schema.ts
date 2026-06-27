@@ -43,6 +43,26 @@ export const updateMenuItemSchema = createMenuItemSchema.partial();
 
 export type UpdateMenuItemDTO = z.infer<typeof updateMenuItemSchema>;
 
+// ── TechnicalSheetIngredient ───────────────────────────
+
+export const technicalSheetIngredientSchema = z.object({
+  id: z.string().uuid(),
+  technicalSheetId: z.string().uuid(),
+  ingredientId: z.string().uuid(),
+  ingredientName: z.string().optional(),
+  ingredientUnit: z.string().optional(),
+  quantity: z.number().positive('Quantidade deve ser positiva'),
+});
+
+export type TechnicalSheetIngredientDTO = z.infer<typeof technicalSheetIngredientSchema>;
+
+export const createTechnicalSheetIngredientSchema = z.object({
+  ingredientId: z.string().uuid('Ingrediente inválido'),
+  quantity: z.number().positive('Quantidade deve ser positiva'),
+});
+
+export type CreateTechnicalSheetIngredientDTO = z.infer<typeof createTechnicalSheetIngredientSchema>;
+
 // ── TechnicalSheet ─────────────────────────────────────
 
 export const technicalSheetSchema = z.object({
@@ -53,6 +73,8 @@ export const technicalSheetSchema = z.object({
   temperature: z.string().nullable(),
   equipment: z.array(z.string()),
   notes: z.string().nullable(),
+  price: z.number().nonnegative('Preço não pode ser negativo'),
+  ingredients: z.array(technicalSheetIngredientSchema).default([]),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
 });
@@ -65,6 +87,8 @@ export const createTechnicalSheetSchema = z.object({
   temperature: z.string().optional().nullable(),
   equipment: z.array(z.string()).default([]),
   notes: z.string().optional().nullable(),
+  price: z.number().nonnegative('Preço não pode ser negativo').default(0),
+  ingredients: z.array(createTechnicalSheetIngredientSchema).default([]),
 });
 
 export type CreateTechnicalSheetDTO = z.infer<typeof createTechnicalSheetSchema>;

@@ -11,6 +11,12 @@ import { createIngredientSchema, updateIngredientSchema, type CreateIngredientDT
 export class IngredientsController {
   constructor(private readonly ingredientsService: IngredientsService) {}
 
+  @Get('purchase-suggestion')
+  @Roles('ADMIN', 'OPERATOR', 'VIEWER')
+  getPurchaseSuggestion() {
+    return this.ingredientsService.getPurchaseSuggestion();
+  }
+
   @Get()
   @Roles('ADMIN', 'OPERATOR', 'VIEWER')
   findAll(@Query('page') page = 1, @Query('limit') limit = 20, @Query('search') search?: string) {

@@ -1,11 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import prisma from '@juliana-gaspar/database';
-import type { CreateCustomerDTO, UpdateCustomerDTO, CustomerDTO } from '@juliana-gaspar/contracts';
+import type { CreateCustomerDTO, UpdateCustomerDTO, CustomerDTO, CreateFavoriteMealDTO, FavoriteMealDTO } from '@juliana-gaspar/contracts';
 
 @Injectable()
 export class CustomersService {
   async findAll(page = 1, limit = 20, search?: string, tag?: string) {
-    const where: { OR?: Array<Record<string, unknown>>; tags?: { has: string } } = {};
+    const where: Record<string, unknown> = {};
     if (search) where.OR = [{ name: { contains: search, mode: 'insensitive' } }, { phone: { contains: search } }];
     if (tag) where.tags = { has: tag };
     const [data, total] = await Promise.all([
@@ -37,5 +37,45 @@ export class CustomersService {
     const existing = await prisma.customer.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('Cliente não encontrado');
     await prisma.customer.delete({ where: { id } });
+  }
+
+  // ── v2.1: Favorites ──────────────────────────────
+
+  async getFavorites(customerId: string): Promise<FavoriteMealDTO[]> {
+    const customer = await prisma.customer.findUnique({ where: { id: customerId } });
+    if (!customer) throw new NotFoundException('Cliente não encontrado');
+
+    const favorites = await prisma.favoriteMeal.findMany({
+      where: { customerId },
+      include: {
+        protein: { select: { name: true } },
+        carbo: { select: { name: true } },
+        fiber: { select: { name: true } },
+        fat: { select: { name: true } },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    return favorites.map((f) => ({
+      ...f,
+      createdAt: f.createdAt.toISOString(),
+    })) as FavoriteMealDTO[];
+  }
+
+  async createFavorite(customerId: string, dto: CreateFavoriteMealDTO): Promise<FavoriteMealDTO> {
+    const customer = await prisma.customer.findUnique({ where: { id: customerId } });
+    if (!customer) throw new NotFoundException('Cliente não encontrado');
+
+    const fav = await prisma.favoriteMeal.create({
+      data: { ...dto, customerId, fatId: dto.fatId ?? null },
+    });
+
+    return { ...fav, createdAt: fav.createdAt.toISOString() } as FavoriteMealDTO;
+  }
+
+  async removeFavorite(customerId: string, favId: string): Promise<void> {
+    const fav = await prisma.favoriteMeal.findFirst({ where: { id: favId, customerId } });
+    if (!fav) throw new NotFoundException('Favorito não encontrado');
+    await prisma.favoriteMeal.delete({ where: { id: favId } });
   }
 }

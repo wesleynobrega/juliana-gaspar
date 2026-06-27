@@ -11,6 +11,8 @@ export const paymentSchema = z.object({
   status: z.enum(['PENDING', 'PAID', 'OVERDUE', 'REFUNDED']),
   amount: z.number().positive(),
   paidAt: z.string().datetime().optional().nullable(),
+  refundReason: z.string().optional().nullable(),
+  refundedAt: z.string().datetime().optional().nullable(),
   createdAt: z.string().datetime(),
 });
 
@@ -30,3 +32,11 @@ export const registerPaymentSchema = z.object({
 });
 
 export type RegisterPaymentDTO = z.infer<typeof registerPaymentSchema>;
+
+export const updatePaymentSchema = z.object({
+  method: paymentMethodSchema.optional(),
+  amount: z.number().positive('Valor deve ser positivo').optional(),
+  status: z.enum(['PENDING', 'PAID', 'OVERDUE', 'REFUNDED']).optional(),
+});
+
+export type UpdatePaymentDTO = z.infer<typeof updatePaymentSchema>;

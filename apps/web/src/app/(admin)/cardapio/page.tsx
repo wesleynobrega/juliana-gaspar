@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, Fragment } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { api } from '@/lib/api-client';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
-import { Plus, Pencil, Trash2, ChefHat } from 'lucide-react';
+import { Plus, Pencil, Trash2, ChefHat, X, Search } from 'lucide-react';
 
 // ── Types ─────────────────────────────────────────────
 
@@ -31,6 +32,23 @@ interface TechnicalSheetDTO {
   temperature: string | null;
   equipment: string[];
   notes: string | null;
+  price: number;
+  ingredients: TechnicalSheetIngredientDTO[];
+}
+
+interface TechnicalSheetIngredientDTO {
+  id: string;
+  technicalSheetId: string;
+  ingredientId: string;
+  ingredientName?: string;
+  ingredientUnit?: string;
+  quantity: number;
+}
+
+interface IngredientDTO {
+  id: string;
+  name: string;
+  unit: string;
 }
 
 // ── Helpers ────────────────────────────────────────────
@@ -51,6 +69,10 @@ const NUTRIENT_BADGES: Record<NutrientType, string> = {
 
 const TABS: NutrientType[] = ['PROTEINA', 'CARBOIDRATO', 'FIBRA', 'GORDURA'];
 
+function formatCurrency(value: number): string {
+  return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
 // ── Page ───────────────────────────────────────────────
 
 export default function CardapioPage() {
@@ -62,23 +84,37 @@ export default function CardapioPage() {
   const [sheetData, setSheetData] = useState<TechnicalSheetDTO | null>(null);
   const [sheetItemId, setSheetItemId] = useState<string | null>(null);
 
-  // Form state
+  // ── Menu item form ──────────────────────────────────
+
   const [formName, setFormName] = useState('');
   const [formDesc, setFormDesc] = useState('');
+  const [formNutrient, setFormNutrient] = useState<NutrientType>('PROTEINA');
+  const [formPhotoUrl, setFormPhotoUrl] = useState('');
   const [formAllergens, setFormAllergens] = useState('');
   const [formBaseUnit, setFormBaseUnit] = useState('porção');
   const [formError, setFormError] = useState<string | null>(null);
   const [formSaving, setFormSaving] = useState(false);
 
-  // Technical sheet form state
-  const [sheetForm, setSheetForm] = useState({
-    preparationMethod: '',
-    cookingTime: '',
-    temperature: '',
-    equipment: '',
-    notes: '',
-  });
+  // ── Technical sheet form ────────────────────────────
+
+  const [sheetPrep, setSheetPrep] = useState('');
+  const [sheetTime, setSheetTime] = useState('');
+  const [sheetTemp, setSheetTemp] = useState('');
+  const [sheetEquip, setSheetEquip] = useState<string[]>([]);
+  const [sheetNotes, setSheetNotes] = useState('');
+  const [sheetPrice, setSheetPrice] = useState('');
+  const [sheetIngredients, setSheetIngredients] = useState<
+    { ingredientId: string; ingredientName: string; ingredientUnit: string; quantity: string }[]
+  >([]);
   const [sheetSaving, setSheetSaving] = useState(false);
+
+  // ── Ingredient search ───────────────────────────────
+
+  const [ingredientSearch, setIngredientSearch] = useState<Record<number, string>>({});
+  const [ingredientResults, setIngredientResults] = useState<Record<number, IngredientDTO[]>>({});
+  const [ingredientOpen, setIngredientOpen] = useState<number | null>(null);
+
+  // ── Load items ──────────────────────────────────────
 
   const loadItems = useCallback(async () => {
     setLoading(true);
@@ -98,12 +134,14 @@ export default function CardapioPage() {
     loadItems();
   }, [loadItems]);
 
-  // ── Form handlers ─────────────────────────────────
+  // ── Menu item form handlers ─────────────────────────
 
   const openCreateForm = () => {
     setEditingId(null);
     setFormName('');
     setFormDesc('');
+    setFormNutrient(activeTab);
+    setFormPhotoUrl('');
     setFormAllergens('');
     setFormBaseUnit('porção');
     setFormError(null);
@@ -114,6 +152,8 @@ export default function CardapioPage() {
     setEditingId(item.id);
     setFormName(item.name);
     setFormDesc(item.description ?? '');
+    setFormNutrient(item.nutrientType);
+    setFormPhotoUrl(item.photoUrl ?? '');
     setFormAllergens(item.allergens ?? '');
     setFormBaseUnit(item.baseUnit ?? 'porção');
     setFormError(null);
@@ -131,14 +171,17 @@ export default function CardapioPage() {
       const payload = {
         name: formName.trim(),
         description: formDesc.trim() || null,
-        nutrientType: activeTab,
+        nutrientType: formNutrient,
+        photoUrl: formPhotoUrl.trim() || null,
         allergens: formAllergens.trim() || null,
         baseUnit: formBaseUnit.trim() || 'porção',
       };
       if (editingId) {
         await api.put(`/menu/${editingId}`, payload);
+        toast.success('Item atualizado!');
       } else {
         await api.post('/menu', payload);
+        toast.success('Item criado!');
       }
       setShowForm(false);
       setEditingId(null);
@@ -154,9 +197,10 @@ export default function CardapioPage() {
     if (!confirm('Remover este item do cardápio?')) return;
     try {
       await api.delete(`/menu/${id}`);
+      toast.success('Item removido.');
       await loadItems();
     } catch {
-      alert('Erro ao remover.');
+      toast.error('Erro ao remover.');
     }
   };
 
@@ -169,7 +213,27 @@ export default function CardapioPage() {
     }
   };
 
-  // ── Technical Sheet ───────────────────────────────
+  // ── Technical sheet ────────────────────────────────
+
+  const resetSheetForm = (data?: TechnicalSheetDTO) => {
+    setSheetPrep(data?.preparationMethod ?? '');
+    setSheetTime(data?.cookingTime != null ? String(data.cookingTime) : '');
+    setSheetTemp(data?.temperature ?? '');
+    setSheetEquip(data?.equipment ?? []);
+    setSheetNotes(data?.notes ?? '');
+    setSheetPrice(data?.price != null ? String(data.price) : '');
+    setSheetIngredients(
+      (data?.ingredients ?? []).map((i) => ({
+        ingredientId: i.ingredientId,
+        ingredientName: i.ingredientName ?? '',
+        ingredientUnit: i.ingredientUnit ?? '',
+        quantity: String(i.quantity),
+      })),
+    );
+    setIngredientSearch({});
+    setIngredientResults({});
+    setIngredientOpen(null);
+  };
 
   const loadSheet = async (menuItemId: string) => {
     if (sheetItemId === menuItemId) {
@@ -183,35 +247,34 @@ export default function CardapioPage() {
       );
       setSheetData(result);
       setSheetItemId(menuItemId);
-      setSheetForm({
-        preparationMethod: result.preparationMethod ?? '',
-        cookingTime: String(result.cookingTime ?? ''),
-        temperature: result.temperature ?? '',
-        equipment: (result.equipment ?? []).join(', '),
-        notes: result.notes ?? '',
-      });
+      resetSheetForm(result);
     } catch {
       setSheetData(null);
       setSheetItemId(menuItemId);
-      setSheetForm({ preparationMethod: '', cookingTime: '', temperature: '', equipment: '', notes: '' });
+      resetSheetForm();
     }
   };
 
   const saveSheet = async (menuItemId: string) => {
-    if (!sheetForm.preparationMethod.trim()) {
+    if (!sheetPrep.trim()) {
       toast.error('O modo de preparo é obrigatório.');
       return;
     }
     setSheetSaving(true);
     try {
       const payload = {
-        preparationMethod: sheetForm.preparationMethod.trim(),
-        cookingTime: parseInt(sheetForm.cookingTime, 10) || 0,
-        temperature: sheetForm.temperature.trim() || null,
-        equipment: sheetForm.equipment
-          ? sheetForm.equipment.split(',').map((e) => e.trim()).filter(Boolean)
-          : [],
-        notes: sheetForm.notes.trim() || null,
+        preparationMethod: sheetPrep.trim(),
+        cookingTime: parseInt(sheetTime, 10) || 0,
+        temperature: sheetTemp.trim() || null,
+        equipment: sheetEquip,
+        notes: sheetNotes.trim() || null,
+        price: parseFloat(sheetPrice) || 0,
+        ingredients: sheetIngredients
+          .filter((i) => i.ingredientId)
+          .map((i) => ({
+            ingredientId: i.ingredientId,
+            quantity: parseFloat(i.quantity) || 0,
+          })),
       };
       await api.post(`/menu/${menuItemId}/technical-sheet`, payload);
       toast.success('Ficha técnica salva!');
@@ -223,6 +286,72 @@ export default function CardapioPage() {
     }
   };
 
+  // ── Ingredient search ──────────────────────────────
+
+  const searchIngredients = async (idx: number, query: string) => {
+    setIngredientSearch((prev) => ({ ...prev, [idx]: query }));
+    if (!query.trim()) {
+      setIngredientResults((prev) => ({ ...prev, [idx]: [] }));
+      return;
+    }
+    try {
+      const res = await api.get<{ data?: IngredientDTO[]; items?: IngredientDTO[] }>(
+        `/ingredients?search=${encodeURIComponent(query)}&limit=8`,
+      );
+      const list = res?.data ?? res?.items ?? (Array.isArray(res) ? res : []);
+      setIngredientResults((prev) => ({ ...prev, [idx]: list }));
+      setIngredientOpen(idx);
+    } catch {
+      setIngredientResults((prev) => ({ ...prev, [idx]: [] }));
+    }
+  };
+
+  const selectIngredient = (idx: number, ing: IngredientDTO) => {
+    setSheetIngredients((prev) =>
+      prev.map((row, i) =>
+        i === idx
+          ? { ...row, ingredientId: ing.id, ingredientName: ing.name, ingredientUnit: ing.unit }
+          : row,
+      ),
+    );
+    setIngredientOpen(null);
+    setIngredientSearch((prev) => ({ ...prev, [idx]: ing.name }));
+    setIngredientResults((prev) => ({ ...prev, [idx]: [] }));
+  };
+
+  const addIngredientRow = () => {
+    setSheetIngredients((prev) => [
+      ...prev,
+      { ingredientId: '', ingredientName: '', ingredientUnit: '', quantity: '' },
+    ]);
+  };
+
+  const removeIngredientRow = (idx: number) => {
+    setSheetIngredients((prev) => prev.filter((_, i) => i !== idx));
+  };
+
+  const updateIngredientQuantity = (idx: number, quantity: string) => {
+    setSheetIngredients((prev) =>
+      prev.map((row, i) => (i === idx ? { ...row, quantity } : row)),
+    );
+  };
+
+  // ── Equipment list ──────────────────────────────────
+
+  const addEquipment = () => {
+    setSheetEquip((prev) => [...prev, '']);
+  };
+
+  const updateEquipment = (idx: number, value: string) => {
+    setSheetEquip((prev) => prev.map((e, i) => (i === idx ? value : e)));
+  };
+
+  const removeEquipment = (idx: number) => {
+    setSheetEquip((prev) => prev.filter((_, i) => i !== idx));
+  };
+
+  // ── Render ──────────────────────────────────────────
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
@@ -231,7 +360,7 @@ export default function CardapioPage() {
         </h1>
         <Button onClick={openCreateForm} className="min-h-[48px]">
           <Plus className="w-4 h-4 mr-2" />
-          Novo item
+          Novo Prato
         </Button>
       </div>
 
@@ -257,30 +386,52 @@ export default function CardapioPage() {
         ))}
       </div>
 
-      {/* Form inline */}
+      {/* Create / Edit form */}
       {showForm && (
         <div className="bg-cream border border-primary-200 rounded-xl p-6 mb-6">
           <h2 className="font-semibold text-lg mb-4 text-primary-900">
-            {editingId ? 'Editar item' : 'Novo item'} —{' '}
-            {NUTRIENT_LABELS[activeTab]}
+            {editingId ? 'Editar item' : 'Novo Prato'}
           </h2>
           {formError && (
             <p className="text-red-600 text-sm mb-3">{formError}</p>
           )}
           <div className="space-y-4">
             <Input
-              placeholder="Nome do item"
+              placeholder="Nome do prato *"
               value={formName}
               onChange={(e) => setFormName(e.target.value)}
               className="min-h-[48px]"
             />
-            <textarea
+            <Textarea
               placeholder="Descrição (opcional)"
               value={formDesc}
               onChange={(e) => setFormDesc(e.target.value)}
               rows={3}
-              className="w-full border border-primary-200 rounded-lg p-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="text-xs text-primary-500 block mb-1">
+                  Tipo de nutriente
+                </label>
+                <select
+                  value={formNutrient}
+                  onChange={(e) => setFormNutrient(e.target.value as NutrientType)}
+                  className="w-full border border-primary-200 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-500 min-h-[48px]"
+                >
+                  {TABS.map((t) => (
+                    <option key={t} value={t}>
+                      {NUTRIENT_LABELS[t]}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <Input
+                placeholder="URL da foto (opcional)"
+                value={formPhotoUrl}
+                onChange={(e) => setFormPhotoUrl(e.target.value)}
+                className="min-h-[48px]"
+              />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input
                 placeholder="Alergênicos (ex: Leite, Ovos)"
@@ -344,8 +495,8 @@ export default function CardapioPage() {
             </thead>
             <tbody className="divide-y divide-primary-50">
               {items.map((item) => (
-                <>
-                  <tr key={item.id} className="hover:bg-primary-50/50">
+                <Fragment key={item.id}>
+                  <tr className="hover:bg-primary-50/50">
                     <td className="px-4 py-3">
                       <div>
                         <span className="font-medium text-primary-900">
@@ -413,13 +564,28 @@ export default function CardapioPage() {
                   </tr>
                   {/* Ficha técnica expandida */}
                   {sheetItemId === item.id && (
-                    <tr key={`${item.id}-sheet`}>
+                    <tr>
                       <td colSpan={6} className="px-4 py-3 bg-cream">
                         {sheetData ? (
+                          /* ── View mode ── */
                           <div className="text-sm space-y-2">
-                            <h4 className="font-semibold text-primary-800">
-                              Ficha Técnica
-                            </h4>
+                            <div className="flex items-center justify-between">
+                              <h4 className="font-semibold text-primary-800">
+                                Ficha Técnica
+                              </h4>
+                              <button
+                                onClick={() => resetSheetForm(sheetData)}
+                                className="text-xs text-primary-600 underline"
+                              >
+                                Editar
+                              </button>
+                            </div>
+                            {sheetData.price > 0 && (
+                              <p>
+                                <strong>Preço:</strong>{' '}
+                                {formatCurrency(sheetData.price)}
+                              </p>
+                            )}
                             <p>
                               <strong>Preparo:</strong>{' '}
                               {sheetData.preparationMethod}
@@ -435,6 +601,20 @@ export default function CardapioPage() {
                                 {sheetData.equipment.join(', ')}
                               </p>
                             )}
+                            {sheetData.ingredients.length > 0 && (
+                              <div>
+                                <strong>Ingredientes:</strong>
+                                <ul className="list-disc list-inside mt-0.5">
+                                  {sheetData.ingredients.map((ing) => (
+                                    <li key={ing.id}>
+                                      {ing.ingredientName ?? ing.ingredientId}{' '}
+                                      — {ing.quantity}{' '}
+                                      {ing.ingredientUnit ?? ''}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
                             {sheetData.notes && (
                               <p>
                                 <strong>Observações:</strong> {sheetData.notes}
@@ -442,18 +622,35 @@ export default function CardapioPage() {
                             )}
                           </div>
                         ) : (
-                          <div className="space-y-3">
+                          /* ── Edit mode ── */
+                          <div className="space-y-4">
                             <h4 className="font-semibold text-primary-800 text-sm">
                               Cadastrar Ficha Técnica
                             </h4>
+
+                            {/* Price */}
+                            <div>
+                              <label className="text-xs text-primary-500">Preço (R$)</label>
+                              <Input
+                                type="number"
+                                step="0.01"
+                                min="0"
+                                className="min-h-[40px] mt-1"
+                                value={sheetPrice}
+                                onChange={(e) => setSheetPrice(e.target.value)}
+                                placeholder="25,90"
+                              />
+                            </div>
+
+                            {/* Prep + Time + Temp */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                               <div>
                                 <label className="text-xs text-primary-500">Modo de Preparo *</label>
-                                <textarea
-                                  className="w-full border border-primary-200 rounded-lg p-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary-500 mt-1"
+                                <Textarea
+                                  className="mt-1"
                                   rows={2}
-                                  value={sheetForm.preparationMethod}
-                                  onChange={(e) => setSheetForm({ ...sheetForm, preparationMethod: e.target.value })}
+                                  value={sheetPrep}
+                                  onChange={(e) => setSheetPrep(e.target.value)}
                                   placeholder="Descreva o modo de preparo"
                                 />
                               </div>
@@ -463,8 +660,8 @@ export default function CardapioPage() {
                                   <Input
                                     type="number"
                                     className="min-h-[40px] mt-1"
-                                    value={sheetForm.cookingTime}
-                                    onChange={(e) => setSheetForm({ ...sheetForm, cookingTime: e.target.value })}
+                                    value={sheetTime}
+                                    onChange={(e) => setSheetTime(e.target.value)}
                                     placeholder="30"
                                   />
                                 </div>
@@ -472,33 +669,142 @@ export default function CardapioPage() {
                                   <label className="text-xs text-primary-500">Temperatura</label>
                                   <Input
                                     className="min-h-[40px] mt-1"
-                                    value={sheetForm.temperature}
-                                    onChange={(e) => setSheetForm({ ...sheetForm, temperature: e.target.value })}
+                                    value={sheetTemp}
+                                    onChange={(e) => setSheetTemp(e.target.value)}
                                     placeholder="180°C"
                                   />
                                 </div>
                               </div>
                             </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                              <div>
-                                <label className="text-xs text-primary-500">Equipamentos (separados por vírgula)</label>
-                                <Input
-                                  className="min-h-[40px] mt-1"
-                                  value={sheetForm.equipment}
-                                  onChange={(e) => setSheetForm({ ...sheetForm, equipment: e.target.value })}
-                                  placeholder="Forno, Liquidificador"
-                                />
-                              </div>
-                              <div>
-                                <label className="text-xs text-primary-500">Observações</label>
-                                <Input
-                                  className="min-h-[40px] mt-1"
-                                  value={sheetForm.notes}
-                                  onChange={(e) => setSheetForm({ ...sheetForm, notes: e.target.value })}
-                                  placeholder="Notas adicionais"
-                                />
+
+                            {/* Equipment — dynamic list */}
+                            <div>
+                              <label className="text-xs text-primary-500">Equipamentos</label>
+                              <div className="space-y-2 mt-1">
+                                {sheetEquip.map((eq, idx) => (
+                                  <div key={idx} className="flex gap-2">
+                                    <Input
+                                      className="min-h-[40px] flex-1"
+                                      value={eq}
+                                      onChange={(e) => updateEquipment(idx, e.target.value)}
+                                      placeholder="Ex: Forno"
+                                    />
+                                    <Button
+                                      variant="ghost"
+                                      size="icon"
+                                      className="h-9 w-9 text-red-500 hover:text-red-700 shrink-0"
+                                      onClick={() => removeEquipment(idx)}
+                                    >
+                                      <X className="w-4 h-4" />
+                                    </Button>
+                                  </div>
+                                ))}
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={addEquipment}
+                                  className="min-h-[36px]"
+                                >
+                                  <Plus className="w-3 h-3 mr-1" />
+                                  Adicionar equipamento
+                                </Button>
                               </div>
                             </div>
+
+                            {/* Ingredients — dynamic list */}
+                            <div>
+                              <label className="text-xs text-primary-500">Ingredientes</label>
+                              <div className="space-y-2 mt-1">
+                                {sheetIngredients.map((ing, idx) => (
+                                  <div key={idx} className="flex gap-2 items-start">
+                                    <div className="flex-1 relative">
+                                      <div className="flex items-center gap-1">
+                                        <Search className="w-3.5 h-3.5 text-primary-400 shrink-0" />
+                                        <input
+                                          type="text"
+                                          className="flex-1 border-0 outline-none bg-transparent text-sm py-1"
+                                          placeholder="Buscar ingrediente..."
+                                          value={ingredientSearch[idx] ?? ing.ingredientName}
+                                          onChange={(e) => searchIngredients(idx, e.target.value)}
+                                          onFocus={() => {
+                                            if ((ingredientResults[idx]?.length ?? 0) > 0)
+                                              setIngredientOpen(idx);
+                                          }}
+                                          onBlur={() => {
+                                            setTimeout(() => setIngredientOpen(null), 200);
+                                          }}
+                                        />
+                                      </div>
+                                      {/* selected ingredient tag */}
+                                      {ing.ingredientId && (
+                                        <span className="inline-block text-xs bg-primary-100 text-primary-700 rounded px-2 py-0.5 mt-0.5">
+                                          {ing.ingredientName}{' '}
+                                          <span className="text-primary-400">({ing.ingredientUnit})</span>
+                                        </span>
+                                      )}
+                                      {/* search results dropdown */}
+                                      {ingredientOpen === idx &&
+                                        (ingredientResults[idx]?.length ?? 0) > 0 && (
+                                          <div className="absolute z-10 left-0 right-0 top-full mt-1 bg-white border border-primary-200 rounded-lg shadow-lg max-h-40 overflow-y-auto">
+                                            {ingredientResults[idx]!.map((r) => (
+                                              <button
+                                                key={r.id}
+                                                type="button"
+                                                className="w-full text-left px-3 py-2 text-sm hover:bg-primary-50 flex justify-between"
+                                                onMouseDown={(e) => {
+                                                  e.preventDefault();
+                                                  selectIngredient(idx, r);
+                                                }}
+                                              >
+                                                <span>{r.name}</span>
+                                                <span className="text-primary-400 text-xs">{r.unit}</span>
+                                              </button>
+                                            ))}
+                                          </div>
+                                        )}
+                                    </div>
+                                    <Input
+                                      type="number"
+                                      step="0.01"
+                                      min="0"
+                                      className="w-20 min-h-[40px] shrink-0"
+                                      placeholder="Qtd"
+                                      value={ing.quantity}
+                                      onChange={(e) => updateIngredientQuantity(idx, e.target.value)}
+                                    />
+                                    <Button
+                                      variant="ghost"
+                                      size="icon"
+                                      className="h-9 w-9 text-red-500 hover:text-red-700 shrink-0"
+                                      onClick={() => removeIngredientRow(idx)}
+                                    >
+                                      <X className="w-4 h-4" />
+                                    </Button>
+                                  </div>
+                                ))}
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={addIngredientRow}
+                                  className="min-h-[36px]"
+                                >
+                                  <Plus className="w-3 h-3 mr-1" />
+                                  Adicionar ingrediente
+                                </Button>
+                              </div>
+                            </div>
+
+                            {/* Notes */}
+                            <div>
+                              <label className="text-xs text-primary-500">Observações</label>
+                              <Input
+                                className="min-h-[40px] mt-1"
+                                value={sheetNotes}
+                                onChange={(e) => setSheetNotes(e.target.value)}
+                                placeholder="Notas adicionais"
+                              />
+                            </div>
+
                             <Button
                               size="sm"
                               onClick={() => saveSheet(item.id)}
@@ -512,7 +818,7 @@ export default function CardapioPage() {
                       </td>
                     </tr>
                   )}
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>
