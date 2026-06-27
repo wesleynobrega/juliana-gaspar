@@ -35,5 +35,3 @@ export const PLAN_TYPE_LABELS: Record<string, string> = {
   WEEKLY: 'Semanal',
   MONTHLY: 'Mensal',
 };
-
-export const WHATSAPP_NUMBER = '5511999999999';

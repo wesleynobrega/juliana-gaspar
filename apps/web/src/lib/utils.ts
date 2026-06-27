@@ -23,9 +23,3 @@ export function formatShortDate(date: string | Date): string {
     dateStyle: 'short',
   }).format(new Date(date));
 }
-
-export function confirmDelete(itemName: string): boolean {
-  return window.confirm(
-    `Tem certeza que deseja excluir "${itemName}"? Esta ação não pode ser desfeita.`,
-  );
-}

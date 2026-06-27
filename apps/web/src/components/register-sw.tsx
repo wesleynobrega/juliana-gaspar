@@ -1,11 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
-import { registerSW } from '@/lib/register-sw';
 
 export function RegisterSW() {
   useEffect(() => {
-    registerSW();
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
   }, []);
 
   return null;
