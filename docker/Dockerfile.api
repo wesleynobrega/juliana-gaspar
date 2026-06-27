@@ -33,7 +33,7 @@ RUN SRC_PRISMA=$(find /app -path "*/node_modules/.prisma/client" -type d -print 
 # Copy Prisma schema + migrations for runtime migrate deploy
 RUN mkdir -p /deploy/prisma/migrations \
     && cp /app/packages/database/prisma/schema.prisma /deploy/prisma/ \
-    && cp /app/packages/database/prisma/migration_lock.toml /deploy/prisma/ \
+    && cp /app/packages/database/prisma/migrations/migration_lock.toml /deploy/prisma/ \
     && cp -r /app/packages/database/prisma/migrations/* /deploy/prisma/migrations/
 
 FROM base AS runner
