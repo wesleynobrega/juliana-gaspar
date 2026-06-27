@@ -85,12 +85,15 @@ export type CreateFavoriteMealDTO = z.infer<typeof createFavoriteMealSchema>;
 
 export const mealTemplateSchema = z.object({
   slot: z.number().int().min(1),
-  proteinId: z.string().uuid('Proteína é obrigatória'),
-  carboId: z.string().uuid('Carboidrato é obrigatório'),
-  fiberId: z.string().uuid('Fibra é obrigatória'),
+  proteinId: z.string().uuid('Proteína é obrigatória').optional(),
+  carboId: z.string().uuid('Carboidrato é obrigatório').optional(),
+  fiberId: z.string().uuid('Fibra é obrigatória').optional(),
   fatId: z.string().uuid().nullable().optional(),
   notes: z.string().optional().nullable(),
   copyFromSlot: z.number().int().min(1).optional(),
-});
+}).refine(
+  (data) => data.copyFromSlot || (data.proteinId && data.carboId && data.fiberId),
+  { message: 'Informe proteína, carboidrato e fibra, ou use copyFromSlot' },
+);
 
 export type MealTemplateDTO = z.infer<typeof mealTemplateSchema>;

@@ -268,11 +268,11 @@ export class OrdersService {
         if (source.fatId) allMenuIds.add(source.fatId);
         continue;
       }
-      const meal = { proteinId: tpl.proteinId, carboId: tpl.carboId, fiberId: tpl.fiberId, fatId: tpl.fatId ?? null, notes: tpl.notes ?? null };
+      const meal = { proteinId: tpl.proteinId!, carboId: tpl.carboId!, fiberId: tpl.fiberId!, fatId: tpl.fatId ?? null, notes: tpl.notes ?? null };
       processedMeals.push(meal);
-      allMenuIds.add(tpl.proteinId);
-      allMenuIds.add(tpl.carboId);
-      allMenuIds.add(tpl.fiberId);
+      allMenuIds.add(tpl.proteinId!);
+      allMenuIds.add(tpl.carboId!);
+      allMenuIds.add(tpl.fiberId!);
       if (tpl.fatId) allMenuIds.add(tpl.fatId);
     }
 
