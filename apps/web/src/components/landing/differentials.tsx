@@ -2,8 +2,8 @@ import { Leaf, Award, Clock, Truck } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const ITEMS = [
-  { icon: Leaf, title: 'Ingredientes Frescos', description: 'Selecionamos os melhores ingredientes em feiras locais. Nada de ultraprocessados.' },
-  { icon: Award, title: 'Receitas Exclusivas', description: 'Cada prato é uma criação original, equilibrando sabor e nutrição.' },
+  { icon: Leaf, title: 'Ingredientes Frescos', description: 'Selecionamos os melhores ingredientes em feiras locais. Ficha técnica detalhada de cada prato.' },
+  { icon: Award, title: 'Refeições Personalizadas', description: 'Você monta cada refeição: proteína + carbo + fibra + gordura. Combinações infinitas.' },
   { icon: Clock, title: 'Frescor Garantido', description: 'Preparamos no dia da entrega. Você recebe a comida ainda fresca, pronta para consumir.' },
   { icon: Truck, title: 'Entrega Refrigerada', description: 'Entregamos em caixas térmicas para manter a temperatura e qualidade ideais.' },
 ];

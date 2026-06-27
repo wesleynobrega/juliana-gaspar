@@ -1,26 +1,27 @@
 # PRD — Product Requirements Document
 
-**Última atualização:** 2026-06-16
-**Versão:** 1.0
+**Última atualização:** 2026-06-26
+**Versão:** 2.1
 **Produto:** Juliana Gaspar — Plataforma de Comida por Assinatura
 
 ---
 
 ## 1. Visão do Produto
 
-A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que conecta uma chef independente a clientes em São Paulo. Clientes exploram um cardápio semanal rotativo, fazem pedidos únicos ou assinaturas, e recebem as refeições em casa. A plataforma gerencia todo o ciclo: cardápio → pedidos → produção → entrega → pagamento.
+A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que conecta uma chef independente a clientes em São Paulo. Clientes exploram um cardápio semanal rotativo, fazem pedidos únicos ou assinaturas, e recebem as refeições em casa. A plataforma gerencia todo o ciclo: cardápio → pedidos → produção → estoque → entrega → pagamento.
 
 ### 1.1 Problema que Resolve
 
-- **Para a chef:** Centraliza gestão de cardápio, pedidos, produção, entregas e pagamentos em um único sistema
+- **Para a chef:** Centraliza gestão de cardápio, pedidos, produção, entregas, estoque e pagamentos em um único sistema
 - **Para o cliente:** Oferece uma experiência simples de descoberta do cardápio semanal, pedido e acompanhamento
 
 ### 1.2 Proposta de Valor
 
 - Comida caseira de alta qualidade, entregue semanalmente
 - Cardápio variado com ingredientes frescos e sazonais
-- Transparência total sobre ingredientes e alérgenos
+- Transparência total sobre ingredientes, modo de preparo e ficha técnica
 - Flexibilidade: pedidos avulsos ou planos de assinatura
+- Refeições estruturadas por nutrientes (proteína, carboidrato, fibra, gordura)
 
 ---
 
@@ -31,17 +32,19 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 - Define ciclos semanais com pratos disponíveis
 - Acompanha produção e entregas
 - Gerencia pagamentos e finanças
+- Controla estoque de ingredientes e sugestões de compra
 
 ### 2.2 Operador
 - Auxilia na gestão de pedidos
 - Atualiza status de produção e entrega
 - Registra pagamentos
+- Monitora estoque durante produção
 
 ### 2.3 Cliente
 - Navega pelo cardápio da semana
 - Faz pedidos únicos ou assina plano semanal
 - Acompanha status do pedido
-- Gerencia suas preferências alimentares
+- Gerencia suas preferências alimentares e refeições favoritas
 
 ---
 
@@ -58,7 +61,7 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 | LP-05 | Depoimentos de clientes | P1 | ✅ |
 | LP-06 | FAQ | P1 | ✅ |
 | LP-07 | CTA final para pedido via WhatsApp | P1 | ✅ |
-| LP-08 | SEO otimizado | P2 | 🔴 |
+| LP-08 | PWA com Service Worker e manifesto | P2 | ✅ |
 
 ### 3.2 Autenticação
 
@@ -80,7 +83,7 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 | DASH-03 | Gráfico de faturamento por período | P2 | 🔴 |
 | DASH-04 | Endpoint de sumário dedicado | P2 | 🔴 |
 
-### 3.4 Catálogo de Pratos
+### 3.4 Catálogo de Pratos (Cardápio)
 
 | ID | Funcionalidade | Prioridade | Status |
 |----|---------------|------------|--------|
@@ -92,6 +95,7 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 | CAT-06 | Upload de foto do prato | P2 | 🔴 |
 | CAT-07 | Marcar disponibilidade | P1 | ✅ |
 | CAT-08 | Vincular a ciclos semanais | P2 | 🟡 |
+| CAT-09 | Ficha técnica com ingredientes dinâmicos, quantidade, preço, modo de preparo, tempo, equipamentos | P1 | ✅ |
 
 ### 3.5 Gestão de Pedidos
 
@@ -104,6 +108,8 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 | PED-05 | Atualizar status do pedido | P1 | ✅ |
 | PED-06 | Slide-out com detalhes rápidos | P1 | ✅ |
 | PED-07 | Timeline de status do pedido | P2 | 🔴 |
+| PED-08 | Novo pedido por refeições (7 ou 14 slots com proteína/carboidrato/fibra/gordura, copiar de slot, repetir anterior, favoritos, reaproveitar de pedidos anteriores) | P1 | ✅ |
+| PED-09 | Baixa automática de estoque ao marcar pedido como ENTREGUE | P1 | ✅ |
 
 ### 3.6 Gestão de Clientes
 
@@ -114,7 +120,9 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 | CLI-03 | Editar cliente | P1 | ✅ |
 | CLI-04 | Visualizar histórico de pedidos do cliente | P1 | ✅ |
 | CLI-05 | Tags nos clientes (VIP, alérgico, etc.) | P1 | ✅ |
-| CLI-06 | Preferências alimentares | P2 | 🟡 |
+| CLI-06 | Preferências alimentares | P1 | ✅ |
+| CLI-07 | Cadastro completo: rua, número, bairro, cidade, CEP, Instagram, WhatsApp, observações | P1 | ✅ |
+| CLI-08 | Refeições favoritas do cliente (montagem proteína + carbo + fibra + gordura) | P1 | ✅ |
 
 ### 3.7 Gestão de Pagamentos
 
@@ -125,6 +133,9 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 | PAG-03 | Registrar pagamento como pago | P1 | ✅ |
 | PAG-04 | Filtrar por status e método | P1 | ✅ |
 | PAG-05 | Relatório de inadimplência | P2 | 🔴 |
+| PAG-06 | Editar pagamento (método, valor, status) | P1 | ✅ |
+| PAG-07 | Excluir pagamento com confirmação | P1 | ✅ |
+| PAG-08 | Reembolso com registro de motivo e data | P1 | ✅ |
 
 ### 3.8 Ciclos Semanais
 
@@ -156,14 +167,23 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 | ASS-04 | Renovação automática | P2 | 🔴 |
 | ASS-05 | Cobrança recorrente | P2 | 🔴 |
 
-### 3.11 Gestão de Ingredientes e Estoque (Backlog)
+### 3.11 Gestão de Ingredientes e Estoque
 
 | ID | Funcionalidade | Prioridade | Status |
 |----|---------------|------------|--------|
-| ING-01 | Cadastrar ingrediente | P3 | 🔴 |
-| ING-02 | Controle de estoque (entrada/saída) | P3 | 🔴 |
+| ING-01 | Cadastrar ingrediente | P1 | ✅ |
+| ING-02 | Controle de estoque (entrada/saída) | P1 | ✅ |
 | ING-03 | Alerta de estoque baixo | P3 | 🔴 |
-| ING-04 | Vincular ingredientes a pratos (receitas) | P3 | 🔴 |
+| ING-04 | Vincular ingredientes a pratos via ficha técnica | P1 | ✅ |
+| ING-05 | Sugestão de compras: cruza pedidos CONFIRMED com fichas técnicas e estoque atual | P1 | ✅ |
+
+### 3.12 Navegação e Layout
+
+| ID | Funcionalidade | Prioridade | Status |
+|----|---------------|------------|--------|
+| NAV-01 | Navbar fixa com padding-top global que não cobre conteúdo | P1 | ✅ |
+| NAV-02 | Sidebar com navegação completa (Painel, Cardápio, Pedidos, Clientes, Pagamentos, Ciclos, Entregas, Ingredientes) | P1 | ✅ |
+| NAV-03 | Layout responsivo mobile-first com Sheet drawer | P1 | ✅ |
 
 ---
 
@@ -178,7 +198,7 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 - Autenticação JWT
 - RBAC com 3 níveis de acesso
 - Senhas com bcrypt (12 rounds)
--y HTTPS obrigatório em produção
+- HTTPS obrigatório em produção
 
 ### 4.3 Responsividade
 - Mobile-first (320px+)
@@ -206,6 +226,7 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 | Clientes ativos na plataforma | 50+ | 3 meses |
 | Pedidos por semana | 30+ | 3 meses |
 | Taxa de renovação de assinatura | > 70% | 6 meses |
+| Tempo de sugestão de compras | < 30 segundos | Imediato |
 
 ---
 
@@ -216,16 +237,25 @@ A plataforma Juliana Gaspar é um sistema de comida caseira por assinatura que c
 - RBAC completo
 - Design responsivo
 
-### Fase 2 — Crescimento (3 meses)
+### Fase 2 — v2.1 (Concluída)
+- Pedidos estruturados por refeições (7 ou 14 slots com proteína/carboidrato/fibra/gordura)
+- Ficha técnica completa por prato com ingredientes, quantidades, modo de preparo e equipamentos
+- Refeições favoritas por cliente
+- Controle de estoque com baixa automática ao concluir entrega
+- Sugestão de compras baseada em pedidos confirmados vs estoque
+- Cadastro completo de clientes (endereço, redes sociais, observações)
+- CRUD completo de pagamentos com edição, exclusão e reembolso
+- PWA (Service Worker + manifesto)
+
+### Fase 3 — Crescimento (3 meses)
 - Assinaturas (planos recorrentes)
 - Integração WhatsApp para notificações
 - Upload de fotos de pratos
 - Dashboard com gráficos
 - Relatórios financeiros
 
-### Fase 3 — Escala (6 meses)
-- Ingredientes e controle de estoque
-- PWA (instalação mobile)
+### Fase 4 — Escala (6 meses)
+- Alerta de estoque baixo
 - Programa de fidelidade
 - Portal do cliente (área logada para clientes)
 - Integração com gateway de pagamento

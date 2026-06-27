@@ -16,7 +16,7 @@ export function WeeklyMenu() {
         <div className="text-center mb-14 animate-fade-in-up">
           <span className="text-accent-700 font-medium text-sm uppercase tracking-wider">Cardápio da Semana</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-primary-900 mt-2 mb-4">Pratos da Semana</h2>
-          <p className="text-primary-600 max-w-lg mx-auto">Cardápio renovado toda semana. Ingredientes frescos, receitas exclusivas.</p>
+          <p className="text-primary-600 max-w-lg mx-auto">Cardápio renovado toda semana com proteínas, carboidratos, fibras e gorduras saudáveis.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

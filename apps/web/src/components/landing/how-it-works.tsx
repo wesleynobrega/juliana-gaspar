@@ -1,7 +1,7 @@
 import { ClipboardCheck, CookingPot, Truck } from 'lucide-react';
 
 const STEPS = [
-  { icon: ClipboardCheck, title: 'Escolha seus pratos', description: 'Todo sábado publicamos o novo cardápio. Você monta seu pedido com os pratos que mais gosta.' },
+  { icon: ClipboardCheck, title: 'Monte suas refeições', description: 'Escolha proteína, carboidrato, fibra e gordura para cada refeição. Salve seus combos favoritos para pedir mais rápido.' },
   { icon: CookingPot, title: 'Preparamos com carinho', description: 'Cozinhamos seus pratos com ingredientes frescos selecionados, no dia da entrega.' },
   { icon: Truck, title: 'Entregamos na sua casa', description: 'Entrega refrigerada nas terças e quintas em Teresina. É só aquecer e saborear!' },
 ];
@@ -12,7 +12,7 @@ export function HowItWorks() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14 animate-fade-in-up">
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-primary-900 mb-4">Como Funciona</h2>
-          <p className="text-primary-600 max-w-lg mx-auto">Simples assim: você escolhe, a gente prepara e entrega na sua casa.</p>
+          <p className="text-primary-600 max-w-lg mx-auto">Simples assim: você monta cada refeição, a gente prepara com ficha técnica e entrega na sua casa.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {STEPS.map((step, i) => (

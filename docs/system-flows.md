@@ -1,7 +1,7 @@
 # System Flows — Juliana Gaspar Platform
 
-**Última atualização:** 2026-06-16
-**Versão:** 1.0
+**Última atualização:** 2026-06-26
+**Versão:** 2.1
 
 ---
 
@@ -77,6 +77,7 @@ Cliente clica "Sair" no header
 │  3. Cozinha inicia produção → status = IN_PRODUCTION               │
 │  4. Pedido sai para entrega → status = OUT_FOR_DELIVERY            │
 │  5. Entrega concluída → status = DELIVERED                         │
+│     └─ GATILHO: deduz ingredientes do estoque automaticamente     │
 │                                                                   │
 │  Cancelamento:                                                     │
 │  • A qualquer momento antes de DELIVERED                           │
@@ -84,168 +85,499 @@ Cliente clica "Sair" no header
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-### 2.1 Criação de Pedido (Fluxo Detalhado)
+### 2.1 Criação de Pedido por Refeições (Fluxo Principal - v2.1)
 
 ```
-Admin/Operador → Página /pedidos → Clica "Novo Pedido" (ou API direta)
+Admin/Operador → Página /pedidos → Clica "Novo Pedido"
   │
-  ▼
-POST /api/orders
-Body: {
-  customerId, planType, deliveryAddress, deliveryDate?, cycleId?, notes?,
-  items: [{ dishId, quantity }]
-}
+  ├─ Sheet abre com 3 etapas (steps)
   │
-  ▼
-OrdersService.create()
+  ├─ ETAPA 1: Selecionar Cliente
+  │   ├─ Campo de busca: digita nome ou telefone
+  │   ├─ Lista filtra clientes da API: GET /api/customers?search=...
+  │   └─ Seleciona um cliente → avança para etapa 2
   │
-  ├─ 1. Busca cliente: prisma.customer.findUnique(customerId)
-  │     └─ Não encontrado → 400 "Cliente não encontrado"
+  ├─ ETAPA 2: Montar Refeições
+  │   ├─ Seleciona quantidade: 7 ou 14 refeições
+  │   │
+  │   ├─ Para cada slot (refeição 1..N):
+  │   │   ├─ Select Proteína (obrigatório) — busca GET /api/dishes?nutrientType=PROTEINA
+  │   │   ├─ Select Carboidrato (obrigatório) — busca GET /api/dishes?nutrientType=CARBOIDRATO
+  │   │   ├─ Select Fibra (obrigatório) — busca GET /api/dishes?nutrientType=FIBRA
+  │   │   ├─ Select Gordura (opcional) — busca GET /api/dishes?nutrientType=GORDURA
+  │   │   ├─ Campo de observações
+  │   │   ├─ Botão "Copiar do slot X" — copia composição de outra refeição
+  │   │   └─ Botão "Repetir anterior" — copia da refeição do slot-1
+  │   │
+  │   ├─ Aba "Favoritos" — lista favoritos do cliente:
+  │   │   └─ GET /api/customers/:id/favorites → cards com nome, composição
+  │   │       └─ Clica → preenche o slot atual com a composição favorita
+  │   │
+  │   └─ Aba "Pedidos Anteriores" — refeições de pedidos passados:
+  │       └─ GET /api/orders/previous-meals/:customerId → tabela
+  │           └─ Clica → preenche o slot atual com a composição
   │
-  ├─ 2. Busca pratos: prisma.dish.findMany({ dishIds })
-  │     └─ Quantidade divergente → 400 "Um ou mais pratos não encontrados"
+  ├─ ETAPA 3: Finalizar
+  │   ├─ Endereço de entrega (texto)
+  │   ├─ Data de entrega (date picker)
+  │   ├─ Observações gerais
+  │   └─ Resumo: N refeições, valor total estimado
   │
-  ├─ 3. Calcula totalAmount:
-  │     for each item: total += dish.price × item.quantity
-  │
-  ├─ 4. Cria pedido: prisma.order.create({
-  │     data: { customerId, cycleId, planType, totalAmount, ... },
-  │     items: { create: [{ dishId, quantity, unitPrice }] }
-  │   })
-  │
-  └─ 5. Retorna pedido completo (via findById)
-       └─ Include: customer, items com dish
+  └─ Submete: POST /api/orders/meal-based
+      Body: {
+        customerId, mealCount: 7 | 14,
+        meals: [
+          { slot: 1, proteinId, carboId, fiberId, fatId?, notes? },
+          { slot: 2, copyFromSlot: 1 },  ← resolve no backend
+          ...
+        ],
+        deliveryAddress, deliveryDate, notes?
+      }
+        │
+        ▼
+      OrdersService.createMealBased()
+        │
+        ├─ 1. Valida cliente existe → 400 se não
+        │
+        ├─ 2. Resolve copyFromSlot:
+        │     para cada meal com copyFromSlot, copia proteinId/carboId/fiberId/fatId/notes
+        │     da meal de origem; se origem não encontrada → 400
+        │
+        ├─ 3. Coleta todos os menuItemIds citados nos meals
+        │     Busca todos em lote: prisma.menuItem.findMany({ where: { id: { in: ids } } })
+        │     Monta mapa id → menuItem para acesso rápido
+        │     └─ Se algum ID não encontrado → 400
+        │
+        ├─ 4. Calcula totalAmount:
+        │     Para cada meal, soma technicalSheet.price de cada component (se existir)
+        │     Fallback: usa menuItem.price se technicalSheet ausente
+        │
+        ├─ 5. Cria pedido com refeições em transação:
+        │     prisma.order.create({
+        │       data: {
+        │         customerId, totalAmount, deliveryAddress, deliveryDate,
+        │         status: 'PENDING', planType: 'SINGLE',
+        │         meals: {
+        │           create: meals.map(m => ({
+        │             slot: m.slot,
+        │             components: {
+        │               create: [
+        │                 { menuItemId: m.proteinId, nutrientType: 'PROTEINA' },
+        │                 { menuItemId: m.carboId, nutrientType: 'CARBOIDRATO' },
+        │                 { menuItemId: m.fiberId, nutrientType: 'FIBRA' },
+        │                 ...(m.fatId ? [{ menuItemId: m.fatId, nutrientType: 'GORDURA' }] : []),
+        │               ].filter(Boolean)
+        │             }
+        │           }))
+        │         }
+        │       },
+        │       include: { meals: { include: { components: { include: { menuItem: true } } } }, customer: true }
+        │     })
+        │
+        └─ 6. Retorna pedido completo com refeições e componentes
 ```
 
-### 2.2 Atualização de Status
+### 2.2 Atualização de Status com Baixa de Estoque
 
 ```
-Admin/Operador → Detalhe do pedido → Clica botão de status
+Admin/Operador → Detalhe do pedido → Altera status para DELIVERED
   │
   ▼
 PATCH /api/orders/:id/status
-Body: { status: "IN_PRODUCTION", notes?: "Iniciando preparo" }
+Body: { status: "DELIVERED" }
   │
   ▼
 OrdersService.updateStatus()
   │
   ├─ 1. Verifica existência do pedido → 404 se não encontrado
   │
-  ├─ 2. Atualiza: prisma.order.update({ status, notes })
+  ├─ 2. Atualiza status: prisma.order.update({ status })
   │
-  └─ 3. Retorna pedido atualizado completo
+  ├─ 3. Se status === 'DELIVERED':
+  │     └─ Chama this.deductStock(order)
+  │
+  └─ 4. Retorna pedido atualizado + warnings de estoque (se houver)
+
+deductStock(order) — algoritmo:
+  │
+  ├─ 1. Busca pedido completo com meals, components, menuItem, technicalSheet, ingredients
+  │     prisma.order.findUnique({
+  │       where: { id },
+  │       include: {
+  │         meals: {
+  │           include: {
+  │             components: {
+  │               include: {
+  │                 menuItem: {
+  │                   include: {
+  │                     technicalSheet: {
+  │                       include: { ingredients: true }
+  │                     }
+  │                   }
+  │                 }
+  │               }
+  │             }
+  │           }
+  │         }
+  │       }
+  │     })
+  │
+  ├─ 2. Agrega necessidades por ingrediente:
+  │     const needed = new Map<string, number>()
+  │     for (meal of order.meals)
+  │       for (component of meal.components)
+  │         for (ing of component.menuItem.technicalSheet.ingredients)
+  │           needed.set(ing.ingredientId, (needed.get(ing.ingredientId) || 0) + ing.quantity)
+  │
+  ├─ 3. Para cada ingrediente, deduz do estoque:
+  │     for ([ingredientId, qty] of needed)
+  │       ingredient = await prisma.ingredient.findUnique(ingredientId)
+  │       if (ingredient.stockQty < qty)
+  │         warnings.push(`${ingredient.name}: estoque ${ingredient.stockQty}${ingredient.unit}, precisa ${qty}${ingredient.unit}`)
+  │       await prisma.ingredient.update({
+  │         where: { id: ingredientId },
+  │         data: { stockQty: { decrement: qty } }
+  │       })
+  │
+  └─ 4. Retorna warnings[] (não bloqueia — estoque pode ficar negativo)
 ```
 
 ---
 
-## 3. Fluxo de Pagamento
+## 3. Fluxo de Criação de Prato com Ficha Técnica
+
+```
+Admin → Página /cardapio → Clica "Novo Prato"
+  │
+  ├─ Sheet ou página de criação com formulário completo
+  │
+  ├─ Dados básicos do prato:
+  │   ├─ Nome (obrigatório)
+  │   ├─ Descrição
+  │   ├─ Tipo de nutriente: PROTEINA | CARBOIDRATO | FIBRA | GORDURA
+  │   ├─ Preço de venda (R$)
+  │   ├─ Ingredientes (texto livre)
+  │   ├─ Alérgenos (texto livre)
+  │   └─ Disponível (toggle)
+  │
+  ├─ Ficha Técnica (obrigatória):
+  │   ├─ Modo de preparo (textarea)
+  │   ├─ Tempo de preparo (texto: "45 minutos")
+  │   ├─ Equipamentos (lista dinâmica: add/remove itens)
+  │   ├─ Observações (textarea)
+  │   ├─ Preço de custo (R$)
+  │   │
+  │   └─ Ingredientes da ficha (lista dinâmica):
+  │       ├─ Select de ingrediente (busca GET /api/ingredients)
+  │       ├─ Quantidade (número)
+  │       ├─ Unidade (auto-preenchida do ingrediente)
+  │       └─ Botão remover
+  │       └─ Botão "Adicionar ingrediente"
+  │
+  └─ Submete:
+      POST /api/dishes (cria o prato)
+      PUT /api/dishes/:id/technical-sheet (salva a ficha técnica)
+        Body: {
+          preparationMethod, preparationTime,
+          equipment: ["Fogão", "Forno", "Liquidificador"],
+          notes, price,
+          ingredients: [
+            { ingredientId: "uuid-1", quantity: 200 },
+            { ingredientId: "uuid-2", quantity: 50 },
+          ]
+        }
+          │
+          ▼
+      MenuService.upsertTechnicalSheet()
+          │
+          ├─ 1. Upsert da ficha: prisma.technicalSheet.upsert({
+          │     where: { menuItemId },
+          │     create: { menuItemId, preparationMethod, ... },
+          │     update: { preparationMethod, ... }
+          │   })
+          │
+          ├─ 2. Substitui ingredientes vinculados:
+          │     await prisma.technicalSheetIngredient.deleteMany({
+          │       where: { technicalSheetId: sheet.id }
+          │     })
+          │     if (ingredients.length > 0)
+          │       await prisma.technicalSheetIngredient.createMany({
+          │         data: ingredients.map(i => ({
+          │           technicalSheetId: sheet.id,
+          │           ingredientId: i.ingredientId,
+          │           quantity: i.quantity
+          │         }))
+          │       })
+          │
+          └─ 3. Retorna ficha técnica completa com ingredients (include)
+```
+
+---
+
+## 4. Fluxo de Pagamento (Completo - v2.1)
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                    CICLO DE VIDA DO PAGAMENTO                     │
 │                                                                   │
 │                    PENDING ──────→ PAID                           │
-│                                                                   │
+│                        │              │                           │
+│                        │              └──→ REFUNDED               │
+│                        │                     │                    │
+│                        └──→ OVERDUE          │                    │
+│                                               │                    │
+│  Fluxos:                                                          │
 │  1. Admin cria pagamento vinculado a pedido: status = PENDING     │
 │  2. Cliente paga (PIX, dinheiro, cartão)                          │
 │  3. Admin registra pagamento → status = PAID                      │
-│     └─ Efeito colateral: order.paymentStatus = 'PAID'             │
+│     └─ Efeito: order.paymentStatus = 'PAID'                       │
+│  4. Admin pode editar pagamento (método, valor, status)           │
+│  5. Admin pode reembolsar → status = REFUNDED                     │
+│     └─ Efeito: order.paymentStatus = 'REFUNDED'                   │
+│     └─ Registra: refundReason, refundedAt                         │
+│  6. Admin pode excluir pagamento (ADMIN apenas, com confirmação)  │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-### 3.1 Registro de Pagamento (Fluxo Detalhado)
+### 4.1 Criação de Pagamento
 
 ```
-Admin → Página /pagamentos → Encontra pagamento PENDING → Clica "Registrar"
+Admin → Página /pagamentos → Clica "Novo Pagamento"
   │
-  ▼
-PATCH /api/payments/:id/register
-Body: { paidAt?: "2026-06-16T10:00:00Z" }
+  ├─ Sheet com formulário:
+  │   ├─ Busca e seleciona pedido (GET /api/orders?search=...)
+  │   ├─ Cliente (auto-preenchido do pedido)
+  │   ├─ Método: PIX | DINHEIRO | CARTAO
+  │   ├─ Valor (R$)
+  │   └─ Status inicial: PENDING
   │
-  ▼
-PaymentsService.register()
+  └─ Submete: POST /api/payments
+      Body: { orderId, method, amount, status }
+        │
+        ▼
+      PaymentsService.create()
+        ├─ 1. Valida pedido existe
+        ├─ 2. Cria payment: prisma.payment.create({ data: { orderId, method, amount, status } })
+        └─ 3. Sincroniza pedido se PAID: prisma.order.update({ paymentStatus: 'PAID' })
+```
+
+### 4.2 Edição de Pagamento
+
+```
+Admin → Página /pagamentos → Seleciona pagamento → Ativa modo edição
   │
-  ├─ 1. Busca pagamento → 404 se não encontrado
+  ├─ Campos editáveis:
+  │   ├─ Método (select)
+  │   ├─ Valor (input number)
+  │   └─ Status: PENDING | PAID | OVERDUE | REFUNDED
   │
-  ├─ 2. Atualiza pagamento:
-  │     prisma.payment.update({ status: 'PAID', paidAt })
+  └─ Submete: PUT /api/payments/:id
+      Body: { method?, amount?, status? }
+        │
+        ▼
+      PaymentsService.update()
+        ├─ 1. Verifica existência → 404 se não
+        ├─ 2. Atualiza campos fornecidos: prisma.payment.update(...)
+        └─ 3. Se status mudou para PAID → sincroniza pedido
+```
+
+### 4.3 Reembolso
+
+```
+Admin → Detalhe do pagamento → Clica "Reembolsar"
   │
-  └─ 3. Sincroniza pedido:
-        prisma.order.update({ paymentStatus: 'PAID' })
+  ├─ Confirmação com campo de motivo (opcional)
+  │
+  └─ Submete: POST /api/payments/:id/refund
+      Body: { reason: "Cliente cancelou pedido" }
+        │
+        ▼
+      PaymentsService.refund()
+        ├─ 1. Busca pagamento → 404 se não
+        ├─ 2. Atualiza: prisma.payment.update({
+        │     status: 'REFUNDED',
+        │     refundReason: reason,
+        │     refundedAt: new Date()
+        │   })
+        └─ 3. Sincroniza pedido: prisma.order.update({ paymentStatus: 'REFUNDED' })
+```
+
+### 4.4 Exclusão de Pagamento
+
+```
+Admin → Página /pagamentos → Seleciona pagamento → Clica "Excluir"
+  │
+  ├─ Diálogo de confirmação: "Tem certeza? Esta ação não pode ser desfeita."
+  │
+  └─ Confirma → DELETE /api/payments/:id
+        │
+        ▼
+      PaymentsService.remove()
+        ├─ 1. Verifica existência → 404 se não
+        ├─ 2. Remove: prisma.payment.delete({ where: { id } })
+        └─ 3. Atualiza pedido: paymentStatus = 'PENDING'
 ```
 
 ---
 
-## 4. Fluxo de Ciclo Semanal
+## 5. Fluxo de Sugestão de Compras
+
+```
+Admin → Página /ingredientes → Aba "Sugestão de Compras"
+  │
+  ▼
+GET /api/ingredients/purchase-suggestion
+  │
+  ▼
+IngredientsService.getPurchaseSuggestion()
+  │
+  ├─ 1. Busca todos os pedidos CONFIRMED:
+  │     prisma.order.findMany({
+  │       where: { status: 'CONFIRMED' },
+  │       include: {
+  │         meals: {
+  │           include: {
+  │             components: {
+  │               include: {
+  │                 menuItem: {
+  │                   include: {
+  │                     technicalSheet: {
+  │                       include: { ingredients: true }
+  │                     }
+  │                   }
+  │                 }
+  │               }
+  │             }
+  │           }
+  │         }
+  │       }
+  │     })
+  │
+  ├─ 2. Agrega quantidades necessárias por ingrediente:
+  │     const required = new Map<string, number>()
+  │     for (order of confirmedOrders)
+  │       for (meal of order.meals)
+  │         for (component of meal.components)
+  │           for (ing of component.menuItem.technicalSheet?.ingredients || [])
+  │             required.set(ing.ingredientId, (required.get(ing.ingredientId) || 0) + ing.quantity)
+  │
+  ├─ 3. Busca detalhes dos ingredientes:
+  │     const ingredients = await prisma.ingredient.findMany({
+  │       where: { id: { in: [...required.keys()] } }
+  │     })
+  │
+  ├─ 4. Calcula sugestão:
+  │     const items = ingredients.map(ing => ({
+  │       ingredientId: ing.id,
+  │       ingredientName: ing.name,
+  │       unit: ing.unit,
+  │       stockQty: ing.stockQty,
+  │       requiredQty: required.get(ing.id) || 0,
+  │       suggestedPurchase: Math.max(0, (required.get(ing.id) || 0) - ing.stockQty),
+  │     }))
+  │
+  └─ 5. Retorna lista ordenada por suggestedPurchase (decrescente)
+
+Frontend:
+  │
+  ├─ Tabela com colunas:
+  │   ├─ Ingrediente (name)
+  │   ├─ Unidade
+  │   ├─ Estoque atual (stockQty)
+  │   ├─ Necessário (requiredQty)
+  │   └─ Comprar (suggestedPurchase) — destaque âmbar se > 0
+  │
+  ├─ Botão "Copiar Lista":
+  │   └─ Formata texto: "• Nome: X un — Comprar: Y"
+  │   └─ navigator.clipboard.writeText(...)
+  │
+  └─ Botão "Imprimir":
+      └─ window.print()
+```
+
+---
+
+## 6. Fluxo de Cadastro de Cliente (Completo - v2.1)
+
+```
+Admin → Página /clientes → Clica "Novo Cliente"
+  │
+  ├─ Sheet com formulário completo:
+  │
+  ├─ Seção Dados Pessoais:
+  │   ├─ Nome * (obrigatório)
+  │   ├─ Telefone * (obrigatório, máscara automática)
+  │   └─ Email
+  │
+  ├─ Seção Endereço Completo:
+  │   ├─ Rua
+  │   ├─ Número
+  │   ├─ Bairro
+  │   ├─ Cidade
+  │   └─ CEP
+  │
+  ├─ Seção Redes Sociais:
+  │   ├─ Instagram (@handle)
+  │   └─ WhatsApp (com DDD)
+  │
+  ├─ Seção Preferências:
+  │   ├─ Restrições alimentares (texto)
+  │   ├─ Preferências (texto)
+  │   └─ Tags (multi-select: VIP, alérgico, vegetariano, etc.)
+  │
+  ├─ Seção Observações:
+  │   └─ Notas gerais (textarea)
+  │
+  └─ LGPD: ☐ Consentimento para uso de dados
+  │
+  └─ Submete: POST /api/customers
+      Body: { name, phone, email?, street?, number?, neighborhood?,
+              city?, zipCode?, instagram?, whatsapp?,
+              dietaryRestrictions?, preferences?, notes?, tags?,
+              lgpdConsent }
+        │
+        ▼
+      CustomersService.create()
+        ├─ 1. Valida campos obrigatórios
+        ├─ 2. Cria: prisma.customer.create({ data })
+        └─ 3. Retorna CustomerDTO completo
+
+Detalhes do cliente (visualização):
+  │
+  ├─ Sheet com todos os campos organizados em seções
+  ├─ Modo leitura com ícones por seção
+  ├─ Seção de favoritos (refeições favoritas)
+  └─ Seção de histórico de pedidos
+```
+
+---
+
+## 7. Fluxo de Ciclo Semanal
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                    CICLO SEMANAL                                  │
 │                                                                   │
-│  Segunda ──── Criar ciclo + definir pratos                       │
-│                 │                                                 │
+│  Segunda ──── Criar ciclo + definir pratos + revisar sugestão    │
+│                 │    de compras                                    │
 │  Terça-Sexta ── Clientes fazem pedidos (via admin ou sistema)    │
 │                 │                                                 │
-│  Sexta ──────── Fechar ciclo (manual)                            │
+│  Sexta ──────── Fechar ciclo (manual)                             │
 │                 │                                                 │
-│  Sábado ─────── Cozinha: IN_PRODUCTION                           │
+│  Sábado ─────── Cozinha: IN_PRODUCTION (usar fichas técnicas)    │
 │                 │                                                 │
 │  Domingo ────── Entregas: OUT_FOR_DELIVERY → DELIVERED           │
-│                 │                                                 │
-│  Segunda ────── Registrar pagamentos pendentes                   │
+│                 │    └─ Baixa automática de estoque               │
+│  Segunda ────── Registrar pagamentos, reembolsos                 │
+│                 │    └─ Conferir estoque vs sugestão de compras   │
 │                 │                                                 │
 │                 └── Novo ciclo começa                              │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-### 4.1 Criação de Ciclo (Fluxo Detalhado)
-
-```
-Admin → Página /ciclos → Clica "Novo Ciclo"
-  │
-  ▼
-POST /api/cycles
-Body: {
-  openDate: "2026-06-16T00:00:00Z",
-  closeDate: "2026-06-20T23:59:59Z",
-  deliveryDate: "2026-06-22T00:00:00Z",
-  dishIds: ["id1", "id2", "id3", "id4"]
-}
-  │
-  ▼
-CyclesService.create()
-  │
-  ├─ 1. Cria ciclo: prisma.weeklyCycle.create({
-  │     data: { openDate, closeDate, deliveryDate },
-  │     cycleDishes: { create: dishIds.map(id => ({ dishId: id })) }
-  │   })
-  │
-  └─ 2. Retorna ciclo com pratos vinculados
-```
-
-### 4.2 Edição de Ciclo
-
-```
-PUT /api/cycles/:id
-Body: { openDate?, closeDate?, deliveryDate?, dishIds? }
-  │
-  ▼
-CyclesService.update()
-  │
-  ├─ 1. Verifica existência do ciclo
-  │
-  ├─ 2. Atualiza campos de data (se fornecidos)
-  │
-  ├─ 3. Se dishIds fornecidos:
-  │     ├─ Delete todos os CycleDish existentes
-  │     └─ Create novos CycleDish com os dishIds
-  │
-  └─ 4. Retorna ciclo atualizado completo (via findById)
-```
-
 ---
 
-## 5. Fluxo de Entrega
+## 8. Fluxo de Entrega
 
 ```
 Admin → Página /entregas → Visualiza manifesto do dia
@@ -268,24 +600,9 @@ DeliveryService.getManifest()
   └─ Retorna: { date, orderCount, orders[] }
 ```
 
-### 5.1 Gestão de Zonas
-
-```
-Admin → Página /entregas
-  │
-  ├─ GET /api/delivery/zones → Lista zonas com nome, taxa, descrição
-  │
-  ├─ POST /api/delivery/zones → Criar nova zona
-  │    Body: { name: "Zona Oeste", fee: 10.0, description?: "Bairros da zona oeste" }
-  │
-  ├─ PUT /api/delivery/zones/:id → Editar zona
-  │
-  └─ DELETE /api/delivery/zones/:id → Remover zona (ADMIN apenas)
-```
-
 ---
 
-## 6. Fluxo de Dados do Dashboard
+## 9. Fluxo de Dados do Dashboard
 
 ```
 Admin acessa /painel
@@ -308,11 +625,11 @@ DashboardPage monta → useEffect chama load()
   └─ Renderiza 4 KPI cards + tabela de pedidos recentes
 ```
 
-**⚠️ Problema conhecido:** O dashboard faz 4 chamadas API. A chamada `limit=100` para cálculo de receita é ineficiente e quebra com >100 pedidos. Deveria existir um endpoint `GET /api/dashboard/summary` que retorna todos os KPIs em uma única chamada com agregação no banco (`prisma.order.aggregate`).
+**⚠️ Problema conhecido:** O dashboard faz 4 chamadas API. A chamada `limit=100` para cálculo de receita é ineficiente e quebra com >100 pedidos. Deveria existir um endpoint `GET /api/dashboard/summary` que retorna todos os KPIs em uma única chamada com agregação no banco.
 
 ---
 
-## 7. Fluxo de Dados Genérico (API Client)
+## 10. Fluxo de Dados Genérico (API Client)
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -344,7 +661,7 @@ DashboardPage monta → useEffect chama load()
 
 ---
 
-## 8. Fluxo de Autorização (RBAC)
+## 11. Fluxo de Autorização (RBAC)
 
 ```
 Requisição recebida em rota protegida
@@ -386,7 +703,7 @@ Resposta é interceptada pelo TransformInterceptor
 
 ---
 
-## 9. Fluxo de Erro
+## 12. Fluxo de Erro
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -417,7 +734,7 @@ Resposta é interceptada pelo TransformInterceptor
 
 ---
 
-## 10. Fluxo de Seed (Desenvolvimento)
+## 13. Fluxo de Seed (Desenvolvimento)
 
 ```
 pnpm prisma db seed
@@ -448,4 +765,7 @@ prisma/seed.ts → main()
 2. **O dashboard** é o único fluxo com débito técnico conhecido (4 chamadas + cálculo client-side)
 3. **O manifesto de entrega** recebe `zoneId` como parâmetro mas não o utiliza no filtro — bug conhecido
 4. **O logout** é puramente client-side — o token JWT permanece válido até expirar
-5. **Assinaturas, ingredientes e receitas** têm schemas Zod e modelos Prisma mas não têm módulos NestJS implementados
+5. **Assinaturas** têm schemas Zod e modelos Prisma mas não têm endpoints implementados
+6. **A baixa de estoque** não é transacional — se falhar no meio, alguns ingredientes já foram deduzidos
+7. **A sugestão de compras** considera apenas pedidos CONFIRMED, não IN_PRODUCTION
+8. **copyFromSlot** no backend resolve apenas referências para slots anteriores (slot < current)

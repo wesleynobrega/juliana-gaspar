@@ -4,7 +4,7 @@ import { Star } from 'lucide-react';
 const TESTIMONIALS = [
   { name: 'Ana Clara', text: 'A comida da Juliana mudou minha rotina! Prática, deliciosa e saudável. Recomendo demais!', rating: 5 },
   { name: 'Pedro Henrique', text: 'Finalmente encontrei comida saudável que tem gosto de comida de verdade. O salmão é espetacular!', rating: 5 },
-  { name: 'Maria Luiza', text: 'Desde que comecei a pedir, não me preocupo mais com almoço na semana. Cardápio variado e entrega pontual.', rating: 5 },
+  { name: 'Maria Luiza', text: 'Adoro montar minhas refeições do meu jeito. Salvei meus combos favoritos e peço em 2 minutos. Entrega sempre pontual.', rating: 5 },
 ];
 
 export function Testimonials() {

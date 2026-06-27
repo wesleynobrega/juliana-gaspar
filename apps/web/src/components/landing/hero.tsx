@@ -71,8 +71,8 @@ export function Hero() {
               className="text-base sm:text-lg text-primary-800 font-medium mb-8 max-w-md leading-relaxed animate-fade-in-up"
               style={{ animationDelay: '0.7s' }}
             >
-              Refeições saudáveis preparadas com ingredientes frescos, entregues na sua casa.
-              Cardápio que muda toda semana, sem monotonia.
+              Monte cada refeição do seu jeito: escolha proteína, carboidrato e acompanhamentos.
+              Cardápio que muda toda semana, entregue na sua casa.
             </p>
 
             {/* CTAs */}

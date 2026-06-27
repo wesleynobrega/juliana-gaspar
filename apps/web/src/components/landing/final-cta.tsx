@@ -4,7 +4,7 @@ export function FinalCTA() {
       <div className="max-w-2xl mx-auto px-4 text-center animate-fade-in-up">
         <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">Pronta para comer bem sem sair de casa?</h2>
         <p className="text-primary-100 text-lg mb-8 leading-relaxed">
-          Faça seu pedido agora e receba refeições saudáveis e deliciosas na sua casa.
+          Monte suas refeições do seu jeito e receba comida saudável e deliciosa na sua casa.
         </p>
         <a
           href="https://wa.me/5586999999999"

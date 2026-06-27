@@ -7,7 +7,8 @@ const FAQS = [
   { q: 'Preciso pedir com quanta antecedência?', a: 'Os pedidos abrem no sábado e fecham na segunda às 18h para entrega na terça. Para quinta, o prazo é quarta às 18h.' },
   { q: 'Posso congelar as refeições?', a: 'Sim! Nossas embalagens são próprias para refrigeração e congelamento. As refeições duram até 5 dias na geladeira e 30 dias no freezer.' },
   { q: 'Vocês atendem restrições alimentares?', a: 'Sim! Temos opções low carb, veganas e sem glúten. Informe suas restrições no pedido que adaptamos.' },
-  { q: 'Qual o valor mínimo do pedido?', a: 'O pedido mínimo é de R$ 50,00. Acima de R$ 100,00 o frete é grátis para a maioria dos bairros de Teresina.' },
+  { q: 'Posso montar minhas próprias refeições?', a: 'Sim! Cada refeição é montada por você: escolhe 1 proteína, 1 carboidrato, 1 fibra e 1 gordura (opcional). Dá para salvar combos favoritos e repetir pedidos anteriores.' },
+  { q: 'Qual o valor mínimo do pedido?', a: 'O pedido mínimo é de 7 refeições. Acima de R$ 100,00 o frete é grátis para a maioria dos bairros de Teresina.' },
 ];
 
 export function FAQ() {
