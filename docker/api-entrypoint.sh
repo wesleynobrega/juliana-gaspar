@@ -5,7 +5,7 @@ echo "==> Aguardando banco de dados e rodando migrations..."
 
 MAX_RETRIES=15
 RETRY=0
-until prisma migrate deploy --schema=/app/prisma/schema.prisma 2>&1; do
+until npx prisma migrate deploy --schema=/app/prisma/schema.prisma 2>&1; do
   RETRY=$((RETRY + 1))
   if [ "$RETRY" -ge "$MAX_RETRIES" ]; then
     echo "==> ERRO: migrations falharam após $MAX_RETRIES tentativas"
