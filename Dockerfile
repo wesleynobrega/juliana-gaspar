@@ -122,3 +122,4 @@ EXPOSE 80
 USER appuser
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["supervisord", "-c", "/etc/supervisord.conf"]
+
