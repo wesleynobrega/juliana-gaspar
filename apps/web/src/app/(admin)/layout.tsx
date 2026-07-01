@@ -10,9 +10,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <AuthGuard>
         <div className="min-h-screen bg-cream-50">
           <AdminHeader />
+          {/* Spacer compensates exact header height */}
+          <div className="w-full" style={{ height: '5rem' }} />
           <div className="flex">
             <AdminSidebar />
-            <main className="flex-1 p-4 md:p-6 lg:p-8 pt-20 min-h-screen">
+            <main className="flex-1 px-4 pb-6 md:px-6 md:pb-8 lg:px-8 lg:pb-10">
               {children}
             </main>
           </div>
