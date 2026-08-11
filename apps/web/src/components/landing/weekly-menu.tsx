@@ -3,10 +3,10 @@ import { Card } from '@/components/ui/card';
 import { formatCurrency } from '@/lib/utils';
 
 const DISHES = [
-  { name: 'Salmão Grelhado', description: 'Filé de salmão ao molho de maracujá, purê de batata-doce e legumes salteados', price: 32, tags: ['Low Carb', 'Sem Glúten'], image: '🐟' },
-  { name: 'Frango Parmegiana Fit', description: 'Peito de frango empanado com farinha de amêndoas, molho artesanal e queijo gratinado', price: 28, tags: ['Fit', 'Proteína'], image: '🍗' },
-  { name: 'Bowl de Quinoa Vegano', description: 'Quinoa, grão-de-bico, abacate, tomate cereja, cenoura ralada e molho tahine', price: 26, tags: ['Vegano', 'Sem Glúten'], image: '🥗' },
-  { name: 'Carne de Panela Low Carb', description: 'Carne cozida lentamente com legumes rústicos e especiarias', price: 30, tags: ['Low Carb', 'Tradicional'], image: '🥩' },
+  { name: 'Almôndegas de Patinho', description: 'Almôndegas de patinho com espaguete de abobrinha e cenoura', price: 36.90, tags: ['Fit', 'Proteína'], image: '🥩' },
+  { name: 'Filé de Frango com Ervas', description: 'Filé de frango com ervas, purê de abóbora cabotiá e salada verde', price: 34.90, tags: ['Leve', 'Saudável'], image: '🍗' },
+  { name: 'Filé Mignon com Ervas', description: 'Filé mignon grelhado ao molho de ervas com purê de mandioquinha, brócolis e cenoura no vapor', price: 49.90, tags: ['Premium', 'Low Carb'], image: '🥩' },
+  { name: 'Lasanha de Berinjela', description: 'Lasanha de berinjela com carne moída e salada verde', price: 40.90, tags: ['Caseiro', 'Funcional'], image: '🍆' },
 ];
 
 export function WeeklyMenu() {
@@ -16,7 +16,7 @@ export function WeeklyMenu() {
         <div className="text-center mb-14 animate-fade-in-up">
           <span className="text-accent-700 font-medium text-sm uppercase tracking-wider">Cardápio da Semana</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-primary-900 mt-2 mb-4">Pratos da Semana</h2>
-          <p className="text-primary-600 max-w-lg mx-auto">Cardápio renovado toda semana com proteínas, carboidratos, fibras e gorduras saudáveis.</p>
+          <p className="text-primary-600 max-w-lg mx-auto">Pratos montados pela Juliana com ingredientes frescos e preparo artesanal.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

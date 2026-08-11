@@ -168,8 +168,7 @@ function HeroTextContent() {
             style={{ animationDelay: "0.7s" }}
           >
             Monte cada refeição do seu jeito: escolha proteína, carboidrato e
-            acompanhamentos. Cardápio que muda toda semana, entregue na sua
-            casa.
+            acompanhamentos. Suas refeições da semana serão preparadas e entregues.
           </p>
 
           {/* CTAs */}
