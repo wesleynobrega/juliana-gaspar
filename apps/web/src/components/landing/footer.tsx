@@ -12,7 +12,7 @@ export function Footer() {
             <span className="font-display text-xl font-bold text-cream">Juliana Gaspar</span>
           </Link>
           <p className="text-sm text-cream-300 leading-relaxed">
-            Comida saudável e caseira, feita com ingredientes frescos e muito carinho. Entregamos em Teresina.
+            Comida saudável e caseira, feita com ingredientes frescos e muito carinho.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-accent-500 shrink-0" />
-              <span>(86) 9XXXX-XXXX</span>
+              <span>(86) 31427177</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-accent-500 shrink-0" />
