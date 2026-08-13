@@ -12,7 +12,7 @@ export function Footer() {
             <span className="font-display text-xl font-bold text-cream">Juliana Gaspar</span>
           </Link>
           <p className="text-sm text-cream-300 leading-relaxed">
-            Comida saudável e caseira, feita com ingredientes frescos e muito carinho.
+            Chef pessoal e meal prep: refeições saudáveis e caseiras, feitas com ingredientes frescos e muito carinho.
           </p>
         </div>
 
@@ -21,7 +21,7 @@ export function Footer() {
           <h4 className="font-display text-cream mb-4">Links</h4>
           <nav className="space-y-2 text-sm text-cream-300">
             <a href="#como-funciona" className="block hover:text-accent-300 transition-colors">Como Funciona</a>
-            <a href="#cardapio" className="block hover:text-accent-300 transition-colors">Cardápio da Semana</a>
+            <a href="#cardapio" className="block hover:text-accent-300 transition-colors">Cardápio</a>
             <a href="#diferenciais" className="block hover:text-accent-300 transition-colors">Diferenciais</a>
             <a href="#faq" className="block hover:text-accent-300 transition-colors">Perguntas Frequentes</a>
           </nav>

@@ -30,10 +30,10 @@ export function Header() {
             </a>
           ))}
           <a
-            href="#cardapio"
+            href="#como-funciona"
             className="inline-flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-600 text-white text-sm font-medium h-9 px-6 transition-all hover:scale-105 active:scale-95"
           >
-            Ver Cardápio
+            Agendar Meal Prep
           </a>
         </nav>
 
@@ -57,11 +57,11 @@ export function Header() {
             </a>
           ))}
           <a
-            href="#cardapio"
+            href="#como-funciona"
             onClick={() => setIsOpen(false)}
             className="block w-full text-center rounded-full bg-primary-700 hover:bg-primary-600 text-white text-sm font-medium py-2.5 mt-2 transition-all hover:scale-105 active:scale-95"
           >
-            Ver Cardápio
+            Agendar Meal Prep
           </a>
         </nav>
       )}

@@ -1,20 +1,20 @@
-import { ClipboardCheck, CookingPot, Truck } from 'lucide-react';
+import { ClipboardCheck, CookingPot, CheckCircle2 } from 'lucide-react';
 
 const STEPS = [
   {
     icon: ClipboardCheck,
-    title: 'Monte suas refeições',
-    description: 'Escolha proteína, carboidrato, fibra e gordura para cada refeição. Salve seus combos favoritos para pedir mais rápido.'
+    title: 'Plano alimentar personalizado',
+    description: 'Conversamos para entender suas necessidades e restrições. Com a orientação do seu nutricionista ou médico — ou com a experiência da chef — montamos seu plano.'
   },
   {
     icon: CookingPot,
-    title: 'Preparamos com carinho',
-    description: 'Cozinhamos seus pratos com ingredientes frescos selecionados, podemos ir à sua residência preparar. Ou pode retirar ou solicitar a entrega mediante consulta.'
+    title: 'Sessão de meal prep',
+    description: 'A chef prepara suas refeições na sua casa ou na cozinha dela, com ingredientes frescos selecionados, do jeito que você gosta.'
   },
   {
-    icon: Truck,
-    title: 'Tudo do seu jeito',
-    description: 'Combinamos o preparo das refeições e as entregas, da melhor forma para que tenha uma alimentação saudável e realmente gostosa.'
+    icon: CheckCircle2,
+    title: 'Refeições prontas',
+    description: 'Você recebe refeições saudáveis, saborosas e prontas para a semana, com praticidade e muito carinho.'
   },
 ];
 

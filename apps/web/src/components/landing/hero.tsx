@@ -167,8 +167,8 @@ function HeroTextContent() {
             className="text-base sm:text-lg text-primary-800 font-medium mb-8 max-w-md leading-relaxed animate-fade-in-up"
             style={{ animationDelay: "0.7s" }}
           >
-            Monte cada refeição do seu jeito: escolha proteína, carboidrato e
-            acompanhamentos. Suas refeições da semana serão preparadas e entregues.
+            Chef pessoal e meal prep sob medida: um plano alimentar pensado para
+            você e refeições preparadas na sua casa ou na cozinha da chef.
           </p>
 
           {/* CTAs */}
@@ -177,10 +177,10 @@ function HeroTextContent() {
             style={{ animationDelay: "0.85s" }}
           >
             <a
-              href="#cardapio"
+              href="#como-funciona"
               className="inline-flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-600 text-white text-base font-medium px-8 h-14 transition-all hover:scale-105 active:scale-95"
             >
-              Ver Cardápio da Semana
+              Agende seu Meal Prep
             </a>
             <a
               href="#como-funciona"

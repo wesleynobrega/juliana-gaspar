@@ -1,16 +1,16 @@
-# Graph Report - Juliana Gaspar  (2026-06-26)
+# Graph Report - Juliana Gaspar  (2026-08-13)
 
 ## Corpus Check
-- 203 files · ~117,112 words
+- 139 files · ~139,912 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1417 nodes · 2233 edges · 99 communities (84 shown, 15 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 28 edges (avg confidence: 0.88)
+- 1082 nodes · 1442 edges · 85 communities (69 shown, 16 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 28 edges (avg confidence: 0.88)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `267eceba`
+- Built from commit: `eb3984a4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -44,7 +44,6 @@
 - [[_COMMUNITY_Avatar UI|Avatar UI]]
 - [[_COMMUNITY_Nest CLI Config|Nest CLI Config]]
 - [[_COMMUNITY_API TypeScript Config|API TypeScript Config]]
-- [[_COMMUNITY_Tabs UI|Tabs UI]]
 - [[_COMMUNITY_Shared Config Package|Shared Config Package]]
 - [[_COMMUNITY_Contracts TypeScript Config|Contracts TypeScript Config]]
 - [[_COMMUNITY_Database TypeScript Config|Database TypeScript Config]]
@@ -66,16 +65,12 @@
 - [[_COMMUNITY_Community 52|Community 52]]
 - [[_COMMUNITY_Community 53|Community 53]]
 - [[_COMMUNITY_Community 54|Community 54]]
-- [[_COMMUNITY_Community 55|Community 55]]
 - [[_COMMUNITY_Community 56|Community 56]]
 - [[_COMMUNITY_Community 57|Community 57]]
-- [[_COMMUNITY_Community 58|Community 58]]
 - [[_COMMUNITY_Community 59|Community 59]]
 - [[_COMMUNITY_Community 60|Community 60]]
 - [[_COMMUNITY_Community 61|Community 61]]
-- [[_COMMUNITY_Community 62|Community 62]]
 - [[_COMMUNITY_Community 63|Community 63]]
-- [[_COMMUNITY_Community 64|Community 64]]
 - [[_COMMUNITY_Community 65|Community 65]]
 - [[_COMMUNITY_Community 66|Community 66]]
 - [[_COMMUNITY_Community 67|Community 67]]
@@ -92,35 +87,25 @@
 - [[_COMMUNITY_Community 78|Community 78]]
 - [[_COMMUNITY_Community 80|Community 80]]
 - [[_COMMUNITY_Community 81|Community 81]]
-- [[_COMMUNITY_Community 82|Community 82]]
-- [[_COMMUNITY_Community 83|Community 83]]
 - [[_COMMUNITY_Community 84|Community 84]]
-- [[_COMMUNITY_Community 85|Community 85]]
 - [[_COMMUNITY_Community 86|Community 86]]
 - [[_COMMUNITY_Community 87|Community 87]]
-- [[_COMMUNITY_Community 88|Community 88]]
-- [[_COMMUNITY_Community 89|Community 89]]
-- [[_COMMUNITY_Community 90|Community 90]]
 - [[_COMMUNITY_Community 91|Community 91]]
-- [[_COMMUNITY_Community 92|Community 92]]
 - [[_COMMUNITY_Community 93|Community 93]]
 - [[_COMMUNITY_Community 94|Community 94]]
 - [[_COMMUNITY_Community 95|Community 95]]
-- [[_COMMUNITY_Community 96|Community 96]]
-- [[_COMMUNITY_Community 97|Community 97]]
-- [[_COMMUNITY_Community 98|Community 98]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 86 edges
-2. `Button()` - 22 edges
-3. `Juliana Gaspar — Especificação de Arquitetura v2` - 22 edges
-4. `formatCurrency()` - 19 edges
-5. `RolesGuard` - 17 edges
-6. `ZodValidationPipe` - 17 edges
-7. `Badge()` - 17 edges
-8. `Card()` - 16 edges
-9. `Roles()` - 15 edges
-10. `JwtAuthGuard` - 15 edges
+2. `Juliana Gaspar — Especificação de Arquitetura v2` - 22 edges
+3. `Button()` - 16 edges
+4. `System Flows — Juliana Gaspar Platform` - 15 edges
+5. `MenuController` - 14 edges
+6. `MenuService` - 14 edges
+7. `compilerOptions` - 13 edges
+8. `3. Funcionalidades` - 13 edges
+9. `scripts` - 12 edges
+10. `PHASE 2: Auditoria Funcional` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Logomarca Juliana Gaspar` --conceptually_related_to--> `metadata`  [INFERRED]
@@ -141,19 +126,19 @@
 - **Mobile-First Design System: patterns that collectively implement the mobile-first paradigm across all UI surfaces** — specs_2026_06_16_juliana_gaspar_architecture_v2_mobile_first, specs_2026_06_16_juliana_gaspar_architecture_v2_card_vs_table, specs_2026_06_16_juliana_gaspar_architecture_v2_touch_targets, specs_2026_06_16_juliana_gaspar_architecture_v2_filter_pattern, specs_2026_06_16_juliana_gaspar_architecture_v2_pagination_pattern, specs_2026_06_16_juliana_gaspar_architecture_v2_navigation_pattern, specs_2026_06_16_juliana_gaspar_architecture_v2_form_multistep, specs_2026_06_16_juliana_gaspar_architecture_v2_breakpoints [INFERRED 0.95]
 - **Architecture Governance Framework: rules and checklists ensuring architectural consistency** — specs_2026_06_16_juliana_gaspar_architecture_v2_governance, specs_2026_06_16_juliana_gaspar_architecture_v2_import_hierarchy, specs_2026_06_16_juliana_gaspar_architecture_v2_feature_structure, specs_2026_06_16_juliana_gaspar_architecture_v2_antipatterns, specs_2026_06_16_juliana_gaspar_architecture_v2_definition_of_done, specs_2026_06_16_juliana_gaspar_architecture_v2_qa_checklist, specs_2026_06_16_juliana_gaspar_architecture_v2_single_source_schemas [INFERRED 0.95]
 
-## Communities (99 total, 15 thin omitted)
+## Communities (85 total, 16 thin omitted)
 
 ### Community 0 - "Delivery & Payments Module"
-Cohesion: 0.07
-Nodes (21): CustomersController, CustomersModule, CustomersService, DashboardController, DashboardModule, DashboardService, Roles(), JwtAuthGuard (+13 more)
+Cohesion: 0.20
+Nodes (7): Cliente, emptyForm, PlanoAlimentar, PlanoFormData, Label(), SheetHeader(), Skeleton()
 
 ### Community 1 - "Catalog & Core API"
-Cohesion: 0.13
-Nodes (11): CatalogController, CatalogModule, CatalogService, PrismaDish, toDishDTO(), CreateDishDTO, createDishSchema, DishDTO (+3 more)
+Cohesion: 0.15
+Nodes (4): MealPlansController, MealPlansModule, MealPlansService, toDTO()
 
 ### Community 2 - "Landing & Admin UI"
-Cohesion: 0.07
-Nodes (20): inter, metadata, playfair, RegisterSW(), Differentials(), ITEMS, FAQ(), FAQS (+12 more)
+Cohesion: 0.08
+Nodes (17): inter, metadata, playfair, Differentials(), FAQ(), FAQS, FinalCTA(), Footer() (+9 more)
 
 ### Community 3 - "Monorepo Root & Turbo"
 Cohesion: 0.05
@@ -161,11 +146,11 @@ Nodes (40): dependencies, cloudinary, devDependencies, turbo, typescript, engine
 
 ### Community 4 - "Web App Dependencies"
 Cohesion: 0.05
-Nodes (39): dependencies, @base-ui/react, class-variance-authority, clsx, date-fns, @hookform/resolvers, @juliana-gaspar/contracts, lucide-react (+31 more)
+Nodes (37): dependencies, @base-ui/react, class-variance-authority, clsx, embla-carousel-autoplay, embla-carousel-react, @hookform/resolvers, @juliana-gaspar/contracts (+29 more)
 
 ### Community 5 - "Admin Auth & API Client"
-Cohesion: 0.08
-Nodes (9): MenuController, MenuModule, MenuService, PrismaMenuItem, PrismaSpecialRequest, PrismaTechnicalSheet, toMenuItemDTO(), toSpecialRequestDTO() (+1 more)
+Cohesion: 0.09
+Nodes (8): MenuController, MenuService, PrismaMenuItem, PrismaSpecialRequest, PrismaTechnicalSheet, toMenuItemDTO(), toSpecialRequestDTO(), toTechnicalSheetDTO()
 
 ### Community 6 - "API Dependencies"
 Cohesion: 0.06
@@ -176,24 +161,24 @@ Cohesion: 0.07
 Nodes (30): NestJS API Service (Docker Compose), PostgreSQL 16 Service (Docker Compose), Next.js Web Service (Docker Compose), NestJS Auth Module (JWT login, passport-jwt, RBAC with roles guard), Milestone 1: Monorepo Foundation (turbo.json, pnpm-workspace, packages/config, packages/contracts, packages/database, Docker), Milestone 2: NestJS Backend Foundation (scaffold, auth module with JWT + RBAC), Milestone 3: NestJS Business Modules (Catalog, Orders, Customers, Cycles, Payments, Delivery), Milestone 4: Next.js Frontend Foundation (scaffold, shadcn/ui components, layout) (+22 more)
 
 ### Community 8 - "Orders Module"
-Cohesion: 0.06
-Nodes (32): OrdersController, OrdersModule, DishRow, OrderItemWithDish, OrdersService, OrderWithIncludes, CreateMealDTO, createMealSchema (+24 more)
+Cohesion: 0.14
+Nodes (3): ClientsController, ClientsModule, ClientsService
 
 ### Community 9 - "Contracts - Shared Schemas"
-Cohesion: 0.18
-Nodes (10): CreateSubscriptionDTO, createSubscriptionSchema, PauseSubscriptionDTO, pauseSubscriptionSchema, SubscriptionDTO, subscriptionSchema, SubscriptionStatus, subscriptionStatusSchema (+2 more)
+Cohesion: 0.35
+Nodes (4): Roles(), JwtAuthGuard, RolesGuard, ZodValidationPipe
 
 ### Community 10 - "Cycles Module"
-Cohesion: 0.10
-Nodes (11): CyclesController, CyclesModule, CyclesService, CreateCycleDTO, createCycleSchema, CycleStatus, cycleStatusSchema, UpdateCycleDTO (+3 more)
+Cohesion: 0.17
+Nodes (4): MealPrepSessionsService, toDTO(), BASE_KEY, PricingService
 
 ### Community 11 - "Customers Module"
-Cohesion: 0.24
-Nodes (11): PedidoCard(), PedidosLista(), Props, PedidosTabela(), useMediaQuery(), usePedidos(), UsePedidosReturn, PedidosPage() (+3 more)
+Cohesion: 0.18
+Nodes (10): CreateMealPrepSessionDTO, createMealPrepSessionSchema, MealPrepLocal, mealPrepLocalSchema, MealPrepSessionDTO, mealPrepSessionSchema, MealPrepStatus, mealPrepStatusSchema (+2 more)
 
 ### Community 12 - "Auth Module"
-Cohesion: 0.13
-Nodes (12): AuthController, AuthModule, AuthService, AuthResponse, authResponseSchema, LoginDTO, loginSchema, RegisterDTO (+4 more)
+Cohesion: 0.14
+Nodes (11): AuthController, AuthService, AuthResponse, authResponseSchema, LoginDTO, loginSchema, RegisterDTO, registerSchema (+3 more)
 
 ### Community 13 - "shadcn/ui Config"
 Cohesion: 0.09
@@ -204,20 +189,24 @@ Cohesion: 0.09
 Nodes (22): dependencies, bcryptjs, dotenv, @prisma/client, tsx, devDependencies, @juliana-gaspar/config, prisma (+14 more)
 
 ### Community 15 - "Admin Header & Dropdowns"
-Cohesion: 0.13
-Nodes (14): AdminHeader(), BREADCRUMB_MAP, getBreadcrumb(), DropdownMenu(), DropdownMenuCheckboxItem(), DropdownMenuContent(), DropdownMenuItem(), DropdownMenuLabel() (+6 more)
+Cohesion: 0.17
+Nodes (10): AuthGuard(), AdminSidebar(), ApiError, AuthContext, AuthContextType, AuthProvider(), useAuth(), User (+2 more)
 
 ### Community 16 - "Select & Table UI"
-Cohesion: 0.16
-Nodes (17): cn(), CardAction(), CardDescription(), CardFooter(), DialogOverlay(), Separator(), SheetDescription(), SheetFooter() (+9 more)
+Cohesion: 0.22
+Nodes (8): CreatePlanoAlimentarDTO, createPlanoAlimentarSchema, PlanoAlimentarDTO, planoAlimentarSchema, PlanoOrigem, planoOrigemSchema, UpdatePlanoAlimentarDTO, updatePlanoAlimentarSchema
 
 ### Community 17 - "Admin Sidebar & Sheet"
-Cohesion: 0.09
-Nodes (22): NAV_ITEMS, CiclosPage(), Cycle, CycleDishRef, DishOption, nextLabel, nextStatus, statusColor (+14 more)
+Cohesion: 0.13
+Nodes (16): NAV_ITEMS, KEY_LABELS, PrecoFormData, PricingConfig, Button(), buttonVariants, EmptyState(), EmptyStateProps (+8 more)
 
 ### Community 18 - "App Shell & Branding"
 Cohesion: 0.05
 Nodes (40): 3.1 — Barrels e Exports, 3.2 — types/index.ts, 3.3 — schemas/pedido.schema.ts (forms internos do admin — DTO de API usa contracts), 3.4 — services/pedidos.service.ts, 3.5 — hooks/use-pedidos.ts, 3.6 — components/pedido-card.tsx, 3.7 — components/pedidos-lista.tsx, 3.8 — Página `app/(admin)/pedidos/page.tsx` (+32 more)
+
+### Community 19 - "Utility Components"
+Cohesion: 0.29
+Nodes (6): ClienteDTO, clienteSchema, CreateClienteDTO, createClienteSchema, UpdateClienteDTO, updateClienteSchema
 
 ### Community 20 - "Base TypeScript Config"
 Cohesion: 0.14
@@ -244,8 +233,8 @@ Cohesion: 0.20
 Nodes (9): compilerOptions, allowJs, baseUrl, paths, exclude, extends, include, @/* (+1 more)
 
 ### Community 26 - "Avatar UI"
-Cohesion: 0.16
-Nodes (14): FiltrosPedidos(), PAYMENT_OPTIONS, PLAN_OPTIONS, Props, STATUS_OPTIONS, SelectContent(), SelectGroup(), SelectItem() (+6 more)
+Cohesion: 0.06
+Nodes (45): AdminHeader(), BREADCRUMB_MAP, getBreadcrumb(), cn(), Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup() (+37 more)
 
 ### Community 27 - "Nest CLI Config"
 Cohesion: 0.33
@@ -254,10 +243,6 @@ Nodes (5): collection, compilerOptions, deleteOutDir, $schema, sourceRoot
 ### Community 28 - "API TypeScript Config"
 Cohesion: 0.33
 Nodes (5): compilerOptions, baseUrl, outDir, extends, include
-
-### Community 29 - "Tabs UI"
-Cohesion: 0.16
-Nodes (4): DeliveryController, DeliveryModule, DeliveryService, CreateDeliveryZoneDTO
 
 ### Community 30 - "Shared Config Package"
 Cohesion: 0.40
@@ -275,13 +260,9 @@ Nodes (6): compilerOptions, module, moduleResolution, outDir, extends, include
 Cohesion: 0.40
 Nodes (5): Prohibited Anti-Patterns: feature cross-imports, app/ business logic, duplicated Zod schemas, hover-only actions, horizontal data scroll, Definition of Done: 16-point checklist covering responsive breakpoints, UI states, accessibility, validation, and semantic HTML, Architecture Governance: feature creation checklist, shared extraction rules, minimum feature requirements, QA Checklist: 15-item mobile validation checklist tested on real device or DevTools at 320px and 375px, Mandatory UI States: Loading (skeleton), Empty with CTA, Error with retry, Success toast, Disabled visual
 
-### Community 34 - "Database Seed"
-Cohesion: 0.60
-Nodes (4): main(), nextDay(), nextMonday(), prisma
-
 ### Community 36 - "Toast Notifications"
-Cohesion: 0.14
-Nodes (3): IngredientsController, IngredientsModule, IngredientsService
+Cohesion: 0.17
+Nodes (12): MEAL_PREP_LOCAL_LABELS, MEAL_PREP_STATUS_COLORS, MEAL_PREP_STATUS_LABELS, PLANO_ORIGEM_LABELS, Cliente, emptyForm, MealPrepFormData, MealPrepSession (+4 more)
 
 ### Community 37 - "Root Page"
 Cohesion: 0.05
@@ -291,45 +272,29 @@ Nodes (38): 1.1 TypeScript, 1.2 Testes, 1.3 CI/CD, 1.4 Scripts, 1.5 Variáveis d
 Cohesion: 0.06
 Nodes (35): Iniciar banco de dados, Iniciar desenvolvimento, Instalar dependências, Juliana Gaspar — Plano de Implementação Phase 1, MILESTONE 1: Fundação do Monorepo, MILESTONE 2: Backend NestJS — Fundação, MILESTONE 3: Backend NestJS — Módulos de Negócio, MILESTONE 4: Frontend Next.js — Fundação (+27 more)
 
-### Community 49 - "Community 49"
-Cohesion: 0.13
-Nodes (23): PedidoDetalhesSheet(), Props, colorByStatus, PedidoStatusBadge(), Props, variantByStatus, Props, DISHES (+15 more)
-
 ### Community 50 - "Community 50"
-Cohesion: 0.10
-Nodes (19): Customer, CustomerFormData, emptyForm, DeliveryManifestOrder, DeliveryZone, emptyForm, emptyForm, Ingredient (+11 more)
+Cohesion: 0.14
+Nodes (10): Cliente, ClienteFormData, emptyForm, Dialog(), DialogContent(), DialogDescription(), DialogFooter(), DialogHeader() (+2 more)
 
 ### Community 51 - "Community 51"
 Cohesion: 0.06
-Nodes (31): 1.1 Problema que Resolve, 1.2 Proposta de Valor, 1. Visão do Produto, 2.1 Admin (Juliana Gaspar), 2.2 Operador, 2.3 Cliente, 2. Personas, 3.10 Assinaturas (Backlog) (+23 more)
+Nodes (33): 1.1 Problema que Resolve, 1.2 Proposta de Valor, 1. Visão do Produto, 2.1 Admin (Juliana Gaspar), 2.2 Operador, 2.3 Cliente, 2. Personas, 3.10 Assinaturas (Backlog) (+25 more)
 
 ### Community 52 - "Community 52"
-Cohesion: 0.20
-Nodes (12): CatalogoPage(), Props, PratoCard(), Props, PratosLista(), Props, useCatalogo(), UseCatalogoReturn (+4 more)
+Cohesion: 0.16
+Nodes (15): ITEMS, DISHES, WeeklyMenu(), formatDate(), DashboardPage(), MealPrepSessionDTO, Badge(), badgeVariants (+7 more)
 
 ### Community 53 - "Community 53"
 Cohesion: 0.07
-Nodes (27): 1.1 Escopo, 1.2 Stack Tecnológica, 1.3 Estrutura do Monorepo, 1. Introdução, 2.1 Diagrama de Camadas, 2.2 Estrutura de Módulos (NestJS), 2.3 Estrutura de Rotas (Next.js App Router), 2. Arquitetura (+19 more)
-
-### Community 54 - "Community 54"
-Cohesion: 0.09
-Nodes (11): PaymentsController, PaymentsModule, PaymentsService, CreatePaymentDTO, createPaymentSchema, PaymentDTO, PaymentMethod, paymentMethodSchema (+3 more)
-
-### Community 55 - "Community 55"
-Cohesion: 0.17
-Nodes (10): AuthGuard(), AdminSidebar(), ApiError, AuthContext, AuthContextType, AuthProvider(), useAuth(), User (+2 more)
+Nodes (29): 1.1 Escopo, 1.2 Stack Tecnológica, 1.3 Estrutura do Monorepo, 1. Introdução, 2.1 Diagrama de Camadas, 2.2 Estrutura de Módulos (NestJS), 2.3 Estrutura de Rotas (Next.js App Router), 2. Arquitetura (+21 more)
 
 ### Community 56 - "Community 56"
 Cohesion: 0.10
-Nodes (19): 1.1 Objetivos de Negócio, 1.2 Stakeholders, 1. Sumário Executivo, 2.1 Receita, 2.2 Estrutura de Custos, 2.3 Fluxo de Negócio (Semanal), 2. Modelo de Negócio, 3.1 Gestão de Cardápio (+11 more)
+Nodes (20): 1.1 Objetivos de Negócio, 1.2 Stakeholders, 1. Sumário Executivo, 2.1 Receita, 2.2 Estrutura de Custos, 2.3 Fluxo de Negócio (Semanal), 2. Modelo de Negócio, 3.1 Gestão de Cardápio (+12 more)
 
 ### Community 57 - "Community 57"
-Cohesion: 0.10
-Nodes (19): 10. Fluxo de Seed (Desenvolvimento), 1.1 Fluxo de Logout, 1. Fluxo de Autenticação, 2.1 Criação de Pedido (Fluxo Detalhado), 2.2 Atualização de Status, 2. Fluxo de Pedido (Order Lifecycle), 3.1 Registro de Pagamento (Fluxo Detalhado), 3. Fluxo de Pagamento (+11 more)
-
-### Community 58 - "Community 58"
-Cohesion: 0.20
-Nodes (7): DishFormData, dishFormSchema, PratoForm(), Props, Checkbox(), Skeleton(), Textarea()
+Cohesion: 0.09
+Nodes (22): 10. Fluxo de Dados Genérico (API Client), 11. Fluxo de Autorização (RBAC), 12. Fluxo de Erro, 13. Fluxo de Seed (Desenvolvimento), 1.1 Fluxo de Logout, 1. Fluxo de Autenticação, 2.1 Criação de Pedido por Refeições (Fluxo Principal - v2.1), 2.2 Atualização de Status com Baixa de Estoque (+14 more)
 
 ### Community 59 - "Community 59"
 Cohesion: 0.17
@@ -343,17 +308,9 @@ Nodes (9): FormControl, FormDescription, FormFieldContext, FormFieldContextValue
 Cohesion: 0.20
 Nodes (10): 3.1 — Regra geral, 3.2 — `features/admin/pedidos/index.ts` (barrel), 3.3 — `features/admin/pedidos/types/index.ts`, 3.4 — `features/admin/pedidos/schemas/pedido.schema.ts`, 3.5 — `features/admin/pedidos/services/pedidos.service.ts`, 3.6 — `features/admin/pedidos/hooks/use-pedidos.ts`, 3.7 — `features/admin/pedidos/components/pedido-card.tsx`, 3.8 — `features/admin/pedidos/components/pedidos-lista.tsx` (+2 more)
 
-### Community 62 - "Community 62"
-Cohesion: 0.14
-Nodes (3): SubscriptionsController, SubscriptionsService, toSubscriptionDTO()
-
 ### Community 63 - "Community 63"
 Cohesion: 0.25
 Nodes (8): 8.1 — Listagens: quando card, quando tabela?, 8.2 — Metadados obrigatórios no card mobile, 8.3 — Filtros por breakpoint, 8.4 — Paginação por breakpoint, 8.5 — Busca por breakpoint, 8.6 — Drawers, Sheets, Dialogs: quando usar cada um?, 8.7 — Regras PROIBIDAS em smartphone, Seção 8 — Comportamento Responsivo Obrigatório
-
-### Community 64 - "Community 64"
-Cohesion: 0.21
-Nodes (5): CapacityModule, CapacityService, PrismaWaitlistEntry, toWaitlistEntryDTO(), SubscriptionsModule
 
 ### Community 65 - "Community 65"
 Cohesion: 0.33
@@ -407,77 +364,41 @@ Nodes (3): HttpExceptionFilter, TransformInterceptor, AppModule
 Cohesion: 0.36
 Nodes (3): HealthController, HealthModule, HealthService
 
-### Community 82 - "Community 82"
-Cohesion: 0.31
-Nodes (5): PratosTabela(), Props, Button(), buttonVariants, Props
-
-### Community 83 - "Community 83"
-Cohesion: 0.16
-Nodes (5): NutritionPdfController, NutritionPdfModule, NutritionPdfService, PrismaPlan, toPlanDTO()
-
-### Community 85 - "Community 85"
-Cohesion: 0.14
-Nodes (7): MealsController, MealsModule, ComponentRow, MealsService, MealWithComponents, recalcOrderTotal(), toMealDTO()
-
 ### Community 86 - "Community 86"
 Cohesion: 0.18
 Nodes (10): background_color, description, display, icons, lang, name, orientation, short_name (+2 more)
 
 ### Community 87 - "Community 87"
-Cohesion: 0.22
-Nodes (6): DashboardSummaryDTO, dashboardSummarySchema, NutritionistPlanDTO, nutritionistPlanSchema, UploadPdfDTO, uploadPdfSchema
-
-### Community 88 - "Community 88"
-Cohesion: 0.29
-Nodes (6): CapacityStatusDTO, capacityStatusSchema, CreateWaitlistEntryDTO, createWaitlistEntrySchema, WaitlistEntryDTO, waitlistEntrySchema
-
-### Community 89 - "Community 89"
-Cohesion: 0.29
-Nodes (6): CreateIngredientDTO, createIngredientSchema, IngredientDTO, ingredientSchema, UpdateIngredientDTO, updateIngredientSchema
-
-### Community 90 - "Community 90"
-Cohesion: 0.29
-Nodes (6): CreateRecipeItemDTO, createRecipeItemSchema, RecipeItemDTO, recipeItemSchema, UpdateRecipeItemDTO, updateRecipeItemSchema
+Cohesion: 0.33
+Nodes (4): PricingConfigDTO, pricingConfigSchema, UpdatePricingConfigDTO, updatePricingConfigSchema
 
 ### Community 91 - "Community 91"
-Cohesion: 0.29
-Nodes (6): Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup(), AvatarGroupCount(), AvatarImage()
-
-### Community 92 - "Community 92"
-Cohesion: 0.40
-Nodes (3): ApiError, apiErrorSchema, PaginatedResponse
+Cohesion: 0.24
+Nodes (5): AuthModule, MealPrepSessionsModule, MenuModule, PricingConfigController, PricingConfigModule
 
 ### Community 93 - "Community 93"
-Cohesion: 0.14
-Nodes (10): CapacityIndicatorProps, CapacityStatus, MenuItemDTO, NUTRIENT_BADGES, NUTRIENT_LABELS, NutrientType, TABS, TechnicalSheetDTO (+2 more)
-
-### Community 97 - "Community 97"
-Cohesion: 0.40
-Nodes (5): Tabs(), TabsContent(), TabsList(), tabsListVariants, TabsTrigger()
-
-### Community 98 - "Community 98"
-Cohesion: 0.50
-Nodes (3): createDeliveryZoneSchema, DeliveryZoneDTO, deliveryZoneSchema
+Cohesion: 0.17
+Nodes (9): MenuItemDTO, NUTRIENT_BADGES, NUTRIENT_LABELS, NutrientType, TABS, TechnicalSheetDTO, formatCurrency(), Input() (+1 more)
 
 ## Knowledge Gaps
-- **634 isolated node(s):** `.test-db.sh script`, `DATABASE_URL`, `$schema`, `collection`, `sourceRoot` (+629 more)
+- **569 isolated node(s):** `.test-db.sh script`, `DATABASE_URL`, `$schema`, `collection`, `sourceRoot` (+564 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `OrderDTO` connect `Orders Module` to `Community 49`, `Customers Module`?**
-  _High betweenness centrality (0.146) - this node is a cross-community bridge._
-- **Why does `cn()` connect `Select & Table UI` to `Community 97`, `Avatar UI`, `Admin Header & Dropdowns`, `Admin Sidebar & Sheet`, `Community 49`, `Community 82`, `Community 52`, `Community 50`, `Utility Components`, `Community 55`, `Community 58`, `Community 91`, `Community 60`, `Community 93`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Avatar UI` to `Delivery & Payments Module`, `Toast Notifications`, `Admin Header & Dropdowns`, `Admin Sidebar & Sheet`, `Community 50`, `Community 52`, `Community 60`, `Community 93`?**
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **What connects `.test-db.sh script`, `DATABASE_URL`, `$schema` to the rest of the system?**
-  _649 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Delivery & Payments Module` be split into smaller, more focused modules?**
-  _Cohesion score 0.07027027027027027 - nodes in this community are weakly interconnected._
-- **Should `Catalog & Core API` be split into smaller, more focused modules?**
-  _Cohesion score 0.12535612535612536 - nodes in this community are weakly interconnected._
+  _584 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Landing & Admin UI` be split into smaller, more focused modules?**
-  _Cohesion score 0.07057057057057058 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07575757575757576 - nodes in this community are weakly interconnected._
 - **Should `Monorepo Root & Turbo` be split into smaller, more focused modules?**
   _Cohesion score 0.047619047619047616 - nodes in this community are weakly interconnected._
+- **Should `Web App Dependencies` be split into smaller, more focused modules?**
+  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
+- **Should `Admin Auth & API Client` be split into smaller, more focused modules?**
+  _Cohesion score 0.08602150537634409 - nodes in this community are weakly interconnected._
+- **Should `API Dependencies` be split into smaller, more focused modules?**
+  _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._

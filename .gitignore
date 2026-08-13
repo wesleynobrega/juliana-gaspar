@@ -7,3 +7,4 @@ dist/
 *.log
 .superpowers/
 .DS_Store
+graphify-out/cache/ast/

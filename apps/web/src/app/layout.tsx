@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     template: '%s | Juliana Gaspar',
   },
   description:
-    'Refeições saudáveis preparadas com ingredientes frescos, entregues na sua casa em Teresina. Cardápio que muda toda semana, sem monotonia.',
+    'Chef pessoal e meal prep em Teresina: plano alimentar personalizado e refeições saudáveis preparadas na sua casa ou na cozinha da chef.',
   keywords: [
+    'chef pessoal',
+    'meal prep',
     'comida saudável',
     'refeições artesanais',
     'Teresina',
-    'marmita fit',
-    'comida caseira',
     'cozinha afetiva',
   ],
   openGraph: {

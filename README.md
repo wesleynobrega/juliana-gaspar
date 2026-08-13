@@ -1,6 +1,6 @@
 # Juliana Gaspar
 
-Plataforma de comida artesanal por assinatura — Teresina, PI.
+Chef pessoal e meal prep sob medida — Teresina, PI. Plano alimentar personalizado (com orientação de profissional de saúde ou experiência da chef), sessões de meal prep na casa do cliente ou na cozinha da chef, e configuração de preços centralizada.
 
 ## Setup
 

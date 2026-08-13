@@ -6,19 +6,17 @@ import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import {
-  LayoutDashboard, UtensilsCrossed, ShoppingCart, Users, CreditCard,
-  RefreshCw, Truck, Menu, ChefHat, ChevronLeft, Milk,
+  LayoutDashboard, Users, ChefHat, CalendarClock,
+  ClipboardList, DollarSign, Menu, ChevronLeft,
 } from 'lucide-react';
 
 const NAV_ITEMS = [
   { href: '/painel', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/catalogo', label: 'Catálogo', icon: UtensilsCrossed },
-  { href: '/cardapio', label: 'Cardápio', icon: ChefHat },
-  { href: '/pedidos', label: 'Pedidos', icon: ShoppingCart },
   { href: '/clientes', label: 'Clientes', icon: Users },
-  { href: '/pagamentos', label: 'Pagamentos', icon: CreditCard },
-  { href: '/entregas', label: 'Entregas', icon: Truck },
-  { href: '/ingredients', label: 'Ingredientes', icon: Milk },
+  { href: '/planos', label: 'Planos Alimentares', icon: ClipboardList },
+  { href: '/meal-prep', label: 'Meal Prep', icon: CalendarClock },
+  { href: '/cardapio', label: 'Cardápio', icon: ChefHat },
+  { href: '/precos', label: 'Preços', icon: DollarSign },
 ];
 
 export function AdminSidebar() {

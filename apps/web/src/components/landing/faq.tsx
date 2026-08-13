@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const FAQS = [
-  { q: 'Como funcionam as entregas?', a: 'Entregamos nas terças e quintas em Teresina. Os pedidos são refrigerados em caixas térmicas. Você recebe no conforto da sua casa.' },
-  { q: 'Preciso pedir com quanta antecedência?', a: 'Os pedidos abrem no sábado e fecham na segunda às 18h para entrega na terça. Para quinta, o prazo é quarta às 18h.' },
-  { q: 'Posso congelar as refeições?', a: 'Sim! Nossas embalagens são próprias para refrigeração e congelamento. As refeições duram até 5 dias na geladeira e 30 dias no freezer.' },
-  { q: 'Vocês atendem restrições alimentares?', a: 'Sim! Temos opções low carb, veganas e sem glúten. Informe suas restrições no pedido que adaptamos.' },
-  { q: 'Posso montar minhas próprias refeições?', a: 'Sim! Cada refeição é montada por você: escolhe 1 proteína, 1 carboidrato, 1 fibra e 1 gordura (opcional). Dá para salvar combos favoritos e repetir pedidos anteriores.' },
-  { q: 'Qual o valor mínimo do pedido?', a: 'O pedido mínimo é de 7 refeições. Acima de R$ 100,00 o frete é grátis para a maioria dos bairros de Teresina.' },
+  { q: 'Como funciona o serviço de chef pessoal?', a: 'A Juliana monta um plano alimentar personalizado para você — com base na orientação do seu nutricionista ou médico, ou na experiência dela — e prepara suas refeições em sessões de meal prep, na sua casa ou na cozinha da chef.' },
+  { q: 'Onde acontece o meal prep?', a: 'Você escolhe: no conforto da sua casa ou na cozinha da chef. Cada opção tem um valor próprio, e você pode adicionar o serviço de compras para não se preocupar com os ingredientes.' },
+  { q: 'Preciso de orientação de um profissional de saúde?', a: 'Não é obrigatório. Você pode trazer a orientação do seu nutricionista ou médico, ou confiar na experiência da chef para montar um plano que combine com seus objetivos e restrições.' },
+  { q: 'Vocês atendem restrições alimentares?', a: 'Sim! Adaptamos o plano e as preparações para restrições, alergias e preferências — low carb, vegano, sem glúten e muito mais.' },
+  { q: 'Quanto tempo duram as refeições?', a: 'As refeições ficam frescas na geladeira por até 5 dias e podem ser congeladas por até 30 dias, em embalagens próprias.' },
+  { q: 'Como faço para agendar?', a: 'É só chamar no WhatsApp e combinar o melhor dia e local para a sua sessão de meal prep.' },
 ];
 
 export function FAQ() {

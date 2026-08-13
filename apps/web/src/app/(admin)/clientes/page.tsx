@@ -35,7 +35,7 @@ import {
   StickyNote,
 } from 'lucide-react';
 
-interface Customer {
+interface Cliente {
   id: string;
   name: string;
   phone: string | null;
@@ -49,12 +49,14 @@ interface Customer {
   whatsapp: string | null;
   dietaryRestrictions: string | null;
   preferences: string | null;
+  healthProfessionalName: string | null;
+  healthProfessionalSpecialty: string | null;
   lgpdConsent: boolean;
   tags: string[];
   notes: string | null;
 }
 
-interface CustomerFormData {
+interface ClienteFormData {
   name: string;
   phone: string;
   email: string;
@@ -67,12 +69,13 @@ interface CustomerFormData {
   whatsapp: string;
   dietaryRestrictions: string;
   preferences: string;
+  healthProfessionalName: string;
+  healthProfessionalSpecialty: string;
   lgpdConsent: boolean;
-  tags: string;
   notes: string;
 }
 
-const emptyForm: CustomerFormData = {
+const emptyForm: ClienteFormData = {
   name: '',
   phone: '',
   email: '',
@@ -85,12 +88,13 @@ const emptyForm: CustomerFormData = {
   whatsapp: '',
   dietaryRestrictions: '',
   preferences: '',
+  healthProfessionalName: '',
+  healthProfessionalSpecialty: '',
   lgpdConsent: false,
-  tags: '',
   notes: '',
 };
 
-function customerToForm(c: Customer): CustomerFormData {
+function clienteToForm(c: Cliente): ClienteFormData {
   return {
     name: c.name,
     phone: c.phone ?? '',
@@ -104,13 +108,14 @@ function customerToForm(c: Customer): CustomerFormData {
     whatsapp: c.whatsapp ?? '',
     dietaryRestrictions: c.dietaryRestrictions ?? '',
     preferences: c.preferences ?? '',
+    healthProfessionalName: c.healthProfessionalName ?? '',
+    healthProfessionalSpecialty: c.healthProfessionalSpecialty ?? '',
     lgpdConsent: c.lgpdConsent,
-    tags: c.tags?.join(', ') ?? '',
     notes: c.notes ?? '',
   };
 }
 
-function buildPayload(form: CustomerFormData) {
+function buildPayload(form: ClienteFormData) {
   return {
     name: form.name,
     phone: form.phone || null,
@@ -124,8 +129,9 @@ function buildPayload(form: CustomerFormData) {
     whatsapp: form.whatsapp || null,
     dietaryRestrictions: form.dietaryRestrictions || null,
     preferences: form.preferences || null,
+    healthProfessionalName: form.healthProfessionalName || null,
+    healthProfessionalSpecialty: form.healthProfessionalSpecialty || null,
     lgpdConsent: form.lgpdConsent,
-    tags: form.tags ? form.tags.split(',').map((t) => t.trim()).filter(Boolean) : [],
     notes: form.notes || null,
   };
 }
@@ -140,17 +146,17 @@ function formatPhone(v: string): string {
 }
 
 export default function ClientesPage() {
-  const [clientes, setClientes] = useState<Customer[]>([]);
+  const [clientes, setClientes] = useState<Cliente[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
-  const [form, setForm] = useState<CustomerFormData>(emptyForm);
+  const [form, setForm] = useState<ClienteFormData>(emptyForm);
   const [confirmOpen, setConfirmOpen] = useState(false);
-  const [deleteTarget, setDeleteTarget] = useState<Customer | null>(null);
-  const [detailCustomer, setDetailCustomer] = useState<Customer | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<Cliente | null>(null);
+  const [detailCliente, setDetailCustomer] = useState<Cliente | null>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleSearchChange = (value: string) => {
@@ -165,7 +171,7 @@ export default function ClientesPage() {
     try {
       const params = new URLSearchParams({ limit: '100' });
       if (debouncedSearch) params.set('search', debouncedSearch);
-      const res = await api.get<{ data: Customer[] }>(`/customers?${params.toString()}`);
+      const res = await api.get<{ data: Cliente[] }>(`/clients?${params.toString()}`);
       setClientes(res.data ?? []);
     } catch {
       setError('Nao foi possivel carregar os clientes.');
@@ -184,13 +190,13 @@ export default function ClientesPage() {
     setSheetOpen(true);
   };
 
-  const openEdit = (c: Customer) => {
+  const openEdit = (c: Cliente) => {
     setEditingId(c.id);
-    setForm(customerToForm(c));
+    setForm(clienteToForm(c));
     setSheetOpen(true);
   };
 
-  const openDetail = (c: Customer) => {
+  const openDetail = (c: Cliente) => {
     setDetailCustomer(c);
   };
 
@@ -211,10 +217,10 @@ export default function ClientesPage() {
     try {
       const payload = buildPayload(form);
       if (editingId) {
-        await api.put(`/customers/${editingId}`, payload);
+        await api.put(`/clients/${editingId}`, payload);
         toast.success('Cliente atualizado com sucesso!');
       } else {
-        await api.post('/customers', payload);
+        await api.post('/clients', payload);
         toast.success('Cliente criado com sucesso!');
       }
       setSheetOpen(false);
@@ -224,15 +230,15 @@ export default function ClientesPage() {
     }
   };
 
-  const handleDeleteClick = (customer: Customer) => {
-    setDeleteTarget(customer);
+  const handleDeleteClick = (cliente: Cliente) => {
+    setDeleteTarget(cliente);
     setConfirmOpen(true);
   };
 
   const handleDeleteConfirm = async () => {
     if (!deleteTarget) return;
     try {
-      await api.delete(`/customers/${deleteTarget.id}`);
+      await api.delete(`/clients/${deleteTarget.id}`);
       toast.success('Cliente removido com sucesso!');
       setDetailCustomer(null);
       load();
@@ -344,53 +350,53 @@ export default function ClientesPage() {
       )}
 
       {/* Detail Sheet */}
-      <Sheet open={!!detailCustomer} onOpenChange={(open) => { if (!open) setDetailCustomer(null); }}>
+      <Sheet open={!!detailCliente} onOpenChange={(open) => { if (!open) setDetailCustomer(null); }}>
         <SheetContent side="right" className="w-full sm:max-w-md bg-cream overflow-y-auto">
           <SheetHeader>
             <SheetTitle className="font-display text-lg text-primary-900">
-              {detailCustomer?.name}
+              {detailCliente?.name}
             </SheetTitle>
           </SheetHeader>
-          {detailCustomer && (
+          {detailCliente && (
             <div className="space-y-4 mt-4">
               {/* Contact */}
               <div className="space-y-2">
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-primary-400">Contato</h4>
-                {detailCustomer.phone && (
+                {detailCliente.phone && (
                   <p className="text-sm flex items-center gap-2 text-primary-700">
-                    <Phone className="w-4 h-4 text-primary-400" /> {detailCustomer.phone}
+                    <Phone className="w-4 h-4 text-primary-400" /> {detailCliente.phone}
                   </p>
                 )}
-                {detailCustomer.email && (
+                {detailCliente.email && (
                   <p className="text-sm flex items-center gap-2 text-primary-700">
-                    <Mail className="w-4 h-4 text-primary-400" /> {detailCustomer.email}
+                    <Mail className="w-4 h-4 text-primary-400" /> {detailCliente.email}
                   </p>
                 )}
-                {detailCustomer.whatsapp && (
+                {detailCliente.whatsapp && (
                   <p className="text-sm flex items-center gap-2 text-primary-700">
-                    <MessageCircle className="w-4 h-4 text-primary-400" /> {detailCustomer.whatsapp}
+                    <MessageCircle className="w-4 h-4 text-primary-400" /> {detailCliente.whatsapp}
                   </p>
                 )}
-                {detailCustomer.instagram && (
+                {detailCliente.instagram && (
                   <p className="text-sm flex items-center gap-2 text-primary-700">
-                    <Instagram className="w-4 h-4 text-primary-400" /> @{detailCustomer.instagram}
+                    <Instagram className="w-4 h-4 text-primary-400" /> @{detailCliente.instagram}
                   </p>
                 )}
               </div>
 
               {/* Address */}
-              {(detailCustomer.street || detailCustomer.city || detailCustomer.zipCode) && (
+              {(detailCliente.street || detailCliente.city || detailCliente.zipCode) && (
                 <div className="space-y-2">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-primary-400">Endereco</h4>
                   <p className="text-sm flex items-start gap-2 text-primary-700">
                     <MapPin className="w-4 h-4 text-primary-400 mt-0.5 shrink-0" />
                     <span>
                       {[
-                        detailCustomer.street,
-                        detailCustomer.number,
-                        detailCustomer.neighborhood,
-                        detailCustomer.city,
-                        detailCustomer.zipCode,
+                        detailCliente.street,
+                        detailCliente.number,
+                        detailCliente.neighborhood,
+                        detailCliente.city,
+                        detailCliente.zipCode,
                       ]
                         .filter(Boolean)
                         .join(', ')}
@@ -400,21 +406,35 @@ export default function ClientesPage() {
               )}
 
               {/* Preferences */}
-              {(detailCustomer.dietaryRestrictions || detailCustomer.preferences) && (
+              {(detailCliente.dietaryRestrictions || detailCliente.preferences) && (
                 <div className="space-y-2">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-primary-400">Preferencias</h4>
-                  {detailCustomer.dietaryRestrictions && (
+                  {detailCliente.dietaryRestrictions && (
                     <p className="text-sm flex items-center gap-2 text-primary-700">
                       <ClipboardList className="w-4 h-4 text-primary-400" />
-                      Restricoes: {detailCustomer.dietaryRestrictions}
+                      Restricoes: {detailCliente.dietaryRestrictions}
                     </p>
                   )}
-                  {detailCustomer.preferences && (
+                  {detailCliente.preferences && (
                     <p className="text-sm flex items-center gap-2 text-primary-700">
                       <ClipboardList className="w-4 h-4 text-primary-400" />
-                      Preferencias: {detailCustomer.preferences}
+                      Preferencias: {detailCliente.preferences}
                     </p>
                   )}
+                </div>
+              )}
+
+              {/* Profissional de Saúde */}
+              {(detailCliente.healthProfessionalName || detailCliente.healthProfessionalSpecialty) && (
+                <div className="space-y-2">
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-primary-400">Profissional de Saude</h4>
+                  <p className="text-sm flex items-center gap-2 text-primary-700">
+                    <ClipboardList className="w-4 h-4 text-primary-400" />
+                    {[
+                      detailCliente.healthProfessionalName,
+                      detailCliente.healthProfessionalSpecialty,
+                    ].filter(Boolean).join(' — ')}
+                  </p>
                 </div>
               )}
 
@@ -423,27 +443,27 @@ export default function ClientesPage() {
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-primary-400">LGPD</h4>
                 <p className="text-sm flex items-center gap-2 text-primary-700">
                   <ShieldCheck className="w-4 h-4 text-primary-400" />
-                  {detailCustomer.lgpdConsent ? 'Consentimento concedido' : 'Sem consentimento'}
+                  {detailCliente.lgpdConsent ? 'Consentimento concedido' : 'Sem consentimento'}
                 </p>
               </div>
 
               {/* Notes */}
-              {detailCustomer.notes && (
+              {detailCliente.notes && (
                 <div className="space-y-2">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-primary-400">Observacoes</h4>
                   <p className="text-sm flex items-start gap-2 text-primary-700">
                     <StickyNote className="w-4 h-4 text-primary-400 mt-0.5 shrink-0" />
-                    {detailCustomer.notes}
+                    {detailCliente.notes}
                   </p>
                 </div>
               )}
 
               {/* Tags */}
-              {detailCustomer.tags?.length > 0 && (
+              {detailCliente.tags?.length > 0 && (
                 <div className="space-y-2">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-primary-400">Tags</h4>
                   <div className="flex gap-1 flex-wrap">
-                    {detailCustomer.tags.map((tag) => (
+                    {detailCliente.tags.map((tag) => (
                       <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
                     ))}
                   </div>
@@ -451,10 +471,10 @@ export default function ClientesPage() {
               )}
 
               <div className="flex gap-2 pt-4 border-t border-primary-100">
-                <Button variant="outline" className="flex-1 min-h-[44px]" onClick={() => { setDetailCustomer(null); openEdit(detailCustomer); }}>
+                <Button variant="outline" className="flex-1 min-h-[44px]" onClick={() => { setDetailCustomer(null); openEdit(detailCliente); }}>
                   <Pencil className="w-4 h-4 mr-2" /> Editar
                 </Button>
-                <Button variant="destructive" className="flex-1 min-h-[44px]" onClick={() => { handleDeleteClick(detailCustomer); }}>
+                <Button variant="destructive" className="flex-1 min-h-[44px]" onClick={() => { handleDeleteClick(detailCliente); }}>
                   <Trash2 className="w-4 h-4 mr-2" /> Excluir
                 </Button>
               </div>
@@ -561,10 +581,17 @@ export default function ClientesPage() {
               <Textarea id="notes" value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} className="min-h-[80px]" placeholder="Anotacoes sobre o cliente..." />
             </div>
 
-            {/* Tags */}
-            <div className="space-y-2 pt-2 border-t border-primary-100">
-              <Label htmlFor="tags">Tags (separadas por virgula)</Label>
-              <Input id="tags" value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} className="min-h-[48px]" placeholder="vegetariano, low carb" />
+            {/* Profissional de Saúde */}
+            <div className="space-y-3 pt-2 border-t border-primary-100">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-primary-400">Profissional de Saude (opcional)</h4>
+              <div className="space-y-2">
+                <Label htmlFor="healthProfessionalName">Nome</Label>
+                <Input id="healthProfessionalName" value={form.healthProfessionalName} onChange={(e) => setForm({ ...form, healthProfessionalName: e.target.value })} className="min-h-[48px]" placeholder="ex: Dra. Maria" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="healthProfessionalSpecialty">Especialidade</Label>
+                <Input id="healthProfessionalSpecialty" value={form.healthProfessionalSpecialty} onChange={(e) => setForm({ ...form, healthProfessionalSpecialty: e.target.value })} className="min-h-[48px]" placeholder="ex: Nutricionista" />
+              </div>
             </div>
 
             <Button type="submit" className="w-full min-h-[48px] bg-primary-700 hover:bg-primary-600 text-white" disabled={!form.name.trim()}>

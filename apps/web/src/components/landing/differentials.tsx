@@ -1,11 +1,11 @@
-import { Leaf, Award, Clock, Truck } from 'lucide-react';
+import { Leaf, Award, Clock, Home } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const ITEMS = [
   { icon: Leaf, title: 'Ingredientes Frescos', description: 'Selecionamos os melhores ingredientes em feiras locais. Ficha técnica detalhada de cada prato.' },
-  { icon: Award, title: 'Refeições Personalizadas', description: 'Você monta cada refeição: proteína + carbo + fibra + gordura. Combinações infinitas.' },
-  { icon: Clock, title: 'Frescor Garantido', description: 'Preparamos no dia da entrega. Você recebe a comida ainda fresca, pronta para consumir.' },
-  { icon: Truck, title: 'Entrega Refrigerada', description: 'Entregamos em caixas térmicas para manter a temperatura e qualidade ideais.' },
+  { icon: Award, title: 'Plano Personalizado', description: 'Plano alimentar sob medida, com orientação do seu profissional de saúde ou da experiência da chef.' },
+  { icon: Clock, title: 'Praticidade Total', description: 'Refeições preparadas com antecedência e prontas para a semana, sem perder tempo na cozinha.' },
+  { icon: Home, title: 'Na Sua Casa ou na Cozinha da Chef', description: 'Você escolhe onde a sessão de meal prep acontece: no conforto da sua casa ou na cozinha da chef.' },
 ];
 
 export function Differentials() {
