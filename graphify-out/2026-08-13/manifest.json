@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "apps/api/src/app.module.ts": {
-    "mtime": 1786627549.0853992,
-    "ast_hash": "1f4e9b9a94adb5368d07b7040c9897d6",
+    "mtime": 1786662659.3682816,
+    "ast_hash": "3100bc2fd27b1f8aa0b905b8a2433afb",
     "semantic_hash": ""
   },
   "apps/api/src/common/decorators/current-user.decorator.ts": {
@@ -140,13 +140,13 @@
     "semantic_hash": "7652b69fdc951b6ccdbc699b327e6b93"
   },
   "apps/web/src/components/admin/header.tsx": {
-    "mtime": 1786656373.532745,
-    "ast_hash": "adb793ff8d8afe22fcc025f309040cde",
+    "mtime": 1786662706.7612236,
+    "ast_hash": "b4ff6de27832bcf8cd5d449277ce7621",
     "semantic_hash": ""
   },
   "apps/web/src/components/admin/sidebar.tsx": {
-    "mtime": 1786656369.1418822,
-    "ast_hash": "9321f2e1ae5892c44bd668fc0ae86310",
+    "mtime": 1786662706.6832733,
+    "ast_hash": "95fefad28ccf9ce0fa7ca85f1692e049",
     "semantic_hash": ""
   },
   "apps/web/src/components/landing/differentials.tsx": {
@@ -380,13 +380,8 @@
     "semantic_hash": "40fab09cf2acec8e708671bb0d15a757"
   },
   "packages/contracts/src/index.ts": {
-    "mtime": 1786627331.9292703,
-    "ast_hash": "b8d9756f581b56bbda9bcb1ee736832e",
-    "semantic_hash": ""
-  },
-  "packages/contracts/src/ingredient.schema.ts": {
-    "mtime": 1782523398.6343248,
-    "ast_hash": "88ad20533705096918ac3d5e2027202c",
+    "mtime": 1786662643.9870384,
+    "ast_hash": "198ca34aab1fc8f77bc708b5c77b13cc",
     "semantic_hash": ""
   },
   "packages/contracts/tsconfig.json": {
@@ -400,8 +395,8 @@
     "semantic_hash": ""
   },
   "packages/database/prisma/seed.ts": {
-    "mtime": 1786624406.8816679,
-    "ast_hash": "ba7ea90d8ff76e520e8970ee66ac184d",
+    "mtime": 1786662633.898225,
+    "ast_hash": "8ea28a2c4130f5a58a4b56e6ba89c29e",
     "semantic_hash": ""
   },
   "packages/database/src/index.ts": {
@@ -524,26 +519,6 @@
     "ast_hash": "b0ab553b1d47eee73954b4f5e619bde9",
     "semantic_hash": ""
   },
-  "apps/api/src/modules/ingredients/ingredients.controller.ts": {
-    "mtime": 1786627347.6208606,
-    "ast_hash": "8091b4999860a73945269cf32ee3a6bc",
-    "semantic_hash": ""
-  },
-  "apps/api/src/modules/ingredients/ingredients.module.ts": {
-    "mtime": 1781729676.41209,
-    "ast_hash": "f62e2cf4408b1ad74b4f319de1385bf1",
-    "semantic_hash": ""
-  },
-  "apps/api/src/modules/ingredients/ingredients.service.ts": {
-    "mtime": 1786627347.555861,
-    "ast_hash": "0277ab7c4e50b6a11d0dca39647e249c",
-    "semantic_hash": ""
-  },
-  "apps/web/src/app/(admin)/ingredients/page.tsx": {
-    "mtime": 1786656491.77494,
-    "ast_hash": "b91ea0be033cf45dbbfcc475ea01481a",
-    "semantic_hash": ""
-  },
   "apps/web/src/components/ui/pagination-controls.tsx": {
     "mtime": 1781730003.6187427,
     "ast_hash": "7eeaef4b58040f6e9752b2e1cad07f9e",
@@ -600,8 +575,8 @@
     "semantic_hash": ""
   },
   "apps/api/src/modules/menu/menu.service.ts": {
-    "mtime": 1786627335.9927304,
-    "ast_hash": "ec591fa311e23ebffd90d8a954ecb814",
+    "mtime": 1786663040.3058503,
+    "ast_hash": "23b7813826c89d6fa18673e0b7a6a81c",
     "semantic_hash": ""
   },
   "apps/web/public/manifest.json": {
@@ -615,13 +590,13 @@
     "semantic_hash": ""
   },
   "apps/web/src/app/(admin)/cardapio/page.tsx": {
-    "mtime": 1786574757.5985067,
-    "ast_hash": "3ea54f51830c747f8e93a887a56962ba",
+    "mtime": 1786662707.295269,
+    "ast_hash": "7c3d14e255773e714830cc868285f91a",
     "semantic_hash": ""
   },
   "packages/contracts/src/menu.schema.ts": {
-    "mtime": 1786627331.9747775,
-    "ast_hash": "b467974fc549910599b3ddcecd82c1f5",
+    "mtime": 1786662643.9588869,
+    "ast_hash": "aaa0414f14d74c79c07b5b6c3e1837b9",
     "semantic_hash": ""
   },
   "packages/database/prisma/migrations/20260623002811_v2_menu_components/migration.sql": {
@@ -762,6 +737,11 @@
   "packages/database/prisma/migrations/20260813120000_personal_chef_meal_prep/migration.sql": {
     "mtime": 1786624272.9221563,
     "ast_hash": "d1a95ab311a485dec84958c84bcaa81e",
+    "semantic_hash": ""
+  },
+  "packages/database/prisma/migrations/20260813200000_remove_ingredients/migration.sql": {
+    "mtime": 1786662906.6518223,
+    "ast_hash": "a9c40085e7a7cdf43ce692b02e3512be",
     "semantic_hash": ""
   }
 }

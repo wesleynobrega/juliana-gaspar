@@ -35,9 +35,9 @@
     "semantic_hash": "c8a803c989433d9b9bdb5816344ed784"
   },
   "apps/api/src/common/filters/http-exception.filter.ts": {
-    "mtime": 1781727772.8978128,
-    "ast_hash": "d3a110abf7f607b2db31bc1ed4c6880b",
-    "semantic_hash": "d3a110abf7f607b2db31bc1ed4c6880b"
+    "mtime": 1786665829.053663,
+    "ast_hash": "0af54f3635f83a7e1ecb8372eca34d98",
+    "semantic_hash": ""
   },
   "apps/api/src/common/guards/jwt-auth.guard.ts": {
     "mtime": 1781646159.2202096,
@@ -390,13 +390,13 @@
     "semantic_hash": ""
   },
   "packages/database/package.json": {
-    "mtime": 1781911694.4708455,
-    "ast_hash": "c283c9b3c9125a842c1f4d79131053b9",
+    "mtime": 1786668624.2109187,
+    "ast_hash": "dba766993df4176093b0f31a8874d3ef",
     "semantic_hash": ""
   },
   "packages/database/prisma/seed.ts": {
-    "mtime": 1786662633.898225,
-    "ast_hash": "8ea28a2c4130f5a58a4b56e6ba89c29e",
+    "mtime": 1786668624.1174414,
+    "ast_hash": "09a0a5eef12efc5118453816daa1e1d0",
     "semantic_hash": ""
   },
   "packages/database/src/index.ts": {
@@ -742,6 +742,16 @@
   "packages/database/prisma/migrations/20260813200000_remove_ingredients/migration.sql": {
     "mtime": 1786662906.6518223,
     "ast_hash": "a9c40085e7a7cdf43ce692b02e3512be",
+    "semantic_hash": ""
+  },
+  "packages/database/prisma/catalog-data.ts": {
+    "mtime": 1786668471.907227,
+    "ast_hash": "5ec4cc58346180705db6adad6e914c05",
+    "semantic_hash": ""
+  },
+  "packages/database/prisma/seed-catalogo.ts": {
+    "mtime": 1786668624.09278,
+    "ast_hash": "b6d9ef9f831018b0020444b3d79579ce",
     "semantic_hash": ""
   }
 }

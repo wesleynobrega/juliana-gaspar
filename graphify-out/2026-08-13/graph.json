@@ -507,7 +507,7 @@
       "label": "AppModule",
       "file_type": "code",
       "source_file": "apps/api/src/app.module.ts",
-      "source_location": "L23",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "src_app_module_appmodule",
       "community": 80,
@@ -830,7 +830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "auth_auth_controller",
-      "community": 9,
+      "community": 12,
       "norm_label": "auth.controller.ts"
     },
     {
@@ -880,7 +880,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "auth_auth_module_authmodule",
-      "community": 12,
+      "community": 91,
       "norm_label": "authmodule"
     },
     {
@@ -1134,176 +1134,6 @@
       "norm_label": ".remove()"
     },
     {
-      "label": "ingredients.controller.ts",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_controller",
-      "community": 9,
-      "norm_label": "ingredients.controller.ts"
-    },
-    {
-      "label": "IngredientsController",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_controller_ingredientscontroller",
-      "community": 36,
-      "norm_label": "ingredientscontroller"
-    },
-    {
-      "label": ".constructor()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_controller_ingredientscontroller_constructor",
-      "community": 36,
-      "norm_label": ".constructor()"
-    },
-    {
-      "label": ".findAll()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_controller_ingredientscontroller_findall",
-      "community": 36,
-      "norm_label": ".findall()"
-    },
-    {
-      "label": ".findById()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_controller_ingredientscontroller_findbyid",
-      "community": 36,
-      "norm_label": ".findbyid()"
-    },
-    {
-      "label": ".create()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_controller_ingredientscontroller_create",
-      "community": 36,
-      "norm_label": ".create()"
-    },
-    {
-      "label": ".update()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L34",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_controller_ingredientscontroller_update",
-      "community": 36,
-      "norm_label": ".update()"
-    },
-    {
-      "label": ".remove()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_controller_ingredientscontroller_remove",
-      "community": 36,
-      "norm_label": ".remove()"
-    },
-    {
-      "label": "ingredients.module.ts",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.module.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_module",
-      "community": 36,
-      "norm_label": "ingredients.module.ts"
-    },
-    {
-      "label": "IngredientsModule",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.module.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_module_ingredientsmodule",
-      "community": 36,
-      "norm_label": "ingredientsmodule"
-    },
-    {
-      "label": "ingredients.service.ts",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_service",
-      "community": 36,
-      "norm_label": "ingredients.service.ts"
-    },
-    {
-      "label": "IngredientsService",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_service_ingredientsservice",
-      "community": 36,
-      "norm_label": "ingredientsservice"
-    },
-    {
-      "label": ".findAll()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_service_ingredientsservice_findall",
-      "community": 36,
-      "norm_label": ".findall()"
-    },
-    {
-      "label": ".findById()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_service_ingredientsservice_findbyid",
-      "community": 36,
-      "norm_label": ".findbyid()"
-    },
-    {
-      "label": ".create()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_service_ingredientsservice_create",
-      "community": 36,
-      "norm_label": ".create()"
-    },
-    {
-      "label": ".update()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_service_ingredientsservice_update",
-      "community": 36,
-      "norm_label": ".update()"
-    },
-    {
-      "label": ".remove()",
-      "file_type": "code",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L37",
-      "_origin": "ast",
-      "id": "ingredients_ingredients_service_ingredientsservice_remove",
-      "community": 36,
-      "norm_label": ".remove()"
-    },
-    {
       "label": "meal-plans.controller.ts",
       "file_type": "code",
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
@@ -1500,7 +1330,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller",
-      "community": 10,
+      "community": 49,
       "norm_label": "mealprepsessionscontroller"
     },
     {
@@ -1510,7 +1340,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_constructor",
-      "community": 10,
+      "community": 49,
       "norm_label": ".constructor()"
     },
     {
@@ -1520,7 +1350,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_findall",
-      "community": 10,
+      "community": 49,
       "norm_label": ".findall()"
     },
     {
@@ -1530,7 +1360,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_findbyid",
-      "community": 10,
+      "community": 49,
       "norm_label": ".findbyid()"
     },
     {
@@ -1540,7 +1370,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_create",
-      "community": 10,
+      "community": 49,
       "norm_label": ".create()"
     },
     {
@@ -1550,7 +1380,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_update",
-      "community": 10,
+      "community": 49,
       "norm_label": ".update()"
     },
     {
@@ -1560,7 +1390,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_remove",
-      "community": 10,
+      "community": 49,
       "norm_label": ".remove()"
     },
     {
@@ -1590,7 +1420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "meal_prep_sessions_meal_prep_sessions_service",
-      "community": 91,
+      "community": 10,
       "norm_label": "meal-prep-sessions.service.ts"
     },
     {
@@ -1887,7 +1717,7 @@
       "label": "PrismaSpecialRequest",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L57",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "menu_menu_service_prismaspecialrequest",
       "community": 5,
@@ -1897,7 +1727,7 @@
       "label": "toSpecialRequestDTO()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L60",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "menu_menu_service_tospecialrequestdto",
       "community": 5,
@@ -1907,7 +1737,7 @@
       "label": "MenuService",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L74",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice",
       "community": 5,
@@ -1917,7 +1747,7 @@
       "label": ".findAll()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L77",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_findall",
       "community": 5,
@@ -1927,7 +1757,7 @@
       "label": ".findById()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L107",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_findbyid",
       "community": 5,
@@ -1937,7 +1767,7 @@
       "label": ".create()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L113",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_create",
       "community": 5,
@@ -1947,7 +1777,7 @@
       "label": ".update()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L118",
+      "source_location": "L110",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_update",
       "community": 5,
@@ -1957,7 +1787,7 @@
       "label": ".remove()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L125",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_remove",
       "community": 5,
@@ -1967,7 +1797,7 @@
       "label": ".getTechnicalSheet()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L133",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_gettechnicalsheet",
       "community": 5,
@@ -1977,7 +1807,7 @@
       "label": ".upsertTechnicalSheet()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L142",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_upserttechnicalsheet",
       "community": 5,
@@ -1987,7 +1817,7 @@
       "label": ".findAllSpecialRequests()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L183",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_findallspecialrequests",
       "community": 5,
@@ -1997,7 +1827,7 @@
       "label": ".createSpecialRequest()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L212",
+      "source_location": "L187",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_createspecialrequest",
       "community": 5,
@@ -2007,7 +1837,7 @@
       "label": ".updateSpecialRequest()",
       "file_type": "code",
       "source_file": "apps/api/src/modules/menu/menu.service.ts",
-      "source_location": "L219",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "menu_menu_service_menuservice_updatespecialrequest",
       "community": 5,
@@ -2090,7 +1920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pricing_config_pricing_service",
-      "community": 91,
+      "community": 10,
       "norm_label": "pricing.service.ts"
     },
     {
@@ -2100,7 +1930,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "pricing_config_pricing_service_base_key",
-      "community": 91,
+      "community": 10,
       "norm_label": "base_key"
     },
     {
@@ -2110,7 +1940,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "pricing_config_pricing_service_pricingservice",
-      "community": 91,
+      "community": 10,
       "norm_label": "pricingservice"
     },
     {
@@ -2120,7 +1950,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "pricing_config_pricing_service_pricingservice_findall",
-      "community": 91,
+      "community": 10,
       "norm_label": ".findall()"
     },
     {
@@ -2130,7 +1960,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "pricing_config_pricing_service_pricingservice_update",
-      "community": 91,
+      "community": 10,
       "norm_label": ".update()"
     },
     {
@@ -2140,7 +1970,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "pricing_config_pricing_service_pricingservice_getvalue",
-      "community": 91,
+      "community": 10,
       "norm_label": ".getvalue()"
     },
     {
@@ -2150,7 +1980,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "pricing_config_pricing_service_pricingservice_computemealpreptotal",
-      "community": 91,
+      "community": 10,
       "norm_label": ".computemealpreptotal()"
     },
     {
@@ -3034,30 +2864,10 @@
       "norm_label": "technicalsheetdto"
     },
     {
-      "label": "TechnicalSheetIngredientDTO",
-      "file_type": "code",
-      "source_file": "apps/web/src/app/(admin)/cardapio/page.tsx",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "cardapio_page_technicalsheetingredientdto",
-      "community": 93,
-      "norm_label": "technicalsheetingredientdto"
-    },
-    {
-      "label": "IngredientDTO",
-      "file_type": "code",
-      "source_file": "apps/web/src/app/(admin)/cardapio/page.tsx",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "cardapio_page_ingredientdto",
-      "community": 93,
-      "norm_label": "ingredientdto"
-    },
-    {
       "label": "NUTRIENT_LABELS",
       "file_type": "code",
       "source_file": "apps/web/src/app/(admin)/cardapio/page.tsx",
-      "source_location": "L55",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "cardapio_page_nutrient_labels",
       "community": 93,
@@ -3067,7 +2877,7 @@
       "label": "NUTRIENT_BADGES",
       "file_type": "code",
       "source_file": "apps/web/src/app/(admin)/cardapio/page.tsx",
-      "source_location": "L62",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "cardapio_page_nutrient_badges",
       "community": 93,
@@ -3077,7 +2887,7 @@
       "label": "TABS",
       "file_type": "code",
       "source_file": "apps/web/src/app/(admin)/cardapio/page.tsx",
-      "source_location": "L69",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "cardapio_page_tabs",
       "community": 93,
@@ -3087,7 +2897,7 @@
       "label": "CardapioPage()",
       "file_type": "code",
       "source_file": "apps/web/src/app/(admin)/cardapio/page.tsx",
-      "source_location": "L73",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "cardapio_page_cardapiopage",
       "community": 93,
@@ -3174,66 +2984,6 @@
       "norm_label": "clientespage()"
     },
     {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "ingredients_page",
-      "community": 58,
-      "norm_label": "page.tsx"
-    },
-    {
-      "label": "Ingredient",
-      "file_type": "code",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "ingredients_page_ingredient",
-      "community": 58,
-      "norm_label": "ingredient"
-    },
-    {
-      "label": "IngredientFormData",
-      "file_type": "code",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "ingredients_page_ingredientformdata",
-      "community": 58,
-      "norm_label": "ingredientformdata"
-    },
-    {
-      "label": "emptyForm",
-      "file_type": "code",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "ingredients_page_emptyform",
-      "community": 58,
-      "norm_label": "emptyform"
-    },
-    {
-      "label": "stockBadge()",
-      "file_type": "code",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "ingredients_page_stockbadge",
-      "community": 58,
-      "norm_label": "stockbadge()"
-    },
-    {
-      "label": "IngredientesPage()",
-      "file_type": "code",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L39",
-      "_origin": "ast",
-      "id": "ingredients_page_ingredientespage",
-      "community": 58,
-      "norm_label": "ingredientespage()"
-    },
-    {
       "label": "layout.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/app/(admin)/layout.tsx",
@@ -3260,7 +3010,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "login_page",
-      "community": 58,
+      "community": 15,
       "norm_label": "page.tsx"
     },
     {
@@ -3280,7 +3030,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "meal_prep_page",
-      "community": 52,
+      "community": 36,
       "norm_label": "page.tsx"
     },
     {
@@ -3290,7 +3040,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "meal_prep_page_cliente",
-      "community": 52,
+      "community": 36,
       "norm_label": "cliente"
     },
     {
@@ -3300,7 +3050,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "meal_prep_page_planoalimentar",
-      "community": 52,
+      "community": 36,
       "norm_label": "planoalimentar"
     },
     {
@@ -3310,7 +3060,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "meal_prep_page_mealprepsession",
-      "community": 52,
+      "community": 36,
       "norm_label": "mealprepsession"
     },
     {
@@ -3320,7 +3070,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "meal_prep_page_mealprepformdata",
-      "community": 52,
+      "community": 36,
       "norm_label": "mealprepformdata"
     },
     {
@@ -3330,7 +3080,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "meal_prep_page_emptyform",
-      "community": 52,
+      "community": 36,
       "norm_label": "emptyform"
     },
     {
@@ -3340,7 +3090,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "meal_prep_page_tolocalinput",
-      "community": 52,
+      "community": 36,
       "norm_label": "tolocalinput()"
     },
     {
@@ -3350,7 +3100,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "meal_prep_page_sessiontoform",
-      "community": 52,
+      "community": 36,
       "norm_label": "sessiontoform()"
     },
     {
@@ -3360,7 +3110,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "meal_prep_page_mealpreppage",
-      "community": 52,
+      "community": 36,
       "norm_label": "mealpreppage()"
     },
     {
@@ -3470,7 +3220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "precos_page",
-      "community": 58,
+      "community": 17,
       "norm_label": "page.tsx"
     },
     {
@@ -3480,7 +3230,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "precos_page_pricingconfig",
-      "community": 58,
+      "community": 17,
       "norm_label": "pricingconfig"
     },
     {
@@ -3490,7 +3240,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "precos_page_key_labels",
-      "community": 58,
+      "community": 17,
       "norm_label": "key_labels"
     },
     {
@@ -3500,7 +3250,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "precos_page_precoformdata",
-      "community": 58,
+      "community": 17,
       "norm_label": "precoformdata"
     },
     {
@@ -3510,7 +3260,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "precos_page_precospage",
-      "community": 58,
+      "community": 17,
       "norm_label": "precospage()"
     },
     {
@@ -3630,7 +3380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "admin_header",
-      "community": 15,
+      "community": 26,
       "norm_label": "header.tsx"
     },
     {
@@ -3640,27 +3390,27 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "admin_header_breadcrumb_map",
-      "community": 15,
+      "community": 26,
       "norm_label": "breadcrumb_map"
     },
     {
       "label": "getBreadcrumb()",
       "file_type": "code",
       "source_file": "apps/web/src/components/admin/header.tsx",
-      "source_location": "L18",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "admin_header_getbreadcrumb",
-      "community": 15,
+      "community": 26,
       "norm_label": "getbreadcrumb()"
     },
     {
       "label": "AdminHeader()",
       "file_type": "code",
       "source_file": "apps/web/src/components/admin/header.tsx",
-      "source_location": "L24",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "admin_header_adminheader",
-      "community": 15,
+      "community": 26,
       "norm_label": "adminheader()"
     },
     {
@@ -3687,7 +3437,7 @@
       "label": "AdminSidebar()",
       "file_type": "code",
       "source_file": "apps/web/src/components/admin/sidebar.tsx",
-      "source_location": "L23",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "admin_sidebar_adminsidebar",
       "community": 15,
@@ -3700,7 +3450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "landing_differentials",
-      "community": 2,
+      "community": 52,
       "norm_label": "differentials.tsx"
     },
     {
@@ -3710,7 +3460,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "landing_differentials_items",
-      "community": 2,
+      "community": 52,
       "norm_label": "items"
     },
     {
@@ -3950,7 +3700,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "landing_weekly_menu_weeklymenu",
-      "community": 2,
+      "community": 52,
       "norm_label": "weeklymenu()"
     },
     {
@@ -3980,7 +3730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_avatar",
-      "community": 15,
+      "community": 26,
       "norm_label": "avatar.tsx"
     },
     {
@@ -3990,7 +3740,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "ui_avatar_avatar",
-      "community": 15,
+      "community": 26,
       "norm_label": "avatar()"
     },
     {
@@ -4000,7 +3750,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "ui_avatar_avatarimage",
-      "community": 15,
+      "community": 26,
       "norm_label": "avatarimage()"
     },
     {
@@ -4010,7 +3760,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "ui_avatar_avatarfallback",
-      "community": 15,
+      "community": 26,
       "norm_label": "avatarfallback()"
     },
     {
@@ -4020,7 +3770,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "ui_avatar_avatarbadge",
-      "community": 15,
+      "community": 26,
       "norm_label": "avatarbadge()"
     },
     {
@@ -4030,7 +3780,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "ui_avatar_avatargroup",
-      "community": 15,
+      "community": 26,
       "norm_label": "avatargroup()"
     },
     {
@@ -4040,7 +3790,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "ui_avatar_avatargroupcount",
-      "community": 15,
+      "community": 26,
       "norm_label": "avatargroupcount()"
     },
     {
@@ -4080,7 +3830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_button",
-      "community": 0,
+      "community": 17,
       "norm_label": "button.tsx"
     },
     {
@@ -4090,7 +3840,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "ui_button_buttonvariants",
-      "community": 0,
+      "community": 17,
       "norm_label": "buttonvariants"
     },
     {
@@ -4100,7 +3850,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "ui_button_button",
-      "community": 0,
+      "community": 17,
       "norm_label": "button()"
     },
     {
@@ -4190,7 +3940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_checkbox",
-      "community": 52,
+      "community": 36,
       "norm_label": "checkbox.tsx"
     },
     {
@@ -4200,7 +3950,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "ui_checkbox_checkbox",
-      "community": 52,
+      "community": 36,
       "norm_label": "checkbox()"
     },
     {
@@ -4320,7 +4070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_dropdown_menu",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdown-menu.tsx"
     },
     {
@@ -4330,7 +4080,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenu",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenu()"
     },
     {
@@ -4340,7 +4090,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenuportal",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenuportal()"
     },
     {
@@ -4350,7 +4100,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenutrigger",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenutrigger()"
     },
     {
@@ -4360,7 +4110,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenucontent",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenucontent()"
     },
     {
@@ -4370,7 +4120,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenugroup",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenugroup()"
     },
     {
@@ -4380,7 +4130,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenulabel",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenulabel()"
     },
     {
@@ -4390,7 +4140,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenuitem",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenuitem()"
     },
     {
@@ -4400,7 +4150,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenusub",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenusub()"
     },
     {
@@ -4410,7 +4160,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenusubtrigger",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenusubtrigger()"
     },
     {
@@ -4420,7 +4170,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenusubcontent",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenusubcontent()"
     },
     {
@@ -4430,7 +4180,7 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenucheckboxitem",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenucheckboxitem()"
     },
     {
@@ -4440,7 +4190,7 @@
       "source_location": "L182",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenuradiogroup",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenuradiogroup()"
     },
     {
@@ -4450,7 +4200,7 @@
       "source_location": "L191",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenuradioitem",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenuradioitem()"
     },
     {
@@ -4460,7 +4210,7 @@
       "source_location": "L223",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenuseparator",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenuseparator()"
     },
     {
@@ -4470,7 +4220,7 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "ui_dropdown_menu_dropdownmenushortcut",
-      "community": 15,
+      "community": 26,
       "norm_label": "dropdownmenushortcut()"
     },
     {
@@ -4480,7 +4230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_empty_state",
-      "community": 0,
+      "community": 17,
       "norm_label": "empty-state.tsx"
     },
     {
@@ -4490,7 +4240,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "ui_empty_state_emptystateprops",
-      "community": 0,
+      "community": 17,
       "norm_label": "emptystateprops"
     },
     {
@@ -4500,7 +4250,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_empty_state_emptystate",
-      "community": 0,
+      "community": 17,
       "norm_label": "emptystate()"
     },
     {
@@ -4630,7 +4380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_input",
-      "community": 58,
+      "community": 93,
       "norm_label": "input.tsx"
     },
     {
@@ -4640,7 +4390,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "ui_input_input",
-      "community": 58,
+      "community": 93,
       "norm_label": "input()"
     },
     {
@@ -4650,7 +4400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_label",
-      "community": 58,
+      "community": 0,
       "norm_label": "label.tsx"
     },
     {
@@ -4660,7 +4410,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "ui_label_label",
-      "community": 58,
+      "community": 0,
       "norm_label": "label()"
     },
     {
@@ -4670,7 +4420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_pagination_controls",
-      "community": 0,
+      "community": 17,
       "norm_label": "pagination-controls.tsx"
     },
     {
@@ -4680,7 +4430,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "ui_pagination_controls_props",
-      "community": 0,
+      "community": 17,
       "norm_label": "props"
     },
     {
@@ -4690,7 +4440,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "ui_pagination_controls_paginationcontrols",
-      "community": 0,
+      "community": 17,
       "norm_label": "paginationcontrols()"
     },
     {
@@ -4890,7 +4640,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "ui_sheet_sheetheader",
-      "community": 17,
+      "community": 0,
       "norm_label": "sheetheader()"
     },
     {
@@ -4910,7 +4660,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "ui_sheet_sheettitle",
-      "community": 58,
+      "community": 17,
       "norm_label": "sheettitle()"
     },
     {
@@ -4930,7 +4680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_skeleton",
-      "community": 58,
+      "community": 0,
       "norm_label": "skeleton.tsx"
     },
     {
@@ -4940,7 +4690,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_skeleton_skeleton",
-      "community": 58,
+      "community": 0,
       "norm_label": "skeleton()"
     },
     {
@@ -5200,7 +4950,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_api_client",
-      "community": 93,
+      "community": 54,
       "norm_label": "api-client.ts"
     },
     {
@@ -5210,7 +4960,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "lib_api_client_apiresponse",
-      "community": 93,
+      "community": 54,
       "norm_label": "apiresponse"
     },
     {
@@ -5240,7 +4990,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "lib_api_client_request",
-      "community": 93,
+      "community": 54,
       "norm_label": "request()"
     },
     {
@@ -5250,7 +5000,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "lib_api_client_api",
-      "community": 93,
+      "community": 54,
       "norm_label": "api"
     },
     {
@@ -5320,7 +5070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_constants",
-      "community": 52,
+      "community": 36,
       "norm_label": "constants.ts"
     },
     {
@@ -5330,7 +5080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_constants_meal_prep_status_labels",
-      "community": 52,
+      "community": 36,
       "norm_label": "meal_prep_status_labels"
     },
     {
@@ -5340,7 +5090,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lib_constants_meal_prep_status_colors",
-      "community": 52,
+      "community": 36,
       "norm_label": "meal_prep_status_colors"
     },
     {
@@ -5350,7 +5100,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "lib_constants_meal_prep_local_labels",
-      "community": 52,
+      "community": 36,
       "norm_label": "meal_prep_local_labels"
     },
     {
@@ -5360,7 +5110,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_constants_plano_origem_labels",
-      "community": 0,
+      "community": 36,
       "norm_label": "plano_origem_labels"
     },
     {
@@ -5390,7 +5140,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_utils",
-      "community": 58,
+      "community": 93,
       "norm_label": "utils.ts"
     },
     {
@@ -5420,7 +5170,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "lib_utils_formatshortdate",
-      "community": 58,
+      "community": 93,
       "norm_label": "formatshortdate()"
     },
     {
@@ -5430,7 +5180,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_utils_formatcurrency",
-      "community": 58,
+      "community": 93,
       "norm_label": "formatcurrency()"
     },
     {
@@ -6592,76 +6342,6 @@
       "norm_label": "index.ts"
     },
     {
-      "label": "ingredient.schema.ts",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_ingredient_schema",
-      "community": 89,
-      "norm_label": "ingredient.schema.ts"
-    },
-    {
-      "label": "ingredientSchema",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "src_ingredient_schema_ingredientschema",
-      "community": 89,
-      "norm_label": "ingredientschema"
-    },
-    {
-      "label": "IngredientDTO",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "src_ingredient_schema_ingredientdto",
-      "community": 89,
-      "norm_label": "ingredientdto"
-    },
-    {
-      "label": "createIngredientSchema",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "src_ingredient_schema_createingredientschema",
-      "community": 89,
-      "norm_label": "createingredientschema"
-    },
-    {
-      "label": "CreateIngredientDTO",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "src_ingredient_schema_createingredientdto",
-      "community": 89,
-      "norm_label": "createingredientdto"
-    },
-    {
-      "label": "updateIngredientSchema",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "src_ingredient_schema_updateingredientschema",
-      "community": 89,
-      "norm_label": "updateingredientschema"
-    },
-    {
-      "label": "UpdateIngredientDTO",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L26",
-      "_origin": "ast",
-      "id": "src_ingredient_schema_updateingredientdto",
-      "community": 89,
-      "norm_label": "updateingredientdto"
-    },
-    {
       "label": "meal-plan.schema.ts",
       "file_type": "code",
       "source_file": "packages/contracts/src/meal-plan.schema.ts",
@@ -6952,50 +6632,10 @@
       "norm_label": "updatemenuitemdto"
     },
     {
-      "label": "technicalSheetIngredientSchema",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L48",
-      "_origin": "ast",
-      "id": "src_menu_schema_technicalsheetingredientschema",
-      "community": 23,
-      "norm_label": "technicalsheetingredientschema"
-    },
-    {
-      "label": "TechnicalSheetIngredientDTO",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "src_menu_schema_technicalsheetingredientdto",
-      "community": 23,
-      "norm_label": "technicalsheetingredientdto"
-    },
-    {
-      "label": "createTechnicalSheetIngredientSchema",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L59",
-      "_origin": "ast",
-      "id": "src_menu_schema_createtechnicalsheetingredientschema",
-      "community": 23,
-      "norm_label": "createtechnicalsheetingredientschema"
-    },
-    {
-      "label": "CreateTechnicalSheetIngredientDTO",
-      "file_type": "code",
-      "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L64",
-      "_origin": "ast",
-      "id": "src_menu_schema_createtechnicalsheetingredientdto",
-      "community": 23,
-      "norm_label": "createtechnicalsheetingredientdto"
-    },
-    {
       "label": "technicalSheetSchema",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L68",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "src_menu_schema_technicalsheetschema",
       "community": 23,
@@ -7005,7 +6645,7 @@
       "label": "TechnicalSheetDTO",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L81",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "src_menu_schema_technicalsheetdto",
       "community": 23,
@@ -7015,7 +6655,7 @@
       "label": "createTechnicalSheetSchema",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L83",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "src_menu_schema_createtechnicalsheetschema",
       "community": 23,
@@ -7025,7 +6665,7 @@
       "label": "CreateTechnicalSheetDTO",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L92",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "src_menu_schema_createtechnicalsheetdto",
       "community": 23,
@@ -7035,7 +6675,7 @@
       "label": "updateTechnicalSheetSchema",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L94",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "src_menu_schema_updatetechnicalsheetschema",
       "community": 23,
@@ -7045,7 +6685,7 @@
       "label": "UpdateTechnicalSheetDTO",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L96",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "src_menu_schema_updatetechnicalsheetdto",
       "community": 23,
@@ -7055,7 +6695,7 @@
       "label": "specialRequestStatusSchema",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L100",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "src_menu_schema_specialrequeststatusschema",
       "community": 23,
@@ -7065,7 +6705,7 @@
       "label": "SpecialRequestStatus",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L102",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "src_menu_schema_specialrequeststatus",
       "community": 23,
@@ -7075,7 +6715,7 @@
       "label": "specialRequestSchema",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L104",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "src_menu_schema_specialrequestschema",
       "community": 23,
@@ -7085,7 +6725,7 @@
       "label": "SpecialRequestDTO",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L113",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "src_menu_schema_specialrequestdto",
       "community": 23,
@@ -7095,7 +6735,7 @@
       "label": "createSpecialRequestSchema",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L115",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "src_menu_schema_createspecialrequestschema",
       "community": 23,
@@ -7105,7 +6745,7 @@
       "label": "CreateSpecialRequestDTO",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L121",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "src_menu_schema_createspecialrequestdto",
       "community": 23,
@@ -7115,7 +6755,7 @@
       "label": "updateSpecialRequestSchema",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L123",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "src_menu_schema_updatespecialrequestschema",
       "community": 23,
@@ -7125,7 +6765,7 @@
       "label": "UpdateSpecialRequestDTO",
       "file_type": "code",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L127",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "src_menu_schema_updatespecialrequestdto",
       "community": 23,
@@ -11838,9 +11478,9 @@
       "source_file": "apps/api/src/app.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module",
-      "target": "clients_clients_module",
-      "confidence_score": 1.0
+      "target": "clients_clients_module"
     },
     {
       "relation": "imports",
@@ -11849,9 +11489,9 @@
       "source_file": "apps/api/src/app.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module",
-      "target": "clients_clients_module_clientsmodule",
-      "confidence_score": 1.0
+      "target": "clients_clients_module_clientsmodule"
     },
     {
       "relation": "imports_from",
@@ -11880,33 +11520,11 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/api/src/app.module.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app_module",
-      "target": "ingredients_ingredients_module"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/app.module.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app_module",
-      "target": "ingredients_ingredients_module_ingredientsmodule"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/app.module.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module",
-      "target": "meal_plans_meal_plans_module",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_module"
     },
     {
       "relation": "imports",
@@ -11915,9 +11533,9 @@
       "source_file": "apps/api/src/app.module.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module",
-      "target": "meal_plans_meal_plans_module_mealplansmodule",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_module_mealplansmodule"
     },
     {
       "relation": "imports_from",
@@ -11926,9 +11544,9 @@
       "source_file": "apps/api/src/app.module.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module",
-      "target": "meal_prep_sessions_meal_prep_sessions_module",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_module"
     },
     {
       "relation": "imports",
@@ -11937,9 +11555,9 @@
       "source_file": "apps/api/src/app.module.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module",
-      "target": "meal_prep_sessions_meal_prep_sessions_module_mealprepsessionsmodule",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_module_mealprepsessionsmodule"
     },
     {
       "relation": "imports_from",
@@ -11970,9 +11588,9 @@
       "source_file": "apps/api/src/app.module.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module",
-      "target": "pricing_config_pricing_config_module",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_module"
     },
     {
       "relation": "imports",
@@ -11981,9 +11599,9 @@
       "source_file": "apps/api/src/app.module.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_module",
-      "target": "pricing_config_pricing_config_module_pricingconfigmodule",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_module_pricingconfigmodule"
     },
     {
       "relation": "contains",
@@ -12034,9 +11652,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller",
-      "target": "decorators_roles_decorator",
-      "confidence_score": 1.0
+      "target": "decorators_roles_decorator"
     },
     {
       "relation": "contains",
@@ -12052,23 +11670,12 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
-      "target": "decorators_roles_decorator"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "decorators_roles_decorator",
-      "confidence_score": 1.0
+      "target": "decorators_roles_decorator"
     },
     {
       "relation": "imports_from",
@@ -12077,9 +11684,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "decorators_roles_decorator",
-      "confidence_score": 1.0
+      "target": "decorators_roles_decorator"
     },
     {
       "relation": "imports_from",
@@ -12099,9 +11706,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "decorators_roles_decorator",
-      "confidence_score": 1.0
+      "target": "decorators_roles_decorator"
     },
     {
       "relation": "imports",
@@ -12110,19 +11717,8 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L5",
       "weight": 1.0,
-      "source": "clients_clients_controller",
-      "target": "decorators_roles_decorator_roles",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L5",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
+      "source": "clients_clients_controller",
       "target": "decorators_roles_decorator_roles"
     },
     {
@@ -12132,9 +11728,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "decorators_roles_decorator_roles",
-      "confidence_score": 1.0
+      "target": "decorators_roles_decorator_roles"
     },
     {
       "relation": "imports",
@@ -12143,9 +11739,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "decorators_roles_decorator_roles",
-      "confidence_score": 1.0
+      "target": "decorators_roles_decorator_roles"
     },
     {
       "relation": "imports",
@@ -12165,9 +11761,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "decorators_roles_decorator_roles",
-      "confidence_score": 1.0
+      "target": "decorators_roles_decorator_roles"
     },
     {
       "relation": "contains",
@@ -12218,9 +11814,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller",
-      "target": "guards_jwt_auth_guard",
-      "confidence_score": 1.0
+      "target": "guards_jwt_auth_guard"
     },
     {
       "relation": "contains",
@@ -12236,23 +11832,12 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
-      "target": "guards_jwt_auth_guard"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "guards_jwt_auth_guard",
-      "confidence_score": 1.0
+      "target": "guards_jwt_auth_guard"
     },
     {
       "relation": "imports_from",
@@ -12261,9 +11846,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "guards_jwt_auth_guard",
-      "confidence_score": 1.0
+      "target": "guards_jwt_auth_guard"
     },
     {
       "relation": "imports_from",
@@ -12283,9 +11868,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "guards_jwt_auth_guard",
-      "confidence_score": 1.0
+      "target": "guards_jwt_auth_guard"
     },
     {
       "relation": "imports",
@@ -12294,19 +11879,8 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L3",
       "weight": 1.0,
-      "source": "clients_clients_controller",
-      "target": "guards_jwt_auth_guard_jwtauthguard",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L3",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
+      "source": "clients_clients_controller",
       "target": "guards_jwt_auth_guard_jwtauthguard"
     },
     {
@@ -12316,9 +11890,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "guards_jwt_auth_guard_jwtauthguard",
-      "confidence_score": 1.0
+      "target": "guards_jwt_auth_guard_jwtauthguard"
     },
     {
       "relation": "imports",
@@ -12327,9 +11901,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "guards_jwt_auth_guard_jwtauthguard",
-      "confidence_score": 1.0
+      "target": "guards_jwt_auth_guard_jwtauthguard"
     },
     {
       "relation": "imports",
@@ -12349,9 +11923,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "guards_jwt_auth_guard_jwtauthguard",
-      "confidence_score": 1.0
+      "target": "guards_jwt_auth_guard_jwtauthguard"
     },
     {
       "relation": "imports_from",
@@ -12360,9 +11934,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller",
-      "target": "guards_roles_guard",
-      "confidence_score": 1.0
+      "target": "guards_roles_guard"
     },
     {
       "relation": "contains",
@@ -12378,23 +11952,12 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
-      "target": "guards_roles_guard"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "guards_roles_guard",
-      "confidence_score": 1.0
+      "target": "guards_roles_guard"
     },
     {
       "relation": "imports_from",
@@ -12403,9 +11966,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "guards_roles_guard",
-      "confidence_score": 1.0
+      "target": "guards_roles_guard"
     },
     {
       "relation": "imports_from",
@@ -12425,9 +11988,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "guards_roles_guard",
-      "confidence_score": 1.0
+      "target": "guards_roles_guard"
     },
     {
       "relation": "imports",
@@ -12436,9 +11999,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller",
-      "target": "guards_roles_guard_rolesguard",
-      "confidence_score": 1.0
+      "target": "guards_roles_guard_rolesguard"
     },
     {
       "relation": "method",
@@ -12464,23 +12027,12 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
-      "target": "guards_roles_guard_rolesguard"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "guards_roles_guard_rolesguard",
-      "confidence_score": 1.0
+      "target": "guards_roles_guard_rolesguard"
     },
     {
       "relation": "imports",
@@ -12489,9 +12041,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "guards_roles_guard_rolesguard",
-      "confidence_score": 1.0
+      "target": "guards_roles_guard_rolesguard"
     },
     {
       "relation": "imports",
@@ -12511,9 +12063,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "guards_roles_guard_rolesguard",
-      "confidence_score": 1.0
+      "target": "guards_roles_guard_rolesguard"
     },
     {
       "relation": "contains",
@@ -12575,19 +12127,8 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L2",
       "weight": 1.0,
-      "source": "clients_clients_controller",
-      "target": "pipes_zod_validation_pipe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L2",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
+      "source": "clients_clients_controller",
       "target": "pipes_zod_validation_pipe"
     },
     {
@@ -12597,9 +12138,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "pipes_zod_validation_pipe",
-      "confidence_score": 1.0
+      "target": "pipes_zod_validation_pipe"
     },
     {
       "relation": "imports_from",
@@ -12608,9 +12149,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "pipes_zod_validation_pipe",
-      "confidence_score": 1.0
+      "target": "pipes_zod_validation_pipe"
     },
     {
       "relation": "imports_from",
@@ -12640,9 +12181,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "pipes_zod_validation_pipe",
-      "confidence_score": 1.0
+      "target": "pipes_zod_validation_pipe"
     },
     {
       "relation": "imports",
@@ -12662,19 +12203,8 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L2",
       "weight": 1.0,
-      "source": "clients_clients_controller",
-      "target": "pipes_zod_validation_pipe_zodvalidationpipe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L2",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
+      "source": "clients_clients_controller",
       "target": "pipes_zod_validation_pipe_zodvalidationpipe"
     },
     {
@@ -12684,9 +12214,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "pipes_zod_validation_pipe_zodvalidationpipe",
-      "confidence_score": 1.0
+      "target": "pipes_zod_validation_pipe_zodvalidationpipe"
     },
     {
       "relation": "imports",
@@ -12695,9 +12225,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "pipes_zod_validation_pipe_zodvalidationpipe",
-      "confidence_score": 1.0
+      "target": "pipes_zod_validation_pipe_zodvalidationpipe"
     },
     {
       "relation": "imports",
@@ -12737,9 +12267,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "pipes_zod_validation_pipe_zodvalidationpipe",
-      "confidence_score": 1.0
+      "target": "pipes_zod_validation_pipe_zodvalidationpipe"
     },
     {
       "relation": "contains",
@@ -13170,9 +12700,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller",
-      "target": "clients_clients_controller_clientscontroller",
-      "confidence_score": 1.0
+      "target": "clients_clients_controller_clientscontroller"
     },
     {
       "relation": "imports_from",
@@ -13181,9 +12711,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller",
-      "target": "clients_clients_service",
-      "confidence_score": 1.0
+      "target": "clients_clients_service"
     },
     {
       "relation": "imports",
@@ -13192,9 +12722,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller",
-      "target": "clients_clients_service_clientsservice",
-      "confidence_score": 1.0
+      "target": "clients_clients_service_clientsservice"
     },
     {
       "relation": "imports_from",
@@ -13203,9 +12733,9 @@
       "source_file": "apps/api/src/modules/clients/clients.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_module",
-      "target": "clients_clients_controller",
-      "confidence_score": 1.0
+      "target": "clients_clients_controller"
     },
     {
       "relation": "method",
@@ -13213,9 +12743,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller_clientscontroller",
-      "target": "clients_clients_controller_clientscontroller_constructor",
-      "confidence_score": 1.0
+      "target": "clients_clients_controller_clientscontroller_constructor"
     },
     {
       "relation": "method",
@@ -13223,9 +12753,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller_clientscontroller",
-      "target": "clients_clients_controller_clientscontroller_create",
-      "confidence_score": 1.0
+      "target": "clients_clients_controller_clientscontroller_create"
     },
     {
       "relation": "method",
@@ -13233,9 +12763,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller_clientscontroller",
-      "target": "clients_clients_controller_clientscontroller_findall",
-      "confidence_score": 1.0
+      "target": "clients_clients_controller_clientscontroller_findall"
     },
     {
       "relation": "method",
@@ -13243,9 +12773,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller_clientscontroller",
-      "target": "clients_clients_controller_clientscontroller_findbyid",
-      "confidence_score": 1.0
+      "target": "clients_clients_controller_clientscontroller_findbyid"
     },
     {
       "relation": "method",
@@ -13253,9 +12783,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller_clientscontroller",
-      "target": "clients_clients_controller_clientscontroller_remove",
-      "confidence_score": 1.0
+      "target": "clients_clients_controller_clientscontroller_remove"
     },
     {
       "relation": "method",
@@ -13263,9 +12793,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller_clientscontroller",
-      "target": "clients_clients_controller_clientscontroller_update",
-      "confidence_score": 1.0
+      "target": "clients_clients_controller_clientscontroller_update"
     },
     {
       "relation": "imports",
@@ -13274,9 +12804,9 @@
       "source_file": "apps/api/src/modules/clients/clients.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_module",
-      "target": "clients_clients_controller_clientscontroller",
-      "confidence_score": 1.0
+      "target": "clients_clients_controller_clientscontroller"
     },
     {
       "relation": "references",
@@ -13285,9 +12815,9 @@
       "source_file": "apps/api/src/modules/clients/clients.controller.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_controller_clientscontroller_constructor",
-      "target": "clients_clients_service_clientsservice",
-      "confidence_score": 1.0
+      "target": "clients_clients_service_clientsservice"
     },
     {
       "relation": "contains",
@@ -13295,9 +12825,9 @@
       "source_file": "apps/api/src/modules/clients/clients.module.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_module",
-      "target": "clients_clients_module_clientsmodule",
-      "confidence_score": 1.0
+      "target": "clients_clients_module_clientsmodule"
     },
     {
       "relation": "imports_from",
@@ -13306,9 +12836,9 @@
       "source_file": "apps/api/src/modules/clients/clients.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_module",
-      "target": "clients_clients_service",
-      "confidence_score": 1.0
+      "target": "clients_clients_service"
     },
     {
       "relation": "imports",
@@ -13317,9 +12847,9 @@
       "source_file": "apps/api/src/modules/clients/clients.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_module",
-      "target": "clients_clients_service_clientsservice",
-      "confidence_score": 1.0
+      "target": "clients_clients_service_clientsservice"
     },
     {
       "relation": "contains",
@@ -13327,9 +12857,9 @@
       "source_file": "apps/api/src/modules/clients/clients.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_service",
-      "target": "clients_clients_service_clientsservice",
-      "confidence_score": 1.0
+      "target": "clients_clients_service_clientsservice"
     },
     {
       "relation": "method",
@@ -13337,9 +12867,9 @@
       "source_file": "apps/api/src/modules/clients/clients.service.ts",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_service_clientsservice",
-      "target": "clients_clients_service_clientsservice_create",
-      "confidence_score": 1.0
+      "target": "clients_clients_service_clientsservice_create"
     },
     {
       "relation": "method",
@@ -13347,9 +12877,9 @@
       "source_file": "apps/api/src/modules/clients/clients.service.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_service_clientsservice",
-      "target": "clients_clients_service_clientsservice_findall",
-      "confidence_score": 1.0
+      "target": "clients_clients_service_clientsservice_findall"
     },
     {
       "relation": "method",
@@ -13357,9 +12887,9 @@
       "source_file": "apps/api/src/modules/clients/clients.service.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_service_clientsservice",
-      "target": "clients_clients_service_clientsservice_findbyid",
-      "confidence_score": 1.0
+      "target": "clients_clients_service_clientsservice_findbyid"
     },
     {
       "relation": "method",
@@ -13367,9 +12897,9 @@
       "source_file": "apps/api/src/modules/clients/clients.service.ts",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_service_clientsservice",
-      "target": "clients_clients_service_clientsservice_remove",
-      "confidence_score": 1.0
+      "target": "clients_clients_service_clientsservice_remove"
     },
     {
       "relation": "method",
@@ -13377,226 +12907,9 @@
       "source_file": "apps/api/src/modules/clients/clients.service.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clients_clients_service_clientsservice",
-      "target": "clients_clients_service_clientsservice_update",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
-      "target": "ingredients_ingredients_controller_ingredientscontroller"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
-      "target": "ingredients_ingredients_service"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller",
-      "target": "ingredients_ingredients_service_ingredientsservice"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.module.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_module",
-      "target": "ingredients_ingredients_controller"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller_ingredientscontroller",
-      "target": "ingredients_ingredients_controller_ingredientscontroller_constructor"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller_ingredientscontroller",
-      "target": "ingredients_ingredients_controller_ingredientscontroller_create"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller_ingredientscontroller",
-      "target": "ingredients_ingredients_controller_ingredientscontroller_findall"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller_ingredientscontroller",
-      "target": "ingredients_ingredients_controller_ingredientscontroller_findbyid"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L40",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller_ingredientscontroller",
-      "target": "ingredients_ingredients_controller_ingredientscontroller_remove"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller_ingredientscontroller",
-      "target": "ingredients_ingredients_controller_ingredientscontroller_update"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.module.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_module",
-      "target": "ingredients_ingredients_controller_ingredientscontroller"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.controller.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_controller_ingredientscontroller_constructor",
-      "target": "ingredients_ingredients_service_ingredientsservice"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.module.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_module",
-      "target": "ingredients_ingredients_module_ingredientsmodule"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.module.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_module",
-      "target": "ingredients_ingredients_service"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.module.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_module",
-      "target": "ingredients_ingredients_service_ingredientsservice"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_service",
-      "target": "ingredients_ingredients_service_ingredientsservice"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_service_ingredientsservice",
-      "target": "ingredients_ingredients_service_ingredientsservice_create"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_service_ingredientsservice",
-      "target": "ingredients_ingredients_service_ingredientsservice_findall"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_service_ingredientsservice",
-      "target": "ingredients_ingredients_service_ingredientsservice_findbyid"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_service_ingredientsservice",
-      "target": "ingredients_ingredients_service_ingredientsservice_remove"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/api/src/modules/ingredients/ingredients.service.ts",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_ingredients_service_ingredientsservice",
-      "target": "ingredients_ingredients_service_ingredientsservice_update"
+      "target": "clients_clients_service_clientsservice_update"
     },
     {
       "relation": "contains",
@@ -13604,9 +12917,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "meal_plans_meal_plans_controller_mealplanscontroller",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_controller_mealplanscontroller"
     },
     {
       "relation": "imports_from",
@@ -13615,9 +12928,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "meal_plans_meal_plans_service",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service"
     },
     {
       "relation": "imports",
@@ -13626,9 +12939,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller",
-      "target": "meal_plans_meal_plans_service_mealplansservice",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_mealplansservice"
     },
     {
       "relation": "imports_from",
@@ -13637,9 +12950,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_module",
-      "target": "meal_plans_meal_plans_controller",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_controller"
     },
     {
       "relation": "method",
@@ -13647,9 +12960,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller_mealplanscontroller",
-      "target": "meal_plans_meal_plans_controller_mealplanscontroller_constructor",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_controller_mealplanscontroller_constructor"
     },
     {
       "relation": "method",
@@ -13657,9 +12970,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller_mealplanscontroller",
-      "target": "meal_plans_meal_plans_controller_mealplanscontroller_create",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_controller_mealplanscontroller_create"
     },
     {
       "relation": "method",
@@ -13667,9 +12980,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller_mealplanscontroller",
-      "target": "meal_plans_meal_plans_controller_mealplanscontroller_findall",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_controller_mealplanscontroller_findall"
     },
     {
       "relation": "method",
@@ -13677,9 +12990,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller_mealplanscontroller",
-      "target": "meal_plans_meal_plans_controller_mealplanscontroller_findbyid",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_controller_mealplanscontroller_findbyid"
     },
     {
       "relation": "method",
@@ -13687,9 +13000,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller_mealplanscontroller",
-      "target": "meal_plans_meal_plans_controller_mealplanscontroller_remove",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_controller_mealplanscontroller_remove"
     },
     {
       "relation": "method",
@@ -13697,9 +13010,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller_mealplanscontroller",
-      "target": "meal_plans_meal_plans_controller_mealplanscontroller_update",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_controller_mealplanscontroller_update"
     },
     {
       "relation": "imports",
@@ -13708,9 +13021,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_module",
-      "target": "meal_plans_meal_plans_controller_mealplanscontroller",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_controller_mealplanscontroller"
     },
     {
       "relation": "references",
@@ -13719,9 +13032,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.controller.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_controller_mealplanscontroller_constructor",
-      "target": "meal_plans_meal_plans_service_mealplansservice",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_mealplansservice"
     },
     {
       "relation": "contains",
@@ -13729,9 +13042,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.module.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_module",
-      "target": "meal_plans_meal_plans_module_mealplansmodule",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_module_mealplansmodule"
     },
     {
       "relation": "imports_from",
@@ -13740,9 +13053,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_module",
-      "target": "meal_plans_meal_plans_service",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service"
     },
     {
       "relation": "imports",
@@ -13751,9 +13064,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_module",
-      "target": "meal_plans_meal_plans_service_mealplansservice",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_mealplansservice"
     },
     {
       "relation": "contains",
@@ -13761,9 +13074,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service",
-      "target": "meal_plans_meal_plans_service_mealplansservice",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_mealplansservice"
     },
     {
       "relation": "contains",
@@ -13771,9 +13084,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service",
-      "target": "meal_plans_meal_plans_service_todto",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_todto"
     },
     {
       "relation": "calls",
@@ -13782,9 +13095,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service_mealplansservice_create",
-      "target": "meal_plans_meal_plans_service_todto",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_todto"
     },
     {
       "relation": "calls",
@@ -13793,9 +13106,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service_mealplansservice_findbyid",
-      "target": "meal_plans_meal_plans_service_todto",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_todto"
     },
     {
       "relation": "calls",
@@ -13804,9 +13117,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service_mealplansservice_update",
-      "target": "meal_plans_meal_plans_service_todto",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_todto"
     },
     {
       "relation": "method",
@@ -13814,9 +13127,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service_mealplansservice",
-      "target": "meal_plans_meal_plans_service_mealplansservice_create",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_mealplansservice_create"
     },
     {
       "relation": "method",
@@ -13824,9 +13137,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service_mealplansservice",
-      "target": "meal_plans_meal_plans_service_mealplansservice_findall",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_mealplansservice_findall"
     },
     {
       "relation": "method",
@@ -13834,9 +13147,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service_mealplansservice",
-      "target": "meal_plans_meal_plans_service_mealplansservice_findbyid",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_mealplansservice_findbyid"
     },
     {
       "relation": "method",
@@ -13844,9 +13157,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service_mealplansservice",
-      "target": "meal_plans_meal_plans_service_mealplansservice_remove",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_mealplansservice_remove"
     },
     {
       "relation": "method",
@@ -13854,9 +13167,9 @@
       "source_file": "apps/api/src/modules/meal-plans/meal-plans.service.ts",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_plans_meal_plans_service_mealplansservice",
-      "target": "meal_plans_meal_plans_service_mealplansservice_update",
-      "confidence_score": 1.0
+      "target": "meal_plans_meal_plans_service_mealplansservice_update"
     },
     {
       "relation": "contains",
@@ -13864,9 +13177,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller"
     },
     {
       "relation": "imports_from",
@@ -13875,9 +13188,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "meal_prep_sessions_meal_prep_sessions_service",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service"
     },
     {
       "relation": "imports",
@@ -13886,9 +13199,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice"
     },
     {
       "relation": "imports_from",
@@ -13897,9 +13210,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_module",
-      "target": "meal_prep_sessions_meal_prep_sessions_controller",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_controller"
     },
     {
       "relation": "method",
@@ -13907,9 +13220,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller",
-      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_constructor",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_constructor"
     },
     {
       "relation": "method",
@@ -13917,9 +13230,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller",
-      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_create",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_create"
     },
     {
       "relation": "method",
@@ -13927,9 +13240,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller",
-      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_findall",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_findall"
     },
     {
       "relation": "method",
@@ -13937,9 +13250,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller",
-      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_findbyid",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_findbyid"
     },
     {
       "relation": "method",
@@ -13947,9 +13260,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller",
-      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_remove",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_remove"
     },
     {
       "relation": "method",
@@ -13957,9 +13270,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller",
-      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_update",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_update"
     },
     {
       "relation": "imports",
@@ -13968,9 +13281,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_module",
-      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller"
     },
     {
       "relation": "references",
@@ -13979,9 +13292,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.controller.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_controller_mealprepsessionscontroller_constructor",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice"
     },
     {
       "relation": "contains",
@@ -13989,9 +13302,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.module.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_module",
-      "target": "meal_prep_sessions_meal_prep_sessions_module_mealprepsessionsmodule",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_module_mealprepsessionsmodule"
     },
     {
       "relation": "imports_from",
@@ -14000,9 +13313,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_module",
-      "target": "meal_prep_sessions_meal_prep_sessions_service",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service"
     },
     {
       "relation": "imports",
@@ -14011,9 +13324,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_module",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice"
     },
     {
       "relation": "imports_from",
@@ -14022,9 +13335,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.module.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_module",
-      "target": "pricing_config_pricing_config_module",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_module"
     },
     {
       "relation": "imports",
@@ -14033,9 +13346,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.module.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_module",
-      "target": "pricing_config_pricing_config_module_pricingconfigmodule",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_module_pricingconfigmodule"
     },
     {
       "relation": "contains",
@@ -14043,9 +13356,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice"
     },
     {
       "relation": "contains",
@@ -14053,9 +13366,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_todto",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_todto"
     },
     {
       "relation": "imports_from",
@@ -14064,9 +13377,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service",
-      "target": "pricing_config_pricing_service",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service"
     },
     {
       "relation": "imports",
@@ -14075,9 +13388,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service",
-      "target": "pricing_config_pricing_service_pricingservice",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice"
     },
     {
       "relation": "calls",
@@ -14086,9 +13399,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_create",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_todto",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_todto"
     },
     {
       "relation": "calls",
@@ -14097,9 +13410,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_findbyid",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_todto",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_todto"
     },
     {
       "relation": "calls",
@@ -14108,9 +13421,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_update",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_todto",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_todto"
     },
     {
       "relation": "method",
@@ -14118,9 +13431,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_constructor",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_constructor"
     },
     {
       "relation": "method",
@@ -14128,9 +13441,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_create",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_create"
     },
     {
       "relation": "method",
@@ -14138,9 +13451,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_findall",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_findall"
     },
     {
       "relation": "method",
@@ -14148,9 +13461,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_findbyid",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_findbyid"
     },
     {
       "relation": "method",
@@ -14158,9 +13471,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_remove",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_remove"
     },
     {
       "relation": "method",
@@ -14168,9 +13481,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice",
-      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_update",
-      "confidence_score": 1.0
+      "target": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_update"
     },
     {
       "relation": "references",
@@ -14179,9 +13492,9 @@
       "source_file": "apps/api/src/modules/meal-prep-sessions/meal-prep-sessions.service.ts",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_sessions_meal_prep_sessions_service_mealprepsessionsservice_constructor",
-      "target": "pricing_config_pricing_service_pricingservice",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice"
     },
     {
       "relation": "contains",
@@ -14686,9 +13999,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller"
     },
     {
       "relation": "imports_from",
@@ -14697,9 +14010,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "pricing_config_pricing_service",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service"
     },
     {
       "relation": "imports",
@@ -14708,9 +14021,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller",
-      "target": "pricing_config_pricing_service_pricingservice",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice"
     },
     {
       "relation": "imports_from",
@@ -14719,9 +14032,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_module",
-      "target": "pricing_config_pricing_config_controller",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_controller"
     },
     {
       "relation": "method",
@@ -14729,9 +14042,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller_pricingconfigcontroller",
-      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller_constructor",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller_constructor"
     },
     {
       "relation": "method",
@@ -14739,9 +14052,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller_pricingconfigcontroller",
-      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller_findall",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller_findall"
     },
     {
       "relation": "method",
@@ -14749,9 +14062,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller_pricingconfigcontroller",
-      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller_update",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller_update"
     },
     {
       "relation": "imports",
@@ -14760,9 +14073,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.module.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_module",
-      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_controller_pricingconfigcontroller"
     },
     {
       "relation": "references",
@@ -14771,9 +14084,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.controller.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_controller_pricingconfigcontroller_constructor",
-      "target": "pricing_config_pricing_service_pricingservice",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice"
     },
     {
       "relation": "contains",
@@ -14781,9 +14094,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.module.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_module",
-      "target": "pricing_config_pricing_config_module_pricingconfigmodule",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_config_module_pricingconfigmodule"
     },
     {
       "relation": "imports_from",
@@ -14792,9 +14105,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_module",
-      "target": "pricing_config_pricing_service",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service"
     },
     {
       "relation": "imports",
@@ -14803,9 +14116,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing-config.module.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_config_module",
-      "target": "pricing_config_pricing_service_pricingservice",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice"
     },
     {
       "relation": "contains",
@@ -14813,9 +14126,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_service",
-      "target": "pricing_config_pricing_service_base_key",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_base_key"
     },
     {
       "relation": "contains",
@@ -14823,9 +14136,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing.service.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_service",
-      "target": "pricing_config_pricing_service_pricingservice",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice"
     },
     {
       "relation": "method",
@@ -14833,9 +14146,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing.service.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_service_pricingservice",
-      "target": "pricing_config_pricing_service_pricingservice_computemealpreptotal",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice_computemealpreptotal"
     },
     {
       "relation": "method",
@@ -14843,9 +14156,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing.service.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_service_pricingservice",
-      "target": "pricing_config_pricing_service_pricingservice_findall",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice_findall"
     },
     {
       "relation": "method",
@@ -14853,9 +14166,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing.service.ts",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_service_pricingservice",
-      "target": "pricing_config_pricing_service_pricingservice_getvalue",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice_getvalue"
     },
     {
       "relation": "method",
@@ -14863,9 +14176,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing.service.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_service_pricingservice",
-      "target": "pricing_config_pricing_service_pricingservice_update",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice_update"
     },
     {
       "relation": "calls",
@@ -14874,9 +14187,9 @@
       "source_file": "apps/api/src/modules/pricing-config/pricing.service.ts",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "pricing_config_pricing_service_pricingservice_computemealpreptotal",
-      "target": "pricing_config_pricing_service_pricingservice_getvalue",
-      "confidence_score": 1.0
+      "target": "pricing_config_pricing_service_pricingservice_getvalue"
     },
     {
       "relation": "contains",
@@ -15652,16 +14965,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/app/(admin)/cardapio/page.tsx",
-      "source_location": "L47",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "cardapio_page",
-      "target": "cardapio_page_ingredientdto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/cardapio/page.tsx",
       "source_location": "L14",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -15717,16 +15020,6 @@
       "confidence_score": 1.0,
       "source": "cardapio_page",
       "target": "cardapio_page_technicalsheetdto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/cardapio/page.tsx",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "cardapio_page",
-      "target": "cardapio_page_technicalsheetingredientdto"
     },
     {
       "relation": "imports_from",
@@ -15854,9 +15147,9 @@
       "source_file": "apps/web/src/app/(admin)/clientes/page.tsx",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clientes_page",
-      "target": "clientes_page_cliente",
-      "confidence_score": 1.0
+      "target": "clientes_page_cliente"
     },
     {
       "relation": "contains",
@@ -15864,9 +15157,9 @@
       "source_file": "apps/web/src/app/(admin)/clientes/page.tsx",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clientes_page",
-      "target": "clientes_page_clienteformdata",
-      "confidence_score": 1.0
+      "target": "clientes_page_clienteformdata"
     },
     {
       "relation": "contains",
@@ -15884,9 +15177,9 @@
       "source_file": "apps/web/src/app/(admin)/clientes/page.tsx",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "clientes_page",
-      "target": "clientes_page_clientetoform",
-      "confidence_score": 1.0
+      "target": "clientes_page_clientetoform"
     },
     {
       "relation": "contains",
@@ -16272,298 +15565,6 @@
       "target": "ui_textarea_textarea"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ingredients_page_emptyform"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ingredients_page_ingredient"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L39",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ingredients_page_ingredientespage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ingredients_page_ingredientformdata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ingredients_page_stockbadge"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "lib_api_client"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "lib_api_client_api"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_badge"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_badge_badge"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_button"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_button_button"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_card"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_card_card"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_card_cardcontent"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_empty_state"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_empty_state_emptystate"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_input"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_input_input"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_label"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_label_label"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_sheet"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_sheet_sheet"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_sheet_sheetcontent"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_sheet_sheetheader"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_sheet_sheettitle"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_skeleton"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/app/(admin)/ingredients/page.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "ingredients_page",
-      "target": "ui_skeleton_skeleton"
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -16799,9 +15800,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "lib_api_client",
-      "confidence_score": 1.0
+      "target": "lib_api_client"
     },
     {
       "relation": "imports",
@@ -16810,9 +15811,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "lib_api_client_api",
-      "confidence_score": 1.0
+      "target": "lib_api_client_api"
     },
     {
       "relation": "imports_from",
@@ -16821,9 +15822,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "lib_constants",
-      "confidence_score": 1.0
+      "target": "lib_constants"
     },
     {
       "relation": "imports",
@@ -16832,9 +15833,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "lib_constants_meal_prep_local_labels",
-      "confidence_score": 1.0
+      "target": "lib_constants_meal_prep_local_labels"
     },
     {
       "relation": "imports",
@@ -16843,9 +15844,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "lib_constants_meal_prep_status_colors",
-      "confidence_score": 1.0
+      "target": "lib_constants_meal_prep_status_colors"
     },
     {
       "relation": "imports",
@@ -16854,9 +15855,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "lib_constants_meal_prep_status_labels",
-      "confidence_score": 1.0
+      "target": "lib_constants_meal_prep_status_labels"
     },
     {
       "relation": "imports_from",
@@ -16865,9 +15866,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "lib_utils",
-      "confidence_score": 1.0
+      "target": "lib_utils"
     },
     {
       "relation": "imports",
@@ -16876,9 +15877,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "lib_utils_formatcurrency",
-      "confidence_score": 1.0
+      "target": "lib_utils_formatcurrency"
     },
     {
       "relation": "imports",
@@ -16887,9 +15888,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "lib_utils_formatdate",
-      "confidence_score": 1.0
+      "target": "lib_utils_formatdate"
     },
     {
       "relation": "contains",
@@ -16897,9 +15898,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "meal_prep_page_cliente",
-      "confidence_score": 1.0
+      "target": "meal_prep_page_cliente"
     },
     {
       "relation": "contains",
@@ -16907,9 +15908,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "meal_prep_page_emptyform",
-      "confidence_score": 1.0
+      "target": "meal_prep_page_emptyform"
     },
     {
       "relation": "contains",
@@ -16917,9 +15918,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "meal_prep_page_mealprepformdata",
-      "confidence_score": 1.0
+      "target": "meal_prep_page_mealprepformdata"
     },
     {
       "relation": "contains",
@@ -16927,9 +15928,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "meal_prep_page_mealpreppage",
-      "confidence_score": 1.0
+      "target": "meal_prep_page_mealpreppage"
     },
     {
       "relation": "contains",
@@ -16937,9 +15938,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "meal_prep_page_mealprepsession",
-      "confidence_score": 1.0
+      "target": "meal_prep_page_mealprepsession"
     },
     {
       "relation": "contains",
@@ -16947,9 +15948,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "meal_prep_page_planoalimentar",
-      "confidence_score": 1.0
+      "target": "meal_prep_page_planoalimentar"
     },
     {
       "relation": "contains",
@@ -16957,9 +15958,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "meal_prep_page_sessiontoform",
-      "confidence_score": 1.0
+      "target": "meal_prep_page_sessiontoform"
     },
     {
       "relation": "contains",
@@ -16967,9 +15968,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "meal_prep_page_tolocalinput",
-      "confidence_score": 1.0
+      "target": "meal_prep_page_tolocalinput"
     },
     {
       "relation": "imports_from",
@@ -16978,9 +15979,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge"
     },
     {
       "relation": "imports",
@@ -16989,9 +15990,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_badge_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge_badge"
     },
     {
       "relation": "imports_from",
@@ -17000,9 +16001,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_button",
-      "confidence_score": 1.0
+      "target": "ui_button"
     },
     {
       "relation": "imports",
@@ -17011,9 +16012,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports_from",
@@ -17022,9 +16023,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_card",
-      "confidence_score": 1.0
+      "target": "ui_card"
     },
     {
       "relation": "imports",
@@ -17033,9 +16034,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_card_card",
-      "confidence_score": 1.0
+      "target": "ui_card_card"
     },
     {
       "relation": "imports",
@@ -17044,9 +16045,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_card_cardcontent",
-      "confidence_score": 1.0
+      "target": "ui_card_cardcontent"
     },
     {
       "relation": "imports_from",
@@ -17055,9 +16056,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_checkbox",
-      "confidence_score": 1.0
+      "target": "ui_checkbox"
     },
     {
       "relation": "imports",
@@ -17066,9 +16067,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_checkbox_checkbox",
-      "confidence_score": 1.0
+      "target": "ui_checkbox_checkbox"
     },
     {
       "relation": "imports_from",
@@ -17077,9 +16078,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_empty_state",
-      "confidence_score": 1.0
+      "target": "ui_empty_state"
     },
     {
       "relation": "imports",
@@ -17088,9 +16089,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_empty_state_emptystate",
-      "confidence_score": 1.0
+      "target": "ui_empty_state_emptystate"
     },
     {
       "relation": "imports_from",
@@ -17099,9 +16100,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_input",
-      "confidence_score": 1.0
+      "target": "ui_input"
     },
     {
       "relation": "imports",
@@ -17110,9 +16111,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_input_input",
-      "confidence_score": 1.0
+      "target": "ui_input_input"
     },
     {
       "relation": "imports_from",
@@ -17121,9 +16122,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_label",
-      "confidence_score": 1.0
+      "target": "ui_label"
     },
     {
       "relation": "imports",
@@ -17132,9 +16133,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_label_label",
-      "confidence_score": 1.0
+      "target": "ui_label_label"
     },
     {
       "relation": "imports_from",
@@ -17143,9 +16144,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_sheet",
-      "confidence_score": 1.0
+      "target": "ui_sheet"
     },
     {
       "relation": "imports",
@@ -17154,9 +16155,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_sheet_sheet",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheet"
     },
     {
       "relation": "imports",
@@ -17165,9 +16166,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_sheet_sheetcontent",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheetcontent"
     },
     {
       "relation": "imports",
@@ -17176,9 +16177,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_sheet_sheetheader",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheetheader"
     },
     {
       "relation": "imports",
@@ -17187,9 +16188,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_sheet_sheettitle",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheettitle"
     },
     {
       "relation": "imports_from",
@@ -17198,9 +16199,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_skeleton",
-      "confidence_score": 1.0
+      "target": "ui_skeleton"
     },
     {
       "relation": "imports",
@@ -17209,9 +16210,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_skeleton_skeleton",
-      "confidence_score": 1.0
+      "target": "ui_skeleton_skeleton"
     },
     {
       "relation": "imports_from",
@@ -17220,9 +16221,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_textarea",
-      "confidence_score": 1.0
+      "target": "ui_textarea"
     },
     {
       "relation": "imports",
@@ -17231,9 +16232,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page",
-      "target": "ui_textarea_textarea",
-      "confidence_score": 1.0
+      "target": "ui_textarea_textarea"
     },
     {
       "relation": "calls",
@@ -17242,9 +16243,9 @@
       "source_file": "apps/web/src/app/(admin)/meal-prep/page.tsx",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "meal_prep_page_sessiontoform",
-      "target": "meal_prep_page_tolocalinput",
-      "confidence_score": 1.0
+      "target": "meal_prep_page_tolocalinput"
     },
     {
       "relation": "imports_from",
@@ -17286,9 +16287,9 @@
       "source_file": "apps/web/src/app/(admin)/painel/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "painel_page",
-      "target": "lib_constants_meal_prep_local_labels",
-      "confidence_score": 1.0
+      "target": "lib_constants_meal_prep_local_labels"
     },
     {
       "relation": "imports",
@@ -17297,9 +16298,9 @@
       "source_file": "apps/web/src/app/(admin)/painel/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "painel_page",
-      "target": "lib_constants_meal_prep_status_colors",
-      "confidence_score": 1.0
+      "target": "lib_constants_meal_prep_status_colors"
     },
     {
       "relation": "imports",
@@ -17308,9 +16309,9 @@
       "source_file": "apps/web/src/app/(admin)/painel/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "painel_page",
-      "target": "lib_constants_meal_prep_status_labels",
-      "confidence_score": 1.0
+      "target": "lib_constants_meal_prep_status_labels"
     },
     {
       "relation": "imports_from",
@@ -17330,9 +16331,9 @@
       "source_file": "apps/web/src/app/(admin)/painel/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "painel_page",
-      "target": "lib_utils_formatcurrency",
-      "confidence_score": 1.0
+      "target": "lib_utils_formatcurrency"
     },
     {
       "relation": "imports",
@@ -17361,9 +16362,9 @@
       "source_file": "apps/web/src/app/(admin)/painel/page.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "painel_page",
-      "target": "painel_page_mealprepsessiondto",
-      "confidence_score": 1.0
+      "target": "painel_page_mealprepsessiondto"
     },
     {
       "relation": "imports_from",
@@ -17471,9 +16472,9 @@
       "source_file": "apps/web/src/app/(admin)/painel/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "painel_page",
-      "target": "ui_empty_state",
-      "confidence_score": 1.0
+      "target": "ui_empty_state"
     },
     {
       "relation": "imports",
@@ -17482,9 +16483,9 @@
       "source_file": "apps/web/src/app/(admin)/painel/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "painel_page",
-      "target": "ui_empty_state_emptystate",
-      "confidence_score": 1.0
+      "target": "ui_empty_state_emptystate"
     },
     {
       "relation": "imports_from",
@@ -17581,9 +16582,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "lib_api_client",
-      "confidence_score": 1.0
+      "target": "lib_api_client"
     },
     {
       "relation": "imports",
@@ -17592,9 +16593,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "lib_api_client_api",
-      "confidence_score": 1.0
+      "target": "lib_api_client_api"
     },
     {
       "relation": "imports_from",
@@ -17603,9 +16604,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "lib_constants",
-      "confidence_score": 1.0
+      "target": "lib_constants"
     },
     {
       "relation": "imports",
@@ -17614,9 +16615,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "lib_constants_plano_origem_labels",
-      "confidence_score": 1.0
+      "target": "lib_constants_plano_origem_labels"
     },
     {
       "relation": "contains",
@@ -17624,9 +16625,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "planos_page_cliente",
-      "confidence_score": 1.0
+      "target": "planos_page_cliente"
     },
     {
       "relation": "contains",
@@ -17634,9 +16635,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "planos_page_emptyform",
-      "confidence_score": 1.0
+      "target": "planos_page_emptyform"
     },
     {
       "relation": "contains",
@@ -17644,9 +16645,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "planos_page_planoalimentar",
-      "confidence_score": 1.0
+      "target": "planos_page_planoalimentar"
     },
     {
       "relation": "contains",
@@ -17654,9 +16655,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "planos_page_planoformdata",
-      "confidence_score": 1.0
+      "target": "planos_page_planoformdata"
     },
     {
       "relation": "contains",
@@ -17664,9 +16665,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "planos_page_planospage",
-      "confidence_score": 1.0
+      "target": "planos_page_planospage"
     },
     {
       "relation": "contains",
@@ -17674,9 +16675,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "planos_page_planotoform",
-      "confidence_score": 1.0
+      "target": "planos_page_planotoform"
     },
     {
       "relation": "imports_from",
@@ -17685,9 +16686,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge"
     },
     {
       "relation": "imports",
@@ -17696,9 +16697,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_badge_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge_badge"
     },
     {
       "relation": "imports_from",
@@ -17707,9 +16708,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_button",
-      "confidence_score": 1.0
+      "target": "ui_button"
     },
     {
       "relation": "imports",
@@ -17718,9 +16719,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports_from",
@@ -17729,9 +16730,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_card",
-      "confidence_score": 1.0
+      "target": "ui_card"
     },
     {
       "relation": "imports",
@@ -17740,9 +16741,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_card_card",
-      "confidence_score": 1.0
+      "target": "ui_card_card"
     },
     {
       "relation": "imports",
@@ -17751,9 +16752,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_card_cardcontent",
-      "confidence_score": 1.0
+      "target": "ui_card_cardcontent"
     },
     {
       "relation": "imports_from",
@@ -17762,9 +16763,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_empty_state",
-      "confidence_score": 1.0
+      "target": "ui_empty_state"
     },
     {
       "relation": "imports",
@@ -17773,9 +16774,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_empty_state_emptystate",
-      "confidence_score": 1.0
+      "target": "ui_empty_state_emptystate"
     },
     {
       "relation": "imports_from",
@@ -17784,9 +16785,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_input",
-      "confidence_score": 1.0
+      "target": "ui_input"
     },
     {
       "relation": "imports",
@@ -17795,9 +16796,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_input_input",
-      "confidence_score": 1.0
+      "target": "ui_input_input"
     },
     {
       "relation": "imports_from",
@@ -17806,9 +16807,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_label",
-      "confidence_score": 1.0
+      "target": "ui_label"
     },
     {
       "relation": "imports",
@@ -17817,9 +16818,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_label_label",
-      "confidence_score": 1.0
+      "target": "ui_label_label"
     },
     {
       "relation": "imports_from",
@@ -17828,9 +16829,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_sheet",
-      "confidence_score": 1.0
+      "target": "ui_sheet"
     },
     {
       "relation": "imports",
@@ -17839,9 +16840,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_sheet_sheet",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheet"
     },
     {
       "relation": "imports",
@@ -17850,9 +16851,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_sheet_sheetcontent",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheetcontent"
     },
     {
       "relation": "imports",
@@ -17861,9 +16862,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_sheet_sheetheader",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheetheader"
     },
     {
       "relation": "imports",
@@ -17872,9 +16873,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_sheet_sheettitle",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheettitle"
     },
     {
       "relation": "imports_from",
@@ -17883,9 +16884,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_skeleton",
-      "confidence_score": 1.0
+      "target": "ui_skeleton"
     },
     {
       "relation": "imports",
@@ -17894,9 +16895,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_skeleton_skeleton",
-      "confidence_score": 1.0
+      "target": "ui_skeleton_skeleton"
     },
     {
       "relation": "imports_from",
@@ -17905,9 +16906,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_textarea",
-      "confidence_score": 1.0
+      "target": "ui_textarea"
     },
     {
       "relation": "imports",
@@ -17916,9 +16917,9 @@
       "source_file": "apps/web/src/app/(admin)/planos/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "planos_page",
-      "target": "ui_textarea_textarea",
-      "confidence_score": 1.0
+      "target": "ui_textarea_textarea"
     },
     {
       "relation": "imports_from",
@@ -17927,9 +16928,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "lib_api_client",
-      "confidence_score": 1.0
+      "target": "lib_api_client"
     },
     {
       "relation": "imports",
@@ -17938,9 +16939,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "lib_api_client_api",
-      "confidence_score": 1.0
+      "target": "lib_api_client_api"
     },
     {
       "relation": "imports_from",
@@ -17949,9 +16950,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "lib_utils",
-      "confidence_score": 1.0
+      "target": "lib_utils"
     },
     {
       "relation": "imports",
@@ -17960,9 +16961,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "lib_utils_formatcurrency",
-      "confidence_score": 1.0
+      "target": "lib_utils_formatcurrency"
     },
     {
       "relation": "contains",
@@ -17970,9 +16971,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "precos_page_key_labels",
-      "confidence_score": 1.0
+      "target": "precos_page_key_labels"
     },
     {
       "relation": "contains",
@@ -17980,9 +16981,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "precos_page_precoformdata",
-      "confidence_score": 1.0
+      "target": "precos_page_precoformdata"
     },
     {
       "relation": "contains",
@@ -17990,9 +16991,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "precos_page_precospage",
-      "confidence_score": 1.0
+      "target": "precos_page_precospage"
     },
     {
       "relation": "contains",
@@ -18000,9 +17001,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "precos_page_pricingconfig",
-      "confidence_score": 1.0
+      "target": "precos_page_pricingconfig"
     },
     {
       "relation": "imports_from",
@@ -18011,9 +17012,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge"
     },
     {
       "relation": "imports",
@@ -18022,9 +17023,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_badge_badge",
-      "confidence_score": 1.0
+      "target": "ui_badge_badge"
     },
     {
       "relation": "imports_from",
@@ -18033,9 +17034,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_button",
-      "confidence_score": 1.0
+      "target": "ui_button"
     },
     {
       "relation": "imports",
@@ -18044,9 +17045,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports_from",
@@ -18055,9 +17056,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_card",
-      "confidence_score": 1.0
+      "target": "ui_card"
     },
     {
       "relation": "imports",
@@ -18066,9 +17067,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_card_card",
-      "confidence_score": 1.0
+      "target": "ui_card_card"
     },
     {
       "relation": "imports",
@@ -18077,9 +17078,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_card_cardcontent",
-      "confidence_score": 1.0
+      "target": "ui_card_cardcontent"
     },
     {
       "relation": "imports_from",
@@ -18088,9 +17089,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_empty_state",
-      "confidence_score": 1.0
+      "target": "ui_empty_state"
     },
     {
       "relation": "imports",
@@ -18099,9 +17100,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_empty_state_emptystate",
-      "confidence_score": 1.0
+      "target": "ui_empty_state_emptystate"
     },
     {
       "relation": "imports_from",
@@ -18110,9 +17111,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_input",
-      "confidence_score": 1.0
+      "target": "ui_input"
     },
     {
       "relation": "imports",
@@ -18121,9 +17122,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_input_input",
-      "confidence_score": 1.0
+      "target": "ui_input_input"
     },
     {
       "relation": "imports_from",
@@ -18132,9 +17133,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_label",
-      "confidence_score": 1.0
+      "target": "ui_label"
     },
     {
       "relation": "imports",
@@ -18143,9 +17144,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_label_label",
-      "confidence_score": 1.0
+      "target": "ui_label_label"
     },
     {
       "relation": "imports_from",
@@ -18154,9 +17155,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_sheet",
-      "confidence_score": 1.0
+      "target": "ui_sheet"
     },
     {
       "relation": "imports",
@@ -18165,9 +17166,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_sheet_sheet",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheet"
     },
     {
       "relation": "imports",
@@ -18176,9 +17177,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_sheet_sheetcontent",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheetcontent"
     },
     {
       "relation": "imports",
@@ -18187,9 +17188,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_sheet_sheetheader",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheetheader"
     },
     {
       "relation": "imports",
@@ -18198,9 +17199,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_sheet_sheettitle",
-      "confidence_score": 1.0
+      "target": "ui_sheet_sheettitle"
     },
     {
       "relation": "imports_from",
@@ -18209,9 +17210,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_skeleton",
-      "confidence_score": 1.0
+      "target": "ui_skeleton"
     },
     {
       "relation": "imports",
@@ -18220,9 +17221,9 @@
       "source_file": "apps/web/src/app/(admin)/precos/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "precos_page",
-      "target": "ui_skeleton_skeleton",
-      "confidence_score": 1.0
+      "target": "ui_skeleton_skeleton"
     },
     {
       "relation": "imports_from",
@@ -21530,9 +20531,9 @@
       "source_file": "apps/web/src/lib/constants.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_constants",
-      "target": "lib_constants_meal_prep_local_labels",
-      "confidence_score": 1.0
+      "target": "lib_constants_meal_prep_local_labels"
     },
     {
       "relation": "contains",
@@ -21540,9 +20541,9 @@
       "source_file": "apps/web/src/lib/constants.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_constants",
-      "target": "lib_constants_meal_prep_status_colors",
-      "confidence_score": 1.0
+      "target": "lib_constants_meal_prep_status_colors"
     },
     {
       "relation": "contains",
@@ -21550,9 +20551,9 @@
       "source_file": "apps/web/src/lib/constants.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_constants",
-      "target": "lib_constants_meal_prep_status_labels",
-      "confidence_score": 1.0
+      "target": "lib_constants_meal_prep_status_labels"
     },
     {
       "relation": "contains",
@@ -21560,9 +20561,9 @@
       "source_file": "apps/web/src/lib/constants.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_constants",
-      "target": "lib_constants_plano_origem_labels",
-      "confidence_score": 1.0
+      "target": "lib_constants_plano_origem_labels"
     },
     {
       "relation": "contains",
@@ -21590,9 +20591,9 @@
       "source_file": "apps/web/src/lib/utils.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_utils",
-      "target": "lib_utils_formatcurrency",
-      "confidence_score": 1.0
+      "target": "lib_utils_formatcurrency"
     },
     {
       "relation": "contains",
@@ -22573,9 +21574,9 @@
       "source_file": "packages/contracts/src/index.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "packages_contracts_src_index_ts_src_index",
-      "target": "src_cliente_schema",
-      "confidence_score": 1.0
+      "target": "src_cliente_schema"
     },
     {
       "relation": "contains",
@@ -22583,9 +21584,9 @@
       "source_file": "packages/contracts/src/cliente.schema.ts",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_cliente_schema",
-      "target": "src_cliente_schema_clientedto",
-      "confidence_score": 1.0
+      "target": "src_cliente_schema_clientedto"
     },
     {
       "relation": "contains",
@@ -22593,9 +21594,9 @@
       "source_file": "packages/contracts/src/cliente.schema.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_cliente_schema",
-      "target": "src_cliente_schema_clienteschema",
-      "confidence_score": 1.0
+      "target": "src_cliente_schema_clienteschema"
     },
     {
       "relation": "contains",
@@ -22603,9 +21604,9 @@
       "source_file": "packages/contracts/src/cliente.schema.ts",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_cliente_schema",
-      "target": "src_cliente_schema_createclientedto",
-      "confidence_score": 1.0
+      "target": "src_cliente_schema_createclientedto"
     },
     {
       "relation": "contains",
@@ -22613,9 +21614,9 @@
       "source_file": "packages/contracts/src/cliente.schema.ts",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_cliente_schema",
-      "target": "src_cliente_schema_createclienteschema",
-      "confidence_score": 1.0
+      "target": "src_cliente_schema_createclienteschema"
     },
     {
       "relation": "contains",
@@ -22623,9 +21624,9 @@
       "source_file": "packages/contracts/src/cliente.schema.ts",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_cliente_schema",
-      "target": "src_cliente_schema_updateclientedto",
-      "confidence_score": 1.0
+      "target": "src_cliente_schema_updateclientedto"
     },
     {
       "relation": "contains",
@@ -22633,20 +21634,9 @@
       "source_file": "packages/contracts/src/cliente.schema.ts",
       "source_location": "L53",
       "weight": 1.0,
-      "source": "src_cliente_schema",
-      "target": "src_cliente_schema_updateclienteschema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "re_exports",
-      "context": "export",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/index.ts",
-      "source_location": "L10",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "packages_contracts_src_index_ts_src_index",
-      "target": "src_ingredient_schema"
+      "source": "src_cliente_schema",
+      "target": "src_cliente_schema_updateclienteschema"
     },
     {
       "relation": "re_exports",
@@ -22655,9 +21645,9 @@
       "source_file": "packages/contracts/src/index.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "packages_contracts_src_index_ts_src_index",
-      "target": "src_meal_plan_schema",
-      "confidence_score": 1.0
+      "target": "src_meal_plan_schema"
     },
     {
       "relation": "re_exports",
@@ -22666,9 +21656,9 @@
       "source_file": "packages/contracts/src/index.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "packages_contracts_src_index_ts_src_index",
-      "target": "src_meal_prep_session_schema",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema"
     },
     {
       "relation": "re_exports",
@@ -22688,69 +21678,9 @@
       "source_file": "packages/contracts/src/index.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "packages_contracts_src_index_ts_src_index",
-      "target": "src_pricing_config_schema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ingredient_schema",
-      "target": "src_ingredient_schema_createingredientdto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ingredient_schema",
-      "target": "src_ingredient_schema_createingredientschema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ingredient_schema",
-      "target": "src_ingredient_schema_ingredientdto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ingredient_schema",
-      "target": "src_ingredient_schema_ingredientschema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ingredient_schema",
-      "target": "src_ingredient_schema_updateingredientdto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/ingredient.schema.ts",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_ingredient_schema",
-      "target": "src_ingredient_schema_updateingredientschema"
+      "target": "src_pricing_config_schema"
     },
     {
       "relation": "contains",
@@ -22758,9 +21688,9 @@
       "source_file": "packages/contracts/src/meal-plan.schema.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_plan_schema",
-      "target": "src_meal_plan_schema_createplanoalimentardto",
-      "confidence_score": 1.0
+      "target": "src_meal_plan_schema_createplanoalimentardto"
     },
     {
       "relation": "contains",
@@ -22768,9 +21698,9 @@
       "source_file": "packages/contracts/src/meal-plan.schema.ts",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_plan_schema",
-      "target": "src_meal_plan_schema_createplanoalimentarschema",
-      "confidence_score": 1.0
+      "target": "src_meal_plan_schema_createplanoalimentarschema"
     },
     {
       "relation": "contains",
@@ -22778,9 +21708,9 @@
       "source_file": "packages/contracts/src/meal-plan.schema.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_plan_schema",
-      "target": "src_meal_plan_schema_planoalimentardto",
-      "confidence_score": 1.0
+      "target": "src_meal_plan_schema_planoalimentardto"
     },
     {
       "relation": "contains",
@@ -22788,9 +21718,9 @@
       "source_file": "packages/contracts/src/meal-plan.schema.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_plan_schema",
-      "target": "src_meal_plan_schema_planoalimentarschema",
-      "confidence_score": 1.0
+      "target": "src_meal_plan_schema_planoalimentarschema"
     },
     {
       "relation": "contains",
@@ -22798,9 +21728,9 @@
       "source_file": "packages/contracts/src/meal-plan.schema.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_plan_schema",
-      "target": "src_meal_plan_schema_planoorigem",
-      "confidence_score": 1.0
+      "target": "src_meal_plan_schema_planoorigem"
     },
     {
       "relation": "contains",
@@ -22808,9 +21738,9 @@
       "source_file": "packages/contracts/src/meal-plan.schema.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_plan_schema",
-      "target": "src_meal_plan_schema_planoorigemschema",
-      "confidence_score": 1.0
+      "target": "src_meal_plan_schema_planoorigemschema"
     },
     {
       "relation": "contains",
@@ -22818,9 +21748,9 @@
       "source_file": "packages/contracts/src/meal-plan.schema.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_plan_schema",
-      "target": "src_meal_plan_schema_updateplanoalimentardto",
-      "confidence_score": 1.0
+      "target": "src_meal_plan_schema_updateplanoalimentardto"
     },
     {
       "relation": "contains",
@@ -22828,9 +21758,9 @@
       "source_file": "packages/contracts/src/meal-plan.schema.ts",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_plan_schema",
-      "target": "src_meal_plan_schema_updateplanoalimentarschema",
-      "confidence_score": 1.0
+      "target": "src_meal_plan_schema_updateplanoalimentarschema"
     },
     {
       "relation": "contains",
@@ -22838,9 +21768,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_createmealprepsessiondto",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_createmealprepsessiondto"
     },
     {
       "relation": "contains",
@@ -22848,9 +21778,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_createmealprepsessionschema",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_createmealprepsessionschema"
     },
     {
       "relation": "contains",
@@ -22858,9 +21788,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_mealpreplocal",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_mealpreplocal"
     },
     {
       "relation": "contains",
@@ -22868,9 +21798,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_mealpreplocalschema",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_mealpreplocalschema"
     },
     {
       "relation": "contains",
@@ -22878,9 +21808,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_mealprepsessiondto",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_mealprepsessiondto"
     },
     {
       "relation": "contains",
@@ -22888,9 +21818,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_mealprepsessionschema",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_mealprepsessionschema"
     },
     {
       "relation": "contains",
@@ -22898,9 +21828,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_mealprepstatus",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_mealprepstatus"
     },
     {
       "relation": "contains",
@@ -22908,9 +21838,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_mealprepstatusschema",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_mealprepstatusschema"
     },
     {
       "relation": "contains",
@@ -22918,9 +21848,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_updatemealprepsessiondto",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_updatemealprepsessiondto"
     },
     {
       "relation": "contains",
@@ -22928,9 +21858,9 @@
       "source_file": "packages/contracts/src/meal-prep-session.schema.ts",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_meal_prep_session_schema",
-      "target": "src_meal_prep_session_schema_updatemealprepsessionschema",
-      "confidence_score": 1.0
+      "target": "src_meal_prep_session_schema_updatemealprepsessionschema"
     },
     {
       "relation": "contains",
@@ -22981,26 +21911,6 @@
       "confidence_score": 1.0,
       "source": "src_menu_schema",
       "target": "src_menu_schema_createtechnicalsheetdto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_menu_schema",
-      "target": "src_menu_schema_createtechnicalsheetingredientdto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L59",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_menu_schema",
-      "target": "src_menu_schema_createtechnicalsheetingredientschema"
     },
     {
       "relation": "contains",
@@ -23106,26 +22016,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L57",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_menu_schema",
-      "target": "src_menu_schema_technicalsheetingredientdto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/menu.schema.ts",
-      "source_location": "L48",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_menu_schema",
-      "target": "src_menu_schema_technicalsheetingredientschema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/contracts/src/menu.schema.ts",
       "source_location": "L48",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -23198,9 +22088,9 @@
       "source_file": "packages/contracts/src/pricing-config.schema.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pricing_config_schema",
-      "target": "src_pricing_config_schema_pricingconfigdto",
-      "confidence_score": 1.0
+      "target": "src_pricing_config_schema_pricingconfigdto"
     },
     {
       "relation": "contains",
@@ -23208,9 +22098,9 @@
       "source_file": "packages/contracts/src/pricing-config.schema.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pricing_config_schema",
-      "target": "src_pricing_config_schema_pricingconfigschema",
-      "confidence_score": 1.0
+      "target": "src_pricing_config_schema_pricingconfigschema"
     },
     {
       "relation": "contains",
@@ -23218,9 +22108,9 @@
       "source_file": "packages/contracts/src/pricing-config.schema.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pricing_config_schema",
-      "target": "src_pricing_config_schema_updatepricingconfigdto",
-      "confidence_score": 1.0
+      "target": "src_pricing_config_schema_updatepricingconfigdto"
     },
     {
       "relation": "contains",
@@ -23228,9 +22118,9 @@
       "source_file": "packages/contracts/src/pricing-config.schema.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pricing_config_schema",
-      "target": "src_pricing_config_schema_updatepricingconfigschema",
-      "confidence_score": 1.0
+      "target": "src_pricing_config_schema_updatepricingconfigschema"
     },
     {
       "relation": "contains",

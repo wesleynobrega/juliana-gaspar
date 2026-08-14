@@ -1,16 +1,16 @@
 # Graph Report - Juliana Gaspar  (2026-08-13)
 
 ## Corpus Check
-- 139 files · ~139,912 words
+- 141 files · ~140,086 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1082 nodes · 1442 edges · 85 communities (69 shown, 16 thin omitted)
+- 1092 nodes · 1458 edges · 81 communities (67 shown, 14 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 28 edges (avg confidence: 0.88)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `eb3984a4`
+- Built from commit: `2c1515b5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -85,13 +85,9 @@
 - [[_COMMUNITY_Community 76|Community 76]]
 - [[_COMMUNITY_Community 77|Community 77]]
 - [[_COMMUNITY_Community 78|Community 78]]
-- [[_COMMUNITY_Community 80|Community 80]]
-- [[_COMMUNITY_Community 81|Community 81]]
 - [[_COMMUNITY_Community 84|Community 84]]
 - [[_COMMUNITY_Community 86|Community 86]]
 - [[_COMMUNITY_Community 87|Community 87]]
-- [[_COMMUNITY_Community 91|Community 91]]
-- [[_COMMUNITY_Community 93|Community 93]]
 - [[_COMMUNITY_Community 94|Community 94]]
 - [[_COMMUNITY_Community 95|Community 95]]
 
@@ -126,11 +122,11 @@
 - **Mobile-First Design System: patterns that collectively implement the mobile-first paradigm across all UI surfaces** — specs_2026_06_16_juliana_gaspar_architecture_v2_mobile_first, specs_2026_06_16_juliana_gaspar_architecture_v2_card_vs_table, specs_2026_06_16_juliana_gaspar_architecture_v2_touch_targets, specs_2026_06_16_juliana_gaspar_architecture_v2_filter_pattern, specs_2026_06_16_juliana_gaspar_architecture_v2_pagination_pattern, specs_2026_06_16_juliana_gaspar_architecture_v2_navigation_pattern, specs_2026_06_16_juliana_gaspar_architecture_v2_form_multistep, specs_2026_06_16_juliana_gaspar_architecture_v2_breakpoints [INFERRED 0.95]
 - **Architecture Governance Framework: rules and checklists ensuring architectural consistency** — specs_2026_06_16_juliana_gaspar_architecture_v2_governance, specs_2026_06_16_juliana_gaspar_architecture_v2_import_hierarchy, specs_2026_06_16_juliana_gaspar_architecture_v2_feature_structure, specs_2026_06_16_juliana_gaspar_architecture_v2_antipatterns, specs_2026_06_16_juliana_gaspar_architecture_v2_definition_of_done, specs_2026_06_16_juliana_gaspar_architecture_v2_qa_checklist, specs_2026_06_16_juliana_gaspar_architecture_v2_single_source_schemas [INFERRED 0.95]
 
-## Communities (85 total, 16 thin omitted)
+## Communities (81 total, 14 thin omitted)
 
 ### Community 0 - "Delivery & Payments Module"
-Cohesion: 0.20
-Nodes (7): Cliente, emptyForm, PlanoAlimentar, PlanoFormData, Label(), SheetHeader(), Skeleton()
+Cohesion: 0.13
+Nodes (14): AdminHeader(), BREADCRUMB_MAP, getBreadcrumb(), DropdownMenu(), DropdownMenuCheckboxItem(), DropdownMenuContent(), DropdownMenuItem(), DropdownMenuLabel() (+6 more)
 
 ### Community 1 - "Catalog & Core API"
 Cohesion: 0.15
@@ -138,7 +134,7 @@ Nodes (4): MealPlansController, MealPlansModule, MealPlansService, toDTO()
 
 ### Community 2 - "Landing & Admin UI"
 Cohesion: 0.08
-Nodes (17): inter, metadata, playfair, Differentials(), FAQ(), FAQS, FinalCTA(), Footer() (+9 more)
+Nodes (17): inter, metadata, playfair, Differentials(), ITEMS, FAQ(), FAQS, FinalCTA() (+9 more)
 
 ### Community 3 - "Monorepo Root & Turbo"
 Cohesion: 0.05
@@ -149,8 +145,8 @@ Cohesion: 0.05
 Nodes (37): dependencies, @base-ui/react, class-variance-authority, clsx, embla-carousel-autoplay, embla-carousel-react, @hookform/resolvers, @juliana-gaspar/contracts (+29 more)
 
 ### Community 5 - "Admin Auth & API Client"
-Cohesion: 0.09
-Nodes (8): MenuController, MenuService, PrismaMenuItem, PrismaSpecialRequest, PrismaTechnicalSheet, toMenuItemDTO(), toSpecialRequestDTO(), toTechnicalSheetDTO()
+Cohesion: 0.08
+Nodes (9): MenuController, MenuModule, MenuService, PrismaMenuItem, PrismaSpecialRequest, PrismaTechnicalSheet, toMenuItemDTO(), toSpecialRequestDTO() (+1 more)
 
 ### Community 6 - "API Dependencies"
 Cohesion: 0.06
@@ -169,24 +165,24 @@ Cohesion: 0.35
 Nodes (4): Roles(), JwtAuthGuard, RolesGuard, ZodValidationPipe
 
 ### Community 10 - "Cycles Module"
-Cohesion: 0.17
-Nodes (4): MealPrepSessionsService, toDTO(), BASE_KEY, PricingService
+Cohesion: 0.06
+Nodes (14): HttpExceptionFilter, HealthController, HealthModule, HealthService, TransformInterceptor, MealPrepSessionsController, MealPrepSessionsModule, MealPrepSessionsService (+6 more)
 
 ### Community 11 - "Customers Module"
 Cohesion: 0.18
 Nodes (10): CreateMealPrepSessionDTO, createMealPrepSessionSchema, MealPrepLocal, mealPrepLocalSchema, MealPrepSessionDTO, mealPrepSessionSchema, MealPrepStatus, mealPrepStatusSchema (+2 more)
 
 ### Community 12 - "Auth Module"
-Cohesion: 0.14
-Nodes (11): AuthController, AuthService, AuthResponse, authResponseSchema, LoginDTO, loginSchema, RegisterDTO, registerSchema (+3 more)
+Cohesion: 0.21
+Nodes (6): AuthController, AuthModule, AuthService, AuthResponse, LoginDTO, JwtStrategy
 
 ### Community 13 - "shadcn/ui Config"
 Cohesion: 0.09
 Nodes (21): aliases, components, hooks, lib, ui, utils, iconLibrary, menuAccent (+13 more)
 
 ### Community 14 - "Database Package Config"
-Cohesion: 0.09
-Nodes (22): dependencies, bcryptjs, dotenv, @prisma/client, tsx, devDependencies, @juliana-gaspar/config, prisma (+14 more)
+Cohesion: 0.08
+Nodes (23): dependencies, bcryptjs, dotenv, @prisma/client, tsx, devDependencies, @juliana-gaspar/config, prisma (+15 more)
 
 ### Community 15 - "Admin Header & Dropdowns"
 Cohesion: 0.17
@@ -197,8 +193,8 @@ Cohesion: 0.22
 Nodes (8): CreatePlanoAlimentarDTO, createPlanoAlimentarSchema, PlanoAlimentarDTO, planoAlimentarSchema, PlanoOrigem, planoOrigemSchema, UpdatePlanoAlimentarDTO, updatePlanoAlimentarSchema
 
 ### Community 17 - "Admin Sidebar & Sheet"
-Cohesion: 0.13
-Nodes (16): NAV_ITEMS, KEY_LABELS, PrecoFormData, PricingConfig, Button(), buttonVariants, EmptyState(), EmptyStateProps (+8 more)
+Cohesion: 0.05
+Nodes (64): NAV_ITEMS, MenuItemDTO, NUTRIENT_BADGES, NUTRIENT_LABELS, NutrientType, TABS, TechnicalSheetDTO, Cliente (+56 more)
 
 ### Community 18 - "App Shell & Branding"
 Cohesion: 0.05
@@ -233,8 +229,8 @@ Cohesion: 0.20
 Nodes (9): compilerOptions, allowJs, baseUrl, paths, exclude, extends, include, @/* (+1 more)
 
 ### Community 26 - "Avatar UI"
-Cohesion: 0.06
-Nodes (45): AdminHeader(), BREADCRUMB_MAP, getBreadcrumb(), cn(), Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup() (+37 more)
+Cohesion: 0.17
+Nodes (19): cn(), SelectContent(), SelectGroup(), SelectItem(), SelectLabel(), SelectScrollDownButton(), SelectScrollUpButton(), SelectSeparator() (+11 more)
 
 ### Community 27 - "Nest CLI Config"
 Cohesion: 0.33
@@ -260,9 +256,13 @@ Nodes (6): compilerOptions, module, moduleResolution, outDir, extends, include
 Cohesion: 0.40
 Nodes (5): Prohibited Anti-Patterns: feature cross-imports, app/ business logic, duplicated Zod schemas, hover-only actions, horizontal data scroll, Definition of Done: 16-point checklist covering responsive breakpoints, UI states, accessibility, validation, and semantic HTML, Architecture Governance: feature creation checklist, shared extraction rules, minimum feature requirements, QA Checklist: 15-item mobile validation checklist tested on real device or DevTools at 320px and 375px, Mandatory UI States: Loading (skeleton), Empty with CTA, Error with retry, Success toast, Disabled visual
 
+### Community 34 - "Database Seed"
+Cohesion: 0.26
+Nodes (9): CatalogMenuItem, CatalogTechnicalSheet, MENU_ITEMS, seedCatalog(), TECHNICAL_SHEETS, main(), prisma, main() (+1 more)
+
 ### Community 36 - "Toast Notifications"
-Cohesion: 0.17
-Nodes (12): MEAL_PREP_LOCAL_LABELS, MEAL_PREP_STATUS_COLORS, MEAL_PREP_STATUS_LABELS, PLANO_ORIGEM_LABELS, Cliente, emptyForm, MealPrepFormData, MealPrepSession (+4 more)
+Cohesion: 0.29
+Nodes (6): authResponseSchema, loginSchema, RegisterDTO, registerSchema, UserRole, userRoleSchema
 
 ### Community 37 - "Root Page"
 Cohesion: 0.05
@@ -272,17 +272,21 @@ Nodes (38): 1.1 TypeScript, 1.2 Testes, 1.3 CI/CD, 1.4 Scripts, 1.5 Variáveis d
 Cohesion: 0.06
 Nodes (35): Iniciar banco de dados, Iniciar desenvolvimento, Instalar dependências, Juliana Gaspar — Plano de Implementação Phase 1, MILESTONE 1: Fundação do Monorepo, MILESTONE 2: Backend NestJS — Fundação, MILESTONE 3: Backend NestJS — Módulos de Negócio, MILESTONE 4: Frontend Next.js — Fundação (+27 more)
 
+### Community 49 - "Community 49"
+Cohesion: 0.29
+Nodes (6): Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup(), AvatarGroupCount(), AvatarImage()
+
 ### Community 50 - "Community 50"
-Cohesion: 0.14
-Nodes (10): Cliente, ClienteFormData, emptyForm, Dialog(), DialogContent(), DialogDescription(), DialogFooter(), DialogHeader() (+2 more)
+Cohesion: 0.18
+Nodes (7): Dialog(), DialogContent(), DialogDescription(), DialogFooter(), DialogHeader(), DialogOverlay(), DialogTitle()
 
 ### Community 51 - "Community 51"
 Cohesion: 0.06
 Nodes (33): 1.1 Problema que Resolve, 1.2 Proposta de Valor, 1. Visão do Produto, 2.1 Admin (Juliana Gaspar), 2.2 Operador, 2.3 Cliente, 2. Personas, 3.10 Assinaturas (Backlog) (+25 more)
 
 ### Community 52 - "Community 52"
-Cohesion: 0.16
-Nodes (15): ITEMS, DISHES, WeeklyMenu(), formatDate(), DashboardPage(), MealPrepSessionDTO, Badge(), badgeVariants (+7 more)
+Cohesion: 0.40
+Nodes (5): Tabs(), TabsContent(), TabsList(), tabsListVariants, TabsTrigger()
 
 ### Community 53 - "Community 53"
 Cohesion: 0.07
@@ -356,14 +360,6 @@ Nodes (4): Gráficos, KPI Cards, Métricas priorizadas no mobile (ordem de impor
 Cohesion: 0.67
 Nodes (3): 5.1 — Pipeline de validação, 5.2 — NestJS DTOs usam contracts diretamente, Seção 5 — Estratégia de Validação Backend ↔ Frontend
 
-### Community 80 - "Community 80"
-Cohesion: 0.28
-Nodes (3): HttpExceptionFilter, TransformInterceptor, AppModule
-
-### Community 81 - "Community 81"
-Cohesion: 0.36
-Nodes (3): HealthController, HealthModule, HealthService
-
 ### Community 86 - "Community 86"
 Cohesion: 0.18
 Nodes (10): background_color, description, display, icons, lang, name, orientation, short_name (+2 more)
@@ -372,26 +368,20 @@ Nodes (10): background_color, description, display, icons, lang, name, orientati
 Cohesion: 0.33
 Nodes (4): PricingConfigDTO, pricingConfigSchema, UpdatePricingConfigDTO, updatePricingConfigSchema
 
-### Community 91 - "Community 91"
-Cohesion: 0.24
-Nodes (5): AuthModule, MealPrepSessionsModule, MenuModule, PricingConfigController, PricingConfigModule
-
-### Community 93 - "Community 93"
-Cohesion: 0.17
-Nodes (9): MenuItemDTO, NUTRIENT_BADGES, NUTRIENT_LABELS, NutrientType, TABS, TechnicalSheetDTO, formatCurrency(), Input() (+1 more)
-
 ## Knowledge Gaps
-- **569 isolated node(s):** `.test-db.sh script`, `DATABASE_URL`, `$schema`, `collection`, `sourceRoot` (+564 more)
+- **573 isolated node(s):** `.test-db.sh script`, `DATABASE_URL`, `$schema`, `collection`, `sourceRoot` (+568 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **14 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Avatar UI` to `Delivery & Payments Module`, `Toast Notifications`, `Admin Header & Dropdowns`, `Admin Sidebar & Sheet`, `Community 50`, `Community 52`, `Community 60`, `Community 93`?**
+- **Why does `cn()` connect `Avatar UI` to `Delivery & Payments Module`, `Admin Header & Dropdowns`, `Admin Sidebar & Sheet`, `Community 50`, `Community 49`, `Community 52`, `Community 54`, `Community 60`?**
   _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **What connects `.test-db.sh script`, `DATABASE_URL`, `$schema` to the rest of the system?**
-  _584 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _588 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Delivery & Payments Module` be split into smaller, more focused modules?**
+  _Cohesion score 0.12631578947368421 - nodes in this community are weakly interconnected._
 - **Should `Landing & Admin UI` be split into smaller, more focused modules?**
   _Cohesion score 0.07575757575757576 - nodes in this community are weakly interconnected._
 - **Should `Monorepo Root & Turbo` be split into smaller, more focused modules?**
@@ -399,6 +389,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Web App Dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `Admin Auth & API Client` be split into smaller, more focused modules?**
-  _Cohesion score 0.08602150537634409 - nodes in this community are weakly interconnected._
-- **Should `API Dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
