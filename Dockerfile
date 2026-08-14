@@ -34,8 +34,11 @@ RUN SRC_PRISMA=$(find /app -path "*/node_modules/.prisma/client" -type d -print 
     rm -rf "$DEST_PRISMA" && cp -r "$(dirname "$SRC_PRISMA")" "$DEST_PRISMA" && \
     echo "OK: prisma client copied to deploy-api"
 
-# Copy Prisma schema for runtime migrations (runs from /app/api)
-RUN mkdir -p /deploy-api/prisma && cp /app/packages/database/prisma/schema.prisma /deploy-api/prisma/
+# Copy Prisma schema + migrations for runtime migrate deploy
+RUN mkdir -p /deploy-api/prisma/migrations \
+    && cp /app/packages/database/prisma/schema.prisma /deploy-api/prisma/ \
+    && cp /app/packages/database/prisma/migrations/migration_lock.toml /deploy-api/prisma/ \
+    && cp -r /app/packages/database/prisma/migrations/. /deploy-api/prisma/migrations/
 
 # ──────────────── Stage 2: Build Web ────────────────
 FROM pnpm-base AS web-builder
@@ -102,8 +105,11 @@ RUN chmod +x /entrypoint.sh
 # --- Copia artefatos dos builders ---
 COPY --from=api-builder /deploy-api /app/api
 
-# Prisma schema para migrations (acessível do WORKDIR /app)
-RUN mkdir -p /app/prisma && cp /app/api/prisma/schema.prisma /app/prisma/schema.prisma
+# Prisma schema + migrations para migrate deploy (acessível do WORKDIR /app)
+RUN mkdir -p /app/prisma/migrations \
+    && cp /app/api/prisma/schema.prisma /app/prisma/schema.prisma \
+    && cp /app/api/prisma/migration_lock.toml /app/prisma/ \
+    && cp -r /app/api/prisma/migrations/. /app/prisma/migrations/
 COPY --from=web-builder /app/apps/web/.next/standalone /app/web
 COPY --from=web-builder /app/apps/web/.next/static /app/web/apps/web/.next/static
 COPY --from=web-builder /app/apps/web/public /app/web/apps/web/public
